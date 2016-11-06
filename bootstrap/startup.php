@@ -21,6 +21,8 @@ function app($key = null)
         $app = new \Greg\Application($settings, appEnv('app_name'));
 
         $app->inject(\Greg\Http\HttpKernel::class);
+
+        $app->inject(\Greg\Console\ConsoleKernel::class);
     }
 
     if (func_get_args()) {
