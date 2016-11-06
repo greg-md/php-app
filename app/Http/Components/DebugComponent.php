@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Components;
+namespace App\Http\Components;
 
 use DebugBar\JavascriptRenderer;
 use DebugBar\StandardDebugBar;
 use Greg\Application;
 use Greg\Event\ListenerInterface;
 use Greg\Event\SubscriberInterface;
+use Greg\Http\HttpKernel;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
 
@@ -31,13 +32,13 @@ class DebugComponent implements SubscriberInterface
     public function subscribe(ListenerInterface $listener)
     {
         $listener->register([
-            Application::EVENT_FINISHED,
+            HttpKernel::EVENT_FINISHED
         ], $this);
 
         return $this;
     }
 
-    public function appFinished(Response $response)
+    public function httpFinished(Response $response)
     {
         if ($this->app->debugMode() and !Request::isAjax() and $response->isHtml()) {
             $this->app->scope(function (JavascriptRenderer $renderer) use ($response) {

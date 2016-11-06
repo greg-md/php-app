@@ -3,9 +3,11 @@
 require_once __DIR__ . '/../autoload.php';
 
 try {
-    $response = app()->run();
+    app()->run(function(\Greg\Http\HttpKernel $kernel) {
+        $response = $kernel->run();
 
-    $response->send();
+        $response->send();
+    });
 } catch (Exception $e) {
     \Greg\Support\Http\Response::sendCode(500);
 

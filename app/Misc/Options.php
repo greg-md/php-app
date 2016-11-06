@@ -15,6 +15,8 @@ class Options implements \ArrayAccess
     {
         $this->strategy = $strategy;
 
+        $this->reload();
+
         return $this;
     }
 

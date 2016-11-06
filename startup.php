@@ -1,20 +1,5 @@
 <?php
 
-function dd(...$args)
-{
-    dump(...$args);
-
-    die;
-}
-
-$path = \Greg\Support\Http\Request::relativeUriPath();
-
-if (strlen($path) > 1 and substr($path, -1, 1) == '/') {
-    \Greg\Support\Http\Response::sendLocation(rtrim($path, '/'), 301);
-
-    die;
-}
-
 // Server configuration
 
 \Greg\Support\ServerIni::setAll([
@@ -40,4 +25,9 @@ if (strlen($path) > 1 and substr($path, -1, 1) == '/') {
     'save_path' => '/tmp',
 ]);
 
-isset($_GET['op-reset']) && function_exists('opcache_reset') && opcache_reset();
+function dd(...$args)
+{
+    dump(...$args);
+
+    die;
+}

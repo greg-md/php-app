@@ -11,7 +11,7 @@ function appEnv($key, $else = null)
     return \Greg\Support\Arr::getIndex($settings, $key, $else);
 }
 
-function app()
+function app($key = null)
 {
     static $app;
 
@@ -20,7 +20,11 @@ function app()
 
         $app = new \Greg\Application($settings, appEnv('app_name'));
 
-        $app->init();
+        $app->inject(\Greg\Http\HttpKernel::class);
+    }
+
+    if (func_get_args()) {
+        return $app[$key];
     }
 
     return $app;

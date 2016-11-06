@@ -34,9 +34,9 @@ class BladeDirectives
 
     protected function startup()
     {
-        $this->translator = $this->app->make(Translator::class);
+        $this->translator = $this->app->expect(Translator::class);
 
-        $this->imageCollector = $this->app->make(ImageCollector::class);
+        $this->imageCollector = $this->app->expect(ImageCollector::class);
     }
 
     public function load()

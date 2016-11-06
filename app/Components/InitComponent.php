@@ -13,8 +13,6 @@ use Greg\Cache\CacheManager;
 use Greg\Orm\Driver\DriverInterface;
 use Greg\Orm\Driver\Mysql;
 use Greg\StaticImage\ImageCollector;
-use Greg\Support\Http\Request;
-use Greg\Support\Http\Response;
 use Greg\View\ViewBladeCompiler;
 use Greg\View\Viewer;
 use Intervention\Image\ImageManager;
@@ -59,40 +57,28 @@ class InitComponent
         $this->app->inject(CacheManager::class, function () {
             $manager = new CacheManager();
 
-            foreach ($this->app->getIndexArray('cache.containers') as $name => $container) {
+            foreach ($this->app->config()->getIndexArray('cache.containers') as $name => $container) {
                 $manager->register($name, function () use ($container) {
                     return $this->app->load(...(array) $container);
                 });
             }
 
-            if ($defaultContainer = $this->app->getIndex('cache.default_container')) {
+            if ($defaultContainer = $this->app['cache.default_container']) {
                 $manager->setDefaultContainerName($defaultContainer);
             }
 
             return $manager;
         });
-
-        if (Request::hasGet('clear')) {
-            $this->app->scope(function (CacheManager $manager) {
-                $manager->delete();
-            });
-
-            if (!Request::hasGet('no')) {
-                Response::sendBack();
-
-                die;
-            }
-        }
     }
 
     public function initDb()
     {
         $this->app->inject(DriverInterface::class, function () {
             return new Mysql(
-                $this->app->getIndex('db.dsn'),
-                $this->app->getIndex('db.username'),
-                $this->app->getIndex('db.password'),
-                $this->app->getIndex('db.options')
+                $this->app['db.dsn'],
+                $this->app['db.username'],
+                $this->app['db.password'],
+                $this->app['db.options']
             );
         });
     }

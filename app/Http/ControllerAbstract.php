@@ -3,12 +3,12 @@
 namespace App\Http;
 
 use Greg\Application;
-use Greg\Http\ControllerTrait;
+use Greg\Http\HttpControllerTrait;
 use Greg\View\Viewer;
 
 class ControllerAbstract
 {
-    use ControllerTrait;
+    use HttpControllerTrait;
 
     protected $app = null;
 
@@ -24,11 +24,11 @@ class ControllerAbstract
      */
     protected function getViewer()
     {
-        return $this->app->make(Viewer::class);
+        return $this->app->expect(Viewer::class);
     }
 
-    protected function render($name, array $params = [], $layout = null, $_ = null)
+    protected function render($name, array $params = [])
     {
-        return $this->getViewer()->render(...func_get_args());
+        return $this->getViewer()->render($name, $params);
     }
 }
