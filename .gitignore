@@ -1,0 +1,6 @@
+/env.php
+/vendor
+composer.lock
+/build
+/coverage
+/public/debug
