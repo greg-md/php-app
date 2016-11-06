@@ -1,6 +1,6 @@
 # Greg PHP Application
 
-[![StyleCI](https://styleci.io/repos/40569087/shield?style=flat)](https://styleci.io/repos/40569087)
+[![StyleCI](https://styleci.io/repos/72987376/shield?style=flat)](https://styleci.io/repos/72987376)
 [![Build Status](https://travis-ci.org/greg-md/php-app.svg)](https://travis-ci.org/greg-md/php-app)
 [![Total Downloads](https://poser.pugx.org/greg-md/php-app/d/total.svg)](https://packagist.org/packages/greg-md/php-app)
 [![Latest Stable Version](https://poser.pugx.org/greg-md/php-app/v/stable.svg)](https://packagist.org/packages/greg-md/php-app)
