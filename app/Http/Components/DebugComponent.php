@@ -4,38 +4,31 @@ namespace App\Http\Components;
 
 use DebugBar\JavascriptRenderer;
 use DebugBar\StandardDebugBar;
-use Greg\Application;
-use Greg\Event\ListenerInterface;
-use Greg\Event\SubscriberInterface;
+use Greg\ApplicationStrategy;
 use Greg\Http\HttpKernel;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
 
-class DebugComponent implements SubscriberInterface
+class DebugComponent
 {
     protected $app = null;
 
-    public function __construct(Application $app)
+    public function __construct(ApplicationStrategy $app)
     {
         $this->app = $app;
+
+        $this->app->on([
+            HttpKernel::EVENT_FINISHED
+        ], $this);
     }
 
     public function initDebugBar()
     {
-        $this->app->inject(StandardDebugBar::class);
+        $this->app->ioc()->inject(StandardDebugBar::class);
 
-        $this->app->inject(JavascriptRenderer::class, function (StandardDebugBar $bar) {
+        $this->app->ioc()->inject(JavascriptRenderer::class, function (StandardDebugBar $bar) {
             return $bar->getJavascriptRenderer('/debug');
         });
-    }
-
-    public function subscribe(ListenerInterface $listener)
-    {
-        $listener->register([
-            HttpKernel::EVENT_FINISHED
-        ], $this);
-
-        return $this;
     }
 
     public function httpFinished(Response $response)

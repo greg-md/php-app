@@ -2,4 +2,4 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-require __DIR__ . '/app.php';
+return require __DIR__ . '/app.php';

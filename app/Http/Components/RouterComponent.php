@@ -3,41 +3,33 @@
 namespace App\Http\Components;
 
 use App\Routes;
-use Greg\Event\ListenerInterface;
-use Greg\Event\SubscriberInterface;
+use App\Services\TranslatorService;
+use Greg\ApplicationStrategy;
 use Greg\Http\HttpKernel;
+use Greg\Http\HttpKernelStrategy;
 use Greg\Router\Route;
-use Greg\Router\Router;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
 use Greg\Support\Url;
-use Greg\Translation\Translator;
 
-class RouterComponent implements SubscriberInterface
+class RouterComponent
 {
-    public function subscribe(ListenerInterface $listener)
+    public function __construct(ApplicationStrategy $app)
     {
-        $listener->register([
+        $app->on([
             HttpKernel::EVENT_RUN,
             HttpKernel::EVENT_DISPATCHING,
         ], $this);
-
-        return $this;
     }
 
-    public function httpRun(Router $router, Translator $translator)
+    public function httpRun(HttpKernelStrategy $kernel, TranslatorService $translator)
     {
-        $routes = new Routes($router, $translator);
+        $routes = new Routes($kernel->router(), $translator);
 
         $routes->load();
     }
 
     public function httpDispatching($path, Route $route)
-    {
-        $this->checkRouteUri($path, $route);
-    }
-
-    protected function checkRouteUri($path, Route $route)
     {
         $realPath = $route->fetch($route->getCleanParams());
 
@@ -46,7 +38,5 @@ class RouterComponent implements SubscriberInterface
 
             die;
         }
-
-        return $this;
     }
 }

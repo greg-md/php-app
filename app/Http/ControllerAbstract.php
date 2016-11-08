@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use Greg\Application;
+use Greg\ApplicationStrategy;
 use Greg\Http\HttpControllerTrait;
 use Greg\View\Viewer;
 
@@ -12,9 +12,11 @@ class ControllerAbstract
 
     protected $app = null;
 
-    public function __construct(Application $app)
+    public function __construct(ApplicationStrategy $app)
     {
         $this->app = $app;
+
+        return $this;
     }
 
     /**
@@ -24,7 +26,7 @@ class ControllerAbstract
      */
     protected function getViewer()
     {
-        return $this->app->expect(Viewer::class);
+        return $this->app->ioc()->expect(Viewer::class);
     }
 
     protected function render($name, array $params = [])

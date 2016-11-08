@@ -8,7 +8,7 @@ use App\Services\OptionsService;
 use App\Services\TranslatorService;
 use App\Strategies\OptionsStrategy;
 use App\Strategies\TranslatorStrategy;
-use Greg\Application;
+use Greg\ApplicationStrategy;
 use Greg\Cache\CacheManager;
 use Greg\Orm\Driver\DriverInterface;
 use Greg\Orm\Driver\Mysql;
@@ -21,14 +21,14 @@ class InitComponent
 {
     protected $app = null;
 
-    public function __construct(Application $app)
+    public function __construct(ApplicationStrategy $app)
     {
         $this->app = $app;
     }
 
     public function initViewer()
     {
-        $this->app->inject(Viewer::class, function () {
+        $this->app->ioc()->inject(Viewer::class, function () {
             $class = new Viewer($this->app->basePath() . '/resources/views');
 
             $class->addExtension('.blade.php', function (Viewer $viewer) {
@@ -47,19 +47,19 @@ class InitComponent
 
     public function initStrategies()
     {
-        $this->app->inject(OptionsStrategy::class, OptionsService::class);
+        $this->app->ioc()->inject(OptionsStrategy::class, OptionsService::class);
 
-        $this->app->inject(TranslatorStrategy::class, TranslatorService::class);
+        $this->app->ioc()->inject(TranslatorStrategy::class, TranslatorService::class);
     }
 
     public function initCache()
     {
-        $this->app->inject(CacheManager::class, function () {
+        $this->app->ioc()->inject(CacheManager::class, function () {
             $manager = new CacheManager();
 
             foreach ($this->app->config()->getIndexArray('cache.containers') as $name => $container) {
                 $manager->register($name, function () use ($container) {
-                    return $this->app->load(...(array) $container);
+                    return $this->app->ioc()->load(...(array) $container);
                 });
             }
 
@@ -73,7 +73,7 @@ class InitComponent
 
     public function initDb()
     {
-        $this->app->inject(DriverInterface::class, function () {
+        $this->app->ioc()->inject(DriverInterface::class, function () {
             return new Mysql(
                 $this->app['db.dsn'],
                 $this->app['db.username'],
@@ -85,7 +85,7 @@ class InitComponent
 
     public function initImageCollector()
     {
-        $this->app->inject(ImageCollector::class, function () {
+        $this->app->ioc()->inject(ImageCollector::class, function () {
             $publicPath = $this->app->publicPath();
 
             $collector = new ImageCollector(new ImageManager(), $publicPath, $publicPath . '/static', '/static');

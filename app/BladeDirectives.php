@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Greg\Application;
+use Greg\ApplicationStrategy;
 use Greg\StaticImage\ImageCollector;
 use Greg\Translation\Translator;
 use Greg\View\ViewBladeCompiler;
@@ -23,7 +23,7 @@ class BladeDirectives
      */
     protected $imageCollector = null;
 
-    public function __construct(Application $app, ViewBladeCompiler $compiler)
+    public function __construct(ApplicationStrategy $app, ViewBladeCompiler $compiler)
     {
         $this->app = $app;
 
@@ -34,9 +34,9 @@ class BladeDirectives
 
     protected function startup()
     {
-        $this->translator = $this->app->expect(Translator::class);
+        $this->translator = $this->app->ioc()->expect(Translator::class);
 
-        $this->imageCollector = $this->app->expect(ImageCollector::class);
+        $this->imageCollector = $this->app->ioc()->expect(ImageCollector::class);
     }
 
     public function load()

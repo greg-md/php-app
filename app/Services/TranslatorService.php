@@ -122,4 +122,9 @@ class TranslatorService implements TranslatorStrategy
 
         return $this->rows;
     }
+
+    public function adapter()
+    {
+        return $this->translator;
+    }
 }

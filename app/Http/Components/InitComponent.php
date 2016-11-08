@@ -2,7 +2,7 @@
 
 namespace App\Http\Components;
 
-use Greg\Application;
+use Greg\ApplicationStrategy;
 use Greg\Cache\CacheManager;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
@@ -11,7 +11,7 @@ class InitComponent
 {
     protected $app = null;
 
-    public function __construct(Application $app)
+    public function __construct(ApplicationStrategy $app)
     {
         $this->app = $app;
     }

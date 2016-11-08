@@ -5,7 +5,6 @@ namespace App;
 use App\Services\TranslatorService;
 use Greg\Router\Route;
 use Greg\Router\Router;
-use Greg\Translation\Translator;
 
 class Routes
 {
@@ -13,7 +12,7 @@ class Routes
 
     protected $router = null;
 
-    public function __construct(Router $router, Translator $translator)
+    public function __construct(Router $router, TranslatorService $translator)
     {
         $this->router = $router;
 
@@ -24,8 +23,8 @@ class Routes
     {
         $this->router->group($this->getLangFormat(), function (Route $router) {
             $this->loadLangRoutes($router);
-        })->onMatch(function (Route $route, TranslatorService $service) {
-            $service->setLanguage($route['language']);
+        })->onMatch(function (Route $route) {
+            $this->translator->setLanguage($route['language']);
         });
     }
 
@@ -36,9 +35,9 @@ class Routes
 
     protected function getLangFormat()
     {
-        $language = $this->translator->getDefaultLanguage();
+        $language = $this->translator->adapter()->getDefaultLanguage();
 
-        $defaults = implode('|', $this->translator->getLanguages());
+        $defaults = implode('|', $this->translator->adapter()->getLanguages());
 
         return '[/{language:' . $language . '|' . $defaults . '}]?';
     }

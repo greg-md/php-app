@@ -1,9 +1,12 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/autoload.php';
+/**
+ * @var $app \Greg\ApplicationStrategy
+ */
+$app = require __DIR__ . '/autoload.php';
 
-$status = app()->run(function(\Greg\Console\ConsoleKernel $kernel) {
+$status = $app->run(function(\Greg\Console\ConsoleKernelStrategy $kernel) {
     return $kernel->run();
 });
 

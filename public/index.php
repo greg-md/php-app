@@ -1,9 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../autoload.php';
+/**
+ * @var $app \Greg\ApplicationStrategy
+ */
+$app = require __DIR__ . '/../autoload.php';
 
 try {
-    app()->run(function(\Greg\Http\HttpKernel $kernel) {
+    $app->run(function(\Greg\Http\HttpKernelStrategy $kernel) {
         $response = $kernel->run();
 
         $response->send();
@@ -11,5 +14,5 @@ try {
 } catch (Exception $e) {
     \Greg\Support\Http\Response::sendCode(500);
 
-    \Greg\Support\Debug::exception($e, app()->debugMode());
+    \Greg\Support\Debug::exception($e, $app->debugMode());
 }
