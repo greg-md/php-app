@@ -15,6 +15,7 @@ use Greg\Orm\Driver\Mysql;
 use Greg\StaticImage\ImageCollector;
 use Greg\View\ViewBladeCompiler;
 use Greg\View\Viewer;
+use Greg\View\ViewerContract;
 use Intervention\Image\ImageManager;
 
 class InitComponent
@@ -28,10 +29,10 @@ class InitComponent
 
     public function initViewer()
     {
-        $this->app->ioc()->inject(Viewer::class, function () {
+        $this->app->ioc()->inject(ViewerContract::class, function () {
             $class = new Viewer($this->app->basePath() . '/resources/views');
 
-            $class->addExtension('.blade.php', function (Viewer $viewer) {
+            $class->addExtension('.blade.php', function (ViewerContract $viewer) {
                 $compiler = new ViewBladeCompiler($viewer, $this->app->basePath() . '/storage/views');
 
                 $directives = new BladeDirectives($this->app, $compiler);

@@ -4,7 +4,7 @@ namespace App\Http;
 
 use Greg\ApplicationStrategy;
 use Greg\Http\HttpControllerTrait;
-use Greg\View\Viewer;
+use Greg\View\ViewerContract;
 
 class ControllerAbstract
 {
@@ -22,11 +22,11 @@ class ControllerAbstract
     /**
      * @throws \Exception
      *
-     * @return Viewer
+     * @return ViewerContract
      */
     protected function getViewer()
     {
-        return $this->app->ioc()->expect(Viewer::class);
+        return $this->app->ioc()->expect(ViewerContract::class);
     }
 
     protected function render($name, array $params = [])
