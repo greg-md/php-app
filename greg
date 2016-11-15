@@ -2,11 +2,11 @@
 <?php
 
 /**
- * @var $app \Greg\ApplicationStrategy
+ * @var $app \Greg\ApplicationContract
  */
 $app = require __DIR__ . '/autoload.php';
 
-$status = $app->run(function(\Greg\Console\ConsoleKernelStrategy $kernel) {
+$status = $app->run(function(\Greg\Console\ConsoleKernelContract $kernel) {
     return $kernel->run();
 });
 

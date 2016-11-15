@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @var $app \Greg\ApplicationStrategy
+ * @var $app \Greg\ApplicationContract
  */
 $app = require __DIR__ . '/../autoload.php';
 
 try {
-    $app->run(function(\Greg\Http\HttpKernelStrategy $kernel) {
+    $app->run(function(\Greg\Http\HttpKernelContract $kernel) {
         $response = $kernel->run();
 
         $response->send();

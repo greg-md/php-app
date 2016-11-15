@@ -4,9 +4,9 @@ namespace App\Http\Components;
 
 use App\Routes;
 use App\Services\TranslatorService;
-use Greg\ApplicationStrategy;
+use Greg\ApplicationContract;
 use Greg\Http\HttpKernel;
-use Greg\Http\HttpKernelStrategy;
+use Greg\Http\HttpKernelContract;
 use Greg\Router\Route;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
@@ -14,7 +14,7 @@ use Greg\Support\Url;
 
 class RouterComponent
 {
-    public function __construct(ApplicationStrategy $app)
+    public function __construct(ApplicationContract $app)
     {
         $app->on([
             HttpKernel::EVENT_RUN,
@@ -22,7 +22,7 @@ class RouterComponent
         ], $this);
     }
 
-    public function httpRun(HttpKernelStrategy $kernel, TranslatorService $translator)
+    public function httpRun(HttpKernelContract $kernel, TranslatorService $translator)
     {
         $routes = new Routes($kernel->router(), $translator);
 

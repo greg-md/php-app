@@ -4,7 +4,7 @@ namespace App\Http\Components;
 
 use DebugBar\JavascriptRenderer;
 use DebugBar\StandardDebugBar;
-use Greg\ApplicationStrategy;
+use Greg\ApplicationContract;
 use Greg\Http\HttpKernel;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
@@ -13,7 +13,7 @@ class DebugComponent
 {
     protected $app = null;
 
-    public function __construct(ApplicationStrategy $app)
+    public function __construct(ApplicationContract $app)
     {
         $this->app = $app;
 

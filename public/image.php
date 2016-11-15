@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var $app \Greg\ApplicationStrategy
+ * @var $app \Greg\ApplicationContract
  */
 $app = require __DIR__ . '/../autoload.php';
 

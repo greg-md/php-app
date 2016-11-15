@@ -7,9 +7,9 @@ use App\Components\TranslatorComponent;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Misc\Options;
-use Greg\ApplicationStrategy;
-use Greg\Console\ConsoleKernelStrategy;
-use Greg\Http\HttpKernelStrategy;
+use Greg\ApplicationContract;
+use Greg\Console\ConsoleKernelContract;
+use Greg\Http\HttpKernelContract;
 
 class Application extends \Greg\Application
 {
@@ -20,15 +20,15 @@ class Application extends \Greg\Application
             'App\\Models\\',
         ]);
 
-        $this->ioc()->concrete(ApplicationStrategy::class, $this);
+        $this->ioc()->concrete(ApplicationContract::class, $this);
 
         $this->ioc()->inject(ConsoleKernel::class);
 
-        $this->ioc()->inject(ConsoleKernelStrategy::class, ConsoleKernel::class);
+        $this->ioc()->inject(ConsoleKernelContract::class, ConsoleKernel::class);
 
         $this->ioc()->inject(HttpKernel::class);
 
-        $this->ioc()->inject(HttpKernelStrategy::class, HttpKernel::class);
+        $this->ioc()->inject(HttpKernelContract::class, HttpKernel::class);
 
         $this->ioc()->inject(Options::class);
 

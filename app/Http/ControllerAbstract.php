@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use Greg\ApplicationStrategy;
+use Greg\ApplicationContract;
 use Greg\Http\HttpControllerTrait;
 use Greg\View\ViewerContract;
 
@@ -12,7 +12,7 @@ class ControllerAbstract
 
     protected $app = null;
 
-    public function __construct(ApplicationStrategy $app)
+    public function __construct(ApplicationContract $app)
     {
         $this->app = $app;
 

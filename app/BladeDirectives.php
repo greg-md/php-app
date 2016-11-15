@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Greg\ApplicationStrategy;
+use Greg\ApplicationContract;
 use Greg\StaticImage\ImageCollector;
 use Greg\Translation\Translator;
 use Greg\View\ViewBladeCompiler;
@@ -23,7 +23,7 @@ class BladeDirectives
      */
     protected $imageCollector = null;
 
-    public function __construct(ApplicationStrategy $app, ViewBladeCompiler $compiler)
+    public function __construct(ApplicationContract $app, ViewBladeCompiler $compiler)
     {
         $this->app = $app;
 

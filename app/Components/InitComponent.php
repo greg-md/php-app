@@ -8,7 +8,7 @@ use App\Services\OptionsService;
 use App\Services\TranslatorService;
 use App\Strategies\OptionsStrategy;
 use App\Strategies\TranslatorStrategy;
-use Greg\ApplicationStrategy;
+use Greg\ApplicationContract;
 use Greg\Cache\CacheManager;
 use Greg\Orm\Driver\DriverInterface;
 use Greg\Orm\Driver\Mysql;
@@ -22,7 +22,7 @@ class InitComponent
 {
     protected $app = null;
 
-    public function __construct(ApplicationStrategy $app)
+    public function __construct(ApplicationContract $app)
     {
         $this->app = $app;
     }

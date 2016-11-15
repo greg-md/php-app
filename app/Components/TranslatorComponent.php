@@ -4,14 +4,14 @@ namespace App\Components;
 
 use App\Strategies\TranslatorStrategy;
 use Greg\Application;
-use Greg\ApplicationStrategy;
+use Greg\ApplicationContract;
 use Greg\Translation\Translator;
 
 class TranslatorComponent
 {
     protected $app = null;
 
-    public function __construct(ApplicationStrategy $app)
+    public function __construct(ApplicationContract $app)
     {
         $this->app = $app;
 
