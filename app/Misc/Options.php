@@ -2,16 +2,16 @@
 
 namespace App\Misc;
 
-use App\Strategies\OptionsStrategy;
+use App\Strategies\SettingsStrategy;
 use Greg\Support\Accessor\AccessorTrait;
 
-class Options implements \ArrayAccess
+class Settings implements \ArrayAccess
 {
     use AccessorTrait;
 
     protected $strategy = null;
 
-    public function __construct(OptionsStrategy $strategy)
+    public function __construct(SettingsStrategy $strategy)
     {
         $this->strategy = $strategy;
 
@@ -22,7 +22,7 @@ class Options implements \ArrayAccess
 
     public function reload()
     {
-        $this->setAccessor($this->strategy->getActiveList());
+        $this->setAccessor($this->strategy->getList());
 
         return $this;
     }

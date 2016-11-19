@@ -2,27 +2,27 @@
 
 namespace App\Services;
 
-use App\Models\OptionsModel;
-use App\Strategies\OptionsStrategy;
+use App\Models\SettingsModel;
+use App\Strategies\SettingsStrategy;
 use Greg\Cache\CacheManager;
 
-class OptionsService implements OptionsStrategy
+class SettingsService implements SettingsStrategy
 {
     protected $cache = null;
 
     protected $model = null;
 
-    public function __construct(CacheManager $cache, OptionsModel $model)
+    public function __construct(CacheManager $cache, SettingsModel $model)
     {
         $this->cache = $cache;
 
         $this->model = $model;
     }
 
-    public function getActiveList()
+    public function getList()
     {
         return $this->cache->fetch('app:options', function () {
-            return $this->model->getActiveList();
+            return $this->model->getList();
         }, 10);
     }
 }

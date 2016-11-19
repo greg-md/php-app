@@ -4,22 +4,14 @@ namespace App\Models;
 
 use App\Orm\Table;
 
-class OptionsModel extends Table
+class SettingsModel extends Table
 {
-    protected $name = 'Options';
+    protected $name = 'Settings';
 
     protected $nameColumn = 'Name';
 
-    protected $customColumnsTypes = [
-        'Required' => 'boolean',
-        'Active'   => 'boolean',
-    ];
-
-    public function getActiveList()
+    public function getList()
     {
-        return $this
-            ->where('Active', 1)
-            ->orderDesc('Rank')
-            ->fetchPairs('Key', 'Value');
+        return $this->fetchPairs('Key', 'Value');
     }
 }

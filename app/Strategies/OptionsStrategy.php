@@ -2,7 +2,7 @@
 
 namespace App\Strategies;
 
-interface OptionsStrategy
+interface SettingsStrategy
 {
-    public function getActiveList();
+    public function getList();
 }

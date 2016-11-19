@@ -4,9 +4,9 @@ namespace App\Components;
 
 use App\BladeDirectives;
 use App\Images;
-use App\Services\OptionsService;
+use App\Services\SettingsService;
 use App\Services\TranslatorService;
-use App\Strategies\OptionsStrategy;
+use App\Strategies\SettingsStrategy;
 use App\Strategies\TranslatorStrategy;
 use Greg\ApplicationContract;
 use Greg\Cache\CacheManager;
@@ -48,7 +48,7 @@ class InitComponent
 
     public function initStrategies()
     {
-        $this->app->ioc()->inject(OptionsStrategy::class, OptionsService::class);
+        $this->app->ioc()->inject(SettingsStrategy::class, SettingsService::class);
 
         $this->app->ioc()->inject(TranslatorStrategy::class, TranslatorService::class);
     }

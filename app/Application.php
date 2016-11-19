@@ -6,7 +6,7 @@ use App\Components\InitComponent;
 use App\Components\TranslatorComponent;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
-use App\Misc\Options;
+use App\Misc\Settings;
 use Greg\ApplicationContract;
 use Greg\Console\ConsoleKernelContract;
 use Greg\Http\HttpKernelContract;
@@ -30,7 +30,7 @@ class Application extends \Greg\Application
 
         $this->ioc()->inject(HttpKernelContract::class, HttpKernel::class);
 
-        $this->ioc()->inject(Options::class);
+        $this->ioc()->inject(Settings::class);
 
         $this->addComponent(InitComponent::class);
 
