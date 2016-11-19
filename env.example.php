@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'app_name' => 'app',
-
     'debug_mode' => true,
 
     'server.ini.display_startup_errors' => 1,
