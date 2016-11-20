@@ -2,7 +2,7 @@
 
 namespace App\Orm;
 
-use Greg\Application;
+use Greg\ApplicationContract;
 use Greg\Orm\Driver\DriverInterface;
 
 trait DriverTrait
@@ -17,7 +17,7 @@ trait DriverTrait
     }
 
     /**
-     * @return Application
+     * @return ApplicationContract
      */
     abstract protected function app();
 }

@@ -2,17 +2,23 @@
 
 namespace App\Components;
 
-use App\BladeDirectives;
+use App\Contracts\SettingsContract;
 use App\Images;
-use App\Services\SettingsService;
-use App\Services\TranslatorService;
+use App\Services\LanguagesService;
+use App\Services\TranslatesService;
+use App\Settings;
+use App\Strategies\LanguagesStrategy;
 use App\Strategies\SettingsStrategy;
-use App\Strategies\TranslatorStrategy;
+use App\Strategies\TranslatesStrategy;
+use App\View\BladeDirectives;
 use Greg\ApplicationContract;
 use Greg\Cache\CacheManager;
 use Greg\Orm\Driver\DriverInterface;
 use Greg\Orm\Driver\Mysql;
 use Greg\StaticImage\ImageCollector;
+use Greg\Support\Arr;
+use Greg\Translation\Translator;
+use Greg\Translation\TranslatorContract;
 use Greg\View\ViewBladeCompiler;
 use Greg\View\Viewer;
 use Greg\View\ViewerContract;
@@ -46,13 +52,6 @@ class InitComponent
         });
     }
 
-    public function initStrategies()
-    {
-        $this->app->ioc()->inject(SettingsStrategy::class, SettingsService::class);
-
-        $this->app->ioc()->inject(TranslatorStrategy::class, TranslatorService::class);
-    }
-
     public function initCache()
     {
         $this->app->ioc()->inject(CacheManager::class, function () {
@@ -81,6 +80,49 @@ class InitComponent
                 $this->app['db.password'],
                 $this->app['db.options']
             );
+        });
+    }
+
+    public function initSettings()
+    {
+        $this->app->ioc()->inject(SettingsContract::class, function(SettingsStrategy $strategy) {
+            return new Settings($strategy->getList());
+        });
+    }
+
+    public function initTranslator()
+    {
+        $this->app->ioc()->inject(LanguagesStrategy::class, LanguagesService::class);
+
+        $this->app->ioc()->inject(TranslatesStrategy::class, TranslatesService::class);
+
+        $this->app->ioc()->inject(TranslatorContract::class, function (LanguagesStrategy $strategy) {
+            $class = new Translator(require __DIR__ . '/../../resources/translates/general.php');
+
+            $rows = $strategy->getAll();
+
+            if ($rows->count()) {
+                $languages = Arr::group($rows->toArray(), 'SystemName');
+
+                $base = $rows->firstWhere('Base', true);
+
+                if (!$base) {
+                    $base = $rows->first();
+                }
+
+                $class
+                    ->setLanguages($languages)
+                    ->setCurrentLanguage($base['SystemName'])
+                    ->setDefaultLanguage($base['SystemName']);
+
+                $this->app->on(ApplicationContract::EVENT_FINISHED, function(TranslatesService $strategy) use ($class) {
+                    if ($translates = $class->getNewTranslates()) {
+                        $strategy->addTranslates($class->getCurrentLanguage(), $translates, $class->getLanguages());
+                    }
+                });
+            }
+
+            return $class;
         });
     }
 

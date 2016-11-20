@@ -2,8 +2,7 @@
 
 namespace App\Http\Components;
 
-use App\Routes;
-use App\Services\TranslatorService;
+use App\Http\Routes;
 use Greg\ApplicationContract;
 use Greg\Http\HttpKernel;
 use Greg\Http\HttpKernelContract;
@@ -22,9 +21,9 @@ class RouterComponent
         ], $this);
     }
 
-    public function httpRun(HttpKernelContract $kernel, TranslatorService $translator)
+    public function httpRun(ApplicationContract $app, HttpKernelContract $kernel)
     {
-        $routes = new Routes($kernel->router(), $translator);
+        $routes = new Routes($app, $kernel->router());
 
         $routes->load();
     }

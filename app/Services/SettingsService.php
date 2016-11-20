@@ -21,7 +21,7 @@ class SettingsService implements SettingsStrategy
 
     public function getList()
     {
-        return $this->cache->fetch('app:options', function () {
+        return $this->cache->fetch('app:settings', function () {
             return $this->model->getList();
         }, 10);
     }

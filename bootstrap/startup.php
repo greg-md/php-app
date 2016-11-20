@@ -17,6 +17,8 @@ function app($key = null)
 
     if ($app === null) {
         $app = new \App\Application(\Greg\Support\Config\ConfigDir::path(__DIR__ . '/../config', 'app'));
+
+        $app->init();
     }
 
     if (func_num_args()) {
