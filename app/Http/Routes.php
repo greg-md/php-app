@@ -21,32 +21,24 @@ class Routes
         $this->router = $router;
     }
 
-    /**
-     * @return TranslatorContract
-     * @throws \Exception
-     */
-    protected function translator()
-    {
-        return $this->app->ioc()->expect(TranslatorContract::class);
-    }
-
-    /**
-     * @return TranslatesStrategy
-     * @throws \Exception
-     */
-    protected function translates()
-    {
-        return $this->app->ioc()->expect(TranslatesStrategy::class);
-    }
-
     public function load()
     {
-        $this->routes();
+        $this->loadRoutes();
 
         //$this->loadLangRoutes();
     }
 
-    public function loadLangRoutes()
+    protected function loadRoutes()
+    {
+        $this->router->get('/', 'HomeController@index');
+    }
+
+    protected function langRoutes(Route $router)
+    {
+        $router->get('/', 'HomeController@index');
+    }
+
+    protected function loadLangRoutes()
     {
         $this->router->group($this->getLangFormat(), function (Route $router) {
             $this->langRoutes($router);
@@ -63,16 +55,6 @@ class Routes
         });
     }
 
-    protected function routes()
-    {
-        $this->router->get('/', 'HomeController@index');
-    }
-
-    protected function langRoutes(Route $router)
-    {
-        $router->get('/', 'HomeController@index');
-    }
-
     protected function getLangFormat()
     {
         $language = $this->translator()->getDefaultLanguage();
@@ -80,5 +62,23 @@ class Routes
         $defaults = implode('|', $this->translator()->getLanguagesKeys());
 
         return '[/{language:' . $language . '|' . $defaults . '}]?';
+    }
+
+    /**
+     * @return TranslatorContract
+     * @throws \Exception
+     */
+    protected function translator()
+    {
+        return $this->app->ioc()->expect(TranslatorContract::class);
+    }
+
+    /**
+     * @return TranslatesStrategy
+     * @throws \Exception
+     */
+    protected function translates()
+    {
+        return $this->app->ioc()->expect(TranslatesStrategy::class);
     }
 }
