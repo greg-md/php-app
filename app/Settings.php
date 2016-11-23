@@ -4,6 +4,7 @@ namespace App;
 
 use App\Contracts\SettingsContract;
 use Greg\Support\Accessor\AccessorTrait;
+use Greg\Support\Arr;
 
 class Settings implements SettingsContract
 {
@@ -16,9 +17,9 @@ class Settings implements SettingsContract
         return $this;
     }
 
-    public function get($key)
+    public function get($key, $else = null)
     {
-        return $this->getFromAccessor($key);
+        return Arr::get($this->getAccessor(), $key, $else);
     }
 
     public function __get($key)
