@@ -5,6 +5,7 @@ namespace App\Components;
 use App\Contracts\SettingsContract;
 use App\Images;
 use App\Services\LanguagesService;
+use App\Services\SettingsService;
 use App\Services\TranslatesService;
 use App\Settings;
 use App\Strategies\LanguagesStrategy;
@@ -85,6 +86,8 @@ class InitComponent
 
     public function initSettings()
     {
+        $this->app->ioc()->inject(SettingsStrategy::class, SettingsService::class);
+
         $this->app->ioc()->inject(SettingsContract::class, function(SettingsStrategy $strategy) {
             return new Settings($strategy->getList());
         });
