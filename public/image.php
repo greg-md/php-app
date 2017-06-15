@@ -1,16 +1,14 @@
 <?php
 
-/**
- * @var $app \Greg\ApplicationContract
- */
-$app = require __DIR__ . '/../autoload.php';
+/** @var \App\Application $app */
+$app = require __DIR__ . '/../app.php';
 
 try {
-    $app->scope(function (\Greg\StaticImage\ImageCollector $collector) {
-        $collector->run(\Greg\Support\Http\Request::uriPath());
+    $app->scope(function (Greg\StaticImage\StaticImageManager $collector) {
+        $collector->send(\Greg\Support\Http\Request::uriPath());
     });
 } catch (Exception $e) {
     \Greg\Support\Http\Response::sendCode(500);
 
-    \Greg\Support\Debug::exception($e, $app->debugMode());
+    dump($e->getMessage(), $e->getTrace());
 }

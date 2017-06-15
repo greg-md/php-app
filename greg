@@ -1,12 +1,10 @@
 #!/usr/bin/env php
 <?php
 
-/**
- * @var $app \Greg\ApplicationContract
- */
-$app = require __DIR__ . '/autoload.php';
+/** @var \App\Application $app */
+$app = require __DIR__ . '/app.php';
 
-$status = $app->run(function(\Greg\Console\ConsoleKernelContract $kernel) {
+$status = $app->run(function(\App\Console\ConsoleKernel $kernel) {
     return $kernel->run();
 });
 

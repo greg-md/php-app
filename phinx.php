@@ -10,30 +10,9 @@ return [
 
     'environments' => [
         'default_migration_table' => 'Migrations',
+        'default_database' => 'app',
 
-        'default_database' => 'development',
-
-        'production' => [
-            'adapter' => 'mysql',
-            'host' => app('db.dsn.host'),
-            'name' => app('db.dsn.dbname'),
-            'user' => app('db.username'),
-            'pass' => app('db.password'),
-            'port' => 3306,
-            'charset' => 'utf8',
-        ],
-
-        'development' => [
-            'adapter' => 'mysql',
-            'host' => app('db.dsn.host'),
-            'name' => app('db.dsn.dbname'),
-            'user' => app('db.username'),
-            'pass' => app('db.password'),
-            'port' => 3306,
-            'charset' => 'utf8',
-        ],
-
-        'testing' => [
+        'app' => [
             'adapter' => 'mysql',
             'host' => app('db.dsn.host'),
             'name' => app('db.dsn.dbname'),

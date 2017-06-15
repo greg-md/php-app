@@ -1,37 +1,48 @@
 <?php
 
-namespace App\Components;
+namespace App;
 
 use App\Contracts\SettingsContract;
-use App\Images;
 use App\Services\LanguagesService;
 use App\Services\SettingsService;
 use App\Services\TranslatesService;
-use App\Settings;
 use App\Strategies\LanguagesStrategy;
 use App\Strategies\SettingsStrategy;
 use App\Strategies\TranslatesStrategy;
 use App\View\BladeDirectives;
-use Greg\ApplicationContract;
 use Greg\Cache\CacheManager;
-use Greg\Orm\Driver\DriverInterface;
-use Greg\Orm\Driver\Mysql;
-use Greg\StaticImage\ImageCollector;
+use Greg\Framework\Application;
 use Greg\Support\Arr;
-use Greg\Translation\Translator;
-use Greg\Translation\TranslatorContract;
+use Greg\Support\Server;
+use Greg\Support\Session;
 use Greg\View\ViewBladeCompiler;
 use Greg\View\Viewer;
 use Greg\View\ViewerContract;
 use Intervention\Image\ImageManager;
 
-class InitComponent
+class Bootstrap extends \Greg\Framework\Bootstrap
 {
-    protected $app = null;
+    private $app;
 
-    public function __construct(ApplicationContract $app)
+    public function __construct(Application $app)
     {
         $this->app = $app;
+    }
+
+    public function bootServerConfiguration()
+    {
+        Server::iniSet('error_reporting', env('server.ini.error_reporting', -1));
+        Server::iniSet('display_errors', env('server.ini.display_errors', 1));
+        Server::iniSet('display_startup_errors', env('server.ini.display_startup_errors', 1));
+
+        Server::encoding('UTF-8');
+
+        Server::timezone('UTC');
+    }
+
+    public function bootSessionConfiguration()
+    {
+        Session::persistent(true);
     }
 
     public function initViewer()
@@ -74,6 +85,8 @@ class InitComponent
 
     public function initDb()
     {
+        $this->app->ioc()->addPrefixes('App\\Models\\');
+
         $this->app->ioc()->inject(DriverInterface::class, function () {
             return new Mysql(
                 $this->app['db.dsn'],

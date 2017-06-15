@@ -12,9 +12,7 @@ class HelloCommand extends Command
     {
         $this
             ->setName('hello')
-
             ->setDescription('Display hello message.')
-
             ->setHelp('This command is an example of how it works.')
         ;
     }

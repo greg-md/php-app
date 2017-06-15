@@ -1,6 +1,6 @@
-/env.php
 /vendor
-composer.lock
 /build
 /coverage
+/node_modules
 /public/debug
+/env.php

@@ -1,12 +1,10 @@
 <?php
 
-/**
- * @var $app \Greg\ApplicationContract
- */
-$app = require __DIR__ . '/../autoload.php';
+/** @var \App\Application $app */
+$app = require __DIR__ . '/../app.php';
 
 try {
-    $app->run(function(\Greg\Http\HttpKernelContract $kernel) {
+    $app->run(function(\App\Http\HttpKernel $kernel) {
         $response = $kernel->run();
 
         $response->send();
@@ -14,5 +12,5 @@ try {
 } catch (Exception $e) {
     \Greg\Support\Http\Response::sendCode(500);
 
-    \Greg\Support\Debug::exception($e, $app->debugMode());
+    dump($e->getMessage(), $e->getTrace());
 }
