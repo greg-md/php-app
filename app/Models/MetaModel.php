@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class MetaModel extends Table
+class MetaModel extends Model
 {
     protected $name = 'Meta';
 }

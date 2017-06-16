@@ -8,8 +8,6 @@ class HomeController extends ControllerAbstract
 {
     public function index()
     {
-        return $this->render('home', [
-            'message' => 'Hello World!',
-        ]);
+        return $this->render('home');
     }
 }

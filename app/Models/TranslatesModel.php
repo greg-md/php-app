@@ -2,24 +2,29 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Driver\DriverStrategy;
+use Greg\Orm\Model;
 
-class TranslatesModel extends Table
+class TranslatesModel extends Model
 {
     protected $name = 'Translates';
 
-    public function getListByLang($systemName)
+    private $langModel;
+
+    public function __construct(DriverStrategy $driver, TranslatesLangModel $langModel)
     {
-        return $this->app()->scope(function (TranslatesLangModel $model) use ($systemName) {
-            return $model->getListByLang($systemName);
-        });
+        parent::__construct($driver);
+
+        $this->langModel = $langModel;
     }
 
-    /**
-     * @return TranslatesLangModel
-     */
+    public function getListByLang($systemName)
+    {
+        return $this->langModel->getListByLang($systemName);
+    }
+
     public function lang()
     {
-        return $this->hasMany(TranslatesLangModel::class, 'TranslateKey');
+        return $this->hasMany($this->langModel, 'TranslateKey');
     }
 }

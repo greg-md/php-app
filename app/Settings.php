@@ -2,39 +2,35 @@
 
 namespace App;
 
-use App\Contracts\SettingsContract;
-use Greg\Support\Accessor\AccessorTrait;
-use Greg\Support\Arr;
-
-class Settings implements SettingsContract
+class Settings implements \ArrayAccess
 {
-    use AccessorTrait;
+    private $storage;
 
-    public function __construct($settings)
+    public function __construct(array $settings)
     {
-        $this->setAccessor($settings);
+        $this->storage = $settings;
 
         return $this;
     }
 
     public function get($key, $else = null)
     {
-        return Arr::get($this->getAccessor(), $key, $else);
+        return array_key_exists($key, $this->storage) ? $this->storage[$key] : $else;
     }
 
     public function __get($key)
     {
-        return $this->getFromAccessor($key);
+        return $this->get($key);
     }
 
     public function offsetGet($offset)
     {
-        return $this->getFromAccessor($offset);
+        return $this->get($offset);
     }
 
     public function offsetExists($offset)
     {
-        return $this->inAccessor($offset);
+        return array_key_exists($offset, $this->storage);
     }
 
     public function offsetSet($offset, $value)

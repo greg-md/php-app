@@ -2,22 +2,22 @@
 
 namespace App;
 
-use Greg\StaticImage\ImageCollector;
+use Greg\StaticImage\StaticImageManager;
 use Intervention\Image\Constraint;
 use Intervention\Image\Image;
 
 class Images
 {
-    protected $collector = null;
+    private $manager;
 
-    public function __construct(ImageCollector $collector)
+    public function __construct(StaticImageManager $manager)
     {
-        $this->collector = $collector;
+        $this->manager = $manager;
     }
 
     public function load()
     {
-        $this->collector->addFormat('favicon', function (Image $image) {
+        $this->manager->format('favicon', function (Image $image) {
             $image->resize(128, 128, function (Constraint $constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();

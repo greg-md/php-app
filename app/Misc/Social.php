@@ -4,7 +4,7 @@ namespace App\Misc;
 
 class Social
 {
-    public static function shareToFacebook($url, $appId = null)
+    public static function shareToFb($url, $appId = null)
     {
         $query = [
             'u' => $url,
@@ -17,7 +17,7 @@ class Social
         return 'https://www.facebook.com/sharer/sharer.php?' . http_build_query($query);
     }
 
-    public static function shareToGooglePlus($url)
+    public static function shareToGPlus($url)
     {
         $query = [
             'url' => $url,
@@ -26,7 +26,7 @@ class Social
         return 'https://plus.google.com/share?' . http_build_query($query);
     }
 
-    public static function shareToOdnoklassniki($url)
+    public static function shareToOK($url)
     {
         $query = [
             'st._surl' => $url,
@@ -35,7 +35,7 @@ class Social
         return 'http://www.ok.ru/dk?st.cmd=addShare&st.s=1&' . http_build_query($query);
     }
 
-    public static function shareToTwitter($url, $status = null)
+    public static function shareToTw($url, $status = null)
     {
         $query = [
             'status' => ($status ? $status . "\n" : '') . $url,
@@ -44,7 +44,7 @@ class Social
         return 'https://twitter.com/home?' . http_build_query($query);
     }
 
-    public static function shareToVkontakte($url)
+    public static function shareToVK($url)
     {
         $query = [
             'url' => $url,

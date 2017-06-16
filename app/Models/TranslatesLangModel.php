@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class TranslatesLangModel extends Table
+class TranslatesLangModel extends Model
 {
     protected $name = 'TranslatesLang';
 

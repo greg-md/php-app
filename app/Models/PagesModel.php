@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class PagesModel extends Table
+class PagesModel extends Model
 {
     protected $name = 'Pages';
 }

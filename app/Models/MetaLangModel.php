@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class MetaLangModel extends Table
+class MetaLangModel extends Model
 {
     protected $name = 'MetaLang';
 }

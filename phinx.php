@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__ . '/autoload.php';
+/** @var \App\Application $app */
+$app = require_once __DIR__ . '/bootstrap/app.php';
 
 return [
     'paths' => [
@@ -10,14 +11,15 @@ return [
 
     'environments' => [
         'default_migration_table' => 'Migrations',
-        'default_database' => 'app',
+        'default_database' => 'application',
 
-        'app' => [
+        'application' => [
+            //'connection' => $pdo,
             'adapter' => 'mysql',
-            'host' => app('db.dsn.host'),
-            'name' => app('db.dsn.dbname'),
-            'user' => app('db.username'),
-            'pass' => app('db.password'),
+            'host' => $app['db.dsn.host'],
+            'name' => $app['db.dsn.dbname'],
+            'user' => $app['db.username'],
+            'pass' => $app['db.password'],
             'port' => 3306,
             'charset' => 'utf8',
         ],

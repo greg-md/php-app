@@ -8,9 +8,9 @@ use Greg\Cache\CacheManager;
 
 class TranslatesService implements TranslatesStrategy
 {
-    protected $cache = null;
+    private $cache;
 
-    protected $model = null;
+    private $model;
 
     public function __construct(CacheManager $cache, TranslatesModel $model)
     {
@@ -21,7 +21,7 @@ class TranslatesService implements TranslatesStrategy
 
     public function getTranslates($language)
     {
-        return $this->cache->fetch('app:translates->' . $language, function () use ($language) {
+        return $this->cache->remember('app:translates->' . $language, function () use ($language) {
             return $this->model->getListByLang($language);
         }, 10);
     }
@@ -29,7 +29,7 @@ class TranslatesService implements TranslatesStrategy
     public function addTranslates($language, array $translates, $insertLanguages)
     {
         foreach ($translates as $key => $text) {
-            $this->model->getDriver()->beginTransaction();
+            $this->model->driver()->beginTransaction();
 
             $row = $this->model->create([
                 'Key' => $key,
@@ -39,7 +39,7 @@ class TranslatesService implements TranslatesStrategy
                 'Text' => $text,
             ]);
 
-            $this->model->getDriver()->commit();
+            $this->model->driver()->commit();
         }
 
         $this->cache->delete('app:translates->' . $language);

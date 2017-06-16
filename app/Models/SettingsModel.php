@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class SettingsModel extends Table
+class SettingsModel extends Model
 {
     protected $name = 'Settings';
 

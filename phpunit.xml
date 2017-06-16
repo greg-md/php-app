@@ -1,4 +1,4 @@
-<phpunit bootstrap="phpunit.bootstrap.php">
+<phpunit colors="true">
     <testsuites>
         <testsuite name="PHP App Test Suite">
             <directory>./tests</directory>
@@ -10,4 +10,10 @@
             <directory>./src</directory>
         </whitelist>
     </filter>
+
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <ini name="display_errors" value="1" />
+        <ini name="display_startup_errors" value="1" />
+    </php>
 </phpunit>

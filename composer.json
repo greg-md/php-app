@@ -35,7 +35,7 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "php init.php"
+      "php bootstrap/init.php"
     ]
   }
 }

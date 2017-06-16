@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'debug_mode' => env('debug_mode', true),
+    'debug' => env('debug', false),
 
     'base_path' => realpath(__DIR__ . '/..'),
 

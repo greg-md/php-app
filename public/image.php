@@ -1,7 +1,7 @@
 <?php
 
 /** @var \App\Application $app */
-$app = require __DIR__ . '/../app.php';
+$app = require __DIR__ . '/../bootstrap/app.php';
 
 try {
     $app->scope(function (Greg\StaticImage\StaticImageManager $collector) {

@@ -2,14 +2,17 @@
 
 namespace App\Http;
 
+use App\Application;
+use DebugBar\JavascriptRenderer;
+use DebugBar\StandardDebugBar;
 use Greg\Cache\CacheManager;
-use Greg\Framework\Bootstrap;
+use Greg\Framework\BootstrapAbstract;
 use Greg\Routing\RouteData;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
 use Greg\Support\Url;
 
-class HttpBootstrap extends Bootstrap
+class HttpBootstrap extends BootstrapAbstract
 {
     public function bootFixUriPath()
     {
@@ -39,9 +42,9 @@ class HttpBootstrap extends Bootstrap
         }
     }
 
-    public function bootRouting()
+    public function bootFixRoutingPath()
     {
-        $this->app()->listen(HttpKernel::EVENT_DISPATCHING, function(string $path, RouteData $data) {
+        $this->app()->listen(HttpKernel::EVENT_DISPATCHING, function (string $path, RouteData $data) {
             if ($data->path() !== $path) {
                 Response::sendLocation(Url::addQuery($data->path(), Request::uriQuery()), 301);
 
@@ -50,12 +53,31 @@ class HttpBootstrap extends Bootstrap
         });
     }
 
-    public function bootRoutes()
+    public function bootRoutes(Application $application)
     {
-        $this->app()->listen(HttpKernel::EVENT_RUN, function(HttpKernel $kernel) {
-            $routes = new Routes($this->app(), $kernel->router());
+        $application->listen(HttpKernel::EVENT_RUN, function (HttpKernel $kernel) use ($application) {
+            $routes = new Routes($application, $kernel->router());
 
             $routes->load();
+        });
+    }
+
+    public function bootDebugBar()
+    {
+        $this->app()->ioc()->inject(StandardDebugBar::class, function () {
+            return new StandardDebugBar();
+        });
+
+        $this->app()->ioc()->inject(JavascriptRenderer::class, function (StandardDebugBar $bar) {
+            return $bar->getJavascriptRenderer('/debug');
+        });
+
+        $this->app()->listen(HttpKernel::EVENT_FINISHED, function (Response $response, JavascriptRenderer $renderer) {
+            if ($this->app()['debug'] and !Request::isAjax() and $response->isHtml()) {
+                $response->setContent(
+                    $response->getContent() . '<span></span>' . $renderer->renderHead() . $renderer->render()
+                );
+            }
         });
     }
 }

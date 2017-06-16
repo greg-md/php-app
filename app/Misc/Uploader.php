@@ -4,81 +4,63 @@ namespace App\Misc;
 
 use Greg\Support\Dir;
 use Greg\Support\Image;
-use Greg\Support\Session;
 use Greg\Support\Str;
 
 class Uploader
 {
-    protected $path = null;
+    private $rootPath;
 
-    protected $publicPath = '/upload';
+    private $publicPath;
 
-    public function __construct($path, $publicPath)
+    public function __construct(string $rootPath, string $publicPath = '/')
     {
-        $this->setPath($path);
+        $this->rootPath = $rootPath;
 
-        $this->setPublicPath($publicPath);
+        $this->publicPath = $publicPath;
     }
 
-    public function move($file, $name = null)
+    public function rootPath()
+    {
+        return $this->rootPath;
+    }
+
+    public function publicPath()
+    {
+        return $this->publicPath;
+    }
+
+    public function move(string $file, string $name = null)
     {
         return $this->exec('rename', $file, $name);
     }
 
-    public function upload($file, $name = null)
+    public function upload(string $file, string $name = null)
     {
         return $this->exec('copy', $file, $name);
     }
 
-    public function moveUploaded($file, $name = null)
+    public function moveUploaded(string $file, string $name = null)
     {
         return $this->exec('move_uploaded_file', $file, $name);
     }
 
-    protected function exec($function, $file, $name = null)
-    {
-        if (!$name) {
-            $info = pathinfo($file);
-
-            $name = $info['basename'];
-        }
-
-        $path = $this->getPath();
-
-        $currentPath = $this->getPublicCurrentPath();
-
-        Dir::fixRecursive($path . $currentPath);
-
-        $newFile = $currentPath . '/' . $name;
-
-        if ($function($file, $path . $newFile) === false) {
-            throw new \Exception('Source file cannot be modified.');
-        }
-
-        return $newFile;
-    }
-
-    public function getCurrentPathImages($types = [])
+    public function currentPathImages(array $types = [])
     {
         $images = [];
 
-        $path = $this->getPath();
-
-        foreach (glob($path . $this->getPublicCurrentPath() . '/*.*') as $file) {
-            if (Image::isFile($file) && (!$types or in_array(mime_content_type($file), $types))) {
-                $images[] = Str::shift($file, $path);
+        foreach (glob($this->rootPath . $this->currentPath() . '/*.*') as $file) {
+            if (Image::check($file, false) && (!$types or in_array(mime_content_type($file), $types))) {
+                $images[] = Str::shift($file, $this->rootPath);
             }
         }
 
         return $images;
     }
 
-    public function remove($file)
+    public function remove(string $file)
     {
-        $path = $this->getPath();
-
-        if ($realPath = realpath($path . $file)) {
-            if (!Str::startsWith($realPath, $path)) {
+        if ($realPath = realpath($this->rootPath . $file)) {
+            if (!Str::startsWith($realPath, $this->rootPath)) {
                 throw new \Exception('You don\'t have access to this file path.');
             }
 
@@ -88,41 +70,23 @@ class Uploader
         return $this;
     }
 
-    public function getSessionTmpPath($sessionId = null)
+    private function exec(string $function, string $file, string $name = null)
     {
-        if (!$sessionId) {
-            $sessionId = Session::getId();
+        $name = $name ?: pathinfo($file, PATHINFO_BASENAME);
+
+        $currentPath = $this->currentPath();
+
+        Dir::make($this->rootPath . $currentPath, true);
+
+        if ($function($file, $this->rootPath . $currentPath . '/' . $name) === false) {
+            throw new \Exception('Source file cannot be modified.');
         }
 
-        return '/upload/tmp/' . $sessionId;
+        return $this->publicPath . $currentPath . '/' . $name;
     }
 
-    public function getPublicCurrentPath()
+    private function currentPath()
     {
-        return $this->getPublicPath() . '/' . date('Y/m');
-    }
-
-    public function setPath($path)
-    {
-        $this->path = (string) $path;
-
-        return $this;
-    }
-
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    public function setPublicPath($path)
-    {
-        $this->publicPath = (string) $path;
-
-        return $this;
-    }
-
-    public function getPublicPath()
-    {
-        return $this->publicPath;
+        return '/' . date('Y/m');
     }
 }

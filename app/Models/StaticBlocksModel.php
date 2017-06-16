@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class StaticBlocksModel extends Table
+class StaticBlocksModel extends Model
 {
     protected $name = 'StaticBlocks';
 }

@@ -8,9 +8,9 @@ use Greg\Cache\CacheManager;
 
 class SettingsService implements SettingsStrategy
 {
-    protected $cache = null;
+    private $cache;
 
-    protected $model = null;
+    private $model;
 
     public function __construct(CacheManager $cache, SettingsModel $model)
     {
@@ -21,7 +21,7 @@ class SettingsService implements SettingsStrategy
 
     public function getList()
     {
-        return $this->cache->fetch('app:settings', function () {
+        return $this->cache->remember('app:settings', function () {
             return $this->model->getList();
         }, 10);
     }

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Orm\Table;
+use Greg\Orm\Model;
 
-class LanguagesModel extends Table
+class LanguagesModel extends Model
 {
     protected $name = 'Languages';
 
@@ -17,7 +17,7 @@ class LanguagesModel extends Table
 
     public function getActiveItems()
     {
-        return $this->where('Active', 1)->orderDesc('Rank')->rows();
+        return $this->where('Active', 1)->orderDesc('Rank')->fetchRows();
     }
 
     public function locales()
