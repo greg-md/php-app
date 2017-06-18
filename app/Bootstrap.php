@@ -32,15 +32,13 @@ class Bootstrap extends BootstrapAbstract
         $this->app()->ioc()->inject(ViewerContract::class, function (Translator $translator, StaticImageManager $imageManager) {
             $class = new Viewer($this->app()['base_path'] . '/resources/views');
 
-            $class->addExtension('.blade.php', function (ViewerContract $viewer) use ($translator, $imageManager) {
-                $compiler = new ViewBladeCompiler($viewer, $this->app()['base_path'] . '/storage/views');
-
-                $directives = new BladeDirectives($compiler, $translator, $imageManager);
-
-                $directives->load();
-
-                return $compiler;
+            $class->addExtension('.blade.php', function () {
+                return new ViewBladeCompiler($this->app()['base_path'] . '/storage/views');
             });
+
+            $directives = new BladeDirectives($class, $translator, $imageManager);
+
+            $directives->load();
 
             return $class;
         });
@@ -127,7 +125,7 @@ class Bootstrap extends BootstrapAbstract
                 $class->setDefaultLanguage($row['Locale']);
             }
 
-            $this->app()->listen(Application::EVENT_FINISHED, function(TranslatesService $strategy) use ($class) {
+            $this->app()->listen(Application::EVENT_FINISHED, function(TranslatesStrategy $strategy) use ($class) {
                 if ($translates = $class->newTranslates()) {
                     foreach ($translates as $language => $items) {
                         $strategy->addTranslates($language, $items, $class->getLanguages());

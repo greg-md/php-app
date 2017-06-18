@@ -4,19 +4,19 @@ namespace App;
 
 use Greg\Framework\Translation\Translator;
 use Greg\StaticImage\StaticImageManager;
-use Greg\View\ViewBladeCompiler;
+use Greg\View\ViewerContract;
 
 class BladeDirectives
 {
-    private $compiler;
+    private $viewer;
 
     private $translator;
 
     private $imageManager;
 
-    public function __construct(ViewBladeCompiler $compiler, Translator $translator, StaticImageManager $imageManager)
+    public function __construct(ViewerContract $viewer, Translator $translator, StaticImageManager $imageManager)
     {
-        $this->compiler = $compiler;
+        $this->viewer = $viewer;
 
         $this->translator = $translator;
 
@@ -25,19 +25,19 @@ class BladeDirectives
 
     public function load()
     {
-        $this->compiler->addDirective('t', function($key, ...$args) {
+        $this->viewer->directive('t', function($key, ...$args) {
             return $this->translator->translate($key, ...$args);
         });
 
-        $this->compiler->addDirective('tk', function($key, $text, ...$args) {
+        $this->viewer->directive('tk', function($key, $text, ...$args) {
             return $this->translator->translateKey($key, $text, ...$args);
         });
 
-        $this->compiler->addDirective('alert', function ($message) {
+        $this->viewer->directive('alert', function ($message) {
             return '<script>alert("' . addslashes($message) . '")</script>';
         });
 
-        $this->compiler->addDirective('img', function($src, $format) {
+        $this->viewer->directive('img', function($src, $format) {
             return $this->imageManager->url($src, $format);
         });
     }

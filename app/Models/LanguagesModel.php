@@ -10,7 +10,7 @@ class LanguagesModel extends Model
 
     protected $nameColumn = 'Name';
 
-    protected $customColumnsTypes = [
+    protected $casts = [
         'Base'   => 'boolean',
         'Active' => 'boolean',
     ];
