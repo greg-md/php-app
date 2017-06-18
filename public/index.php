@@ -1,10 +1,9 @@
 <?php
 
-/** @var \App\Application $app */
-$app = require __DIR__ . '/../bootstrap/app.php';
+require __DIR__ . '/../bootstrap/app.php';
 
 try {
-    $app->run(function(\App\Http\HttpKernel $kernel) {
+    app()->run(function(\App\Http\HttpKernel $kernel) {
         $response = $kernel->run();
 
         $response->send();
@@ -12,5 +11,5 @@ try {
 } catch (Exception $e) {
     \Greg\Support\Http\Response::sendCode(500);
 
-    dump($e->getMessage(), $e->getTrace());
+    dump($e->getMessage(), $e->getTraceAsString());
 }

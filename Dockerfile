@@ -7,7 +7,10 @@ RUN echo "LC_CTYPE=en_US.UTF-8" >> /etc/environment
 
 RUN dnf install wget -y
 
-RUN wget http://rpms.remirepo.net/fedora/remi-release-25.rpm && dnf install remi-release-25.rpm -y
+RUN wget http://rpms.remirepo.net/fedora/remi-release-25.rpm \
+    && dnf install remi-release-25.rpm -y \
+    && dnf install dnf-plugins-core -y \
+    && dnf config-manager --set-enabled remi-php71
 
 RUN dnf --setopt=deltarpm=false update -y
 

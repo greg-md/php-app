@@ -1,11 +1,16 @@
 #!/usr/bin/env php
 <?php
 
-/** @var \App\Application $app */
-$app = require __DIR__ . '/bootstrap/app.php';
+require __DIR__ . '/bootstrap/app.php';
 
-$status = $app->run(function(\App\Console\ConsoleKernel $kernel) {
-    return $kernel->run();
-});
+try {
+    $status = app()->run(function(\App\Console\ConsoleKernel $kernel) {
+        return $kernel->run();
+    });
 
-exit($status);
+    exit($status);
+} catch (Exception $e) {
+    \Greg\Support\Http\Response::sendCode(500);
+
+    dump($e->getMessage(), $e->getTraceAsString());
+}

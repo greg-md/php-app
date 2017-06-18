@@ -1,14 +1,13 @@
 <?php
 
-/** @var \App\Application $app */
-$app = require __DIR__ . '/../bootstrap/app.php';
+require __DIR__ . '/../bootstrap/app.php';
 
 try {
-    $app->scope(function (Greg\StaticImage\StaticImageManager $collector) {
+    app()->scope(function (Greg\StaticImage\StaticImageManager $collector) {
         $collector->send(\Greg\Support\Http\Request::uriPath());
     });
 } catch (Exception $e) {
     \Greg\Support\Http\Response::sendCode(500);
 
-    dump($e->getMessage(), $e->getTrace());
+    dump($e->getMessage(), $e->getTraceAsString());
 }

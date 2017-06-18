@@ -8,7 +8,7 @@ function app($key = null)
 
     if ($app === null) {
         $config = new \Greg\Framework\Config(
-            \Greg\Support\Config::dir(__DIR__ . '/config', 'app')
+            \Greg\Support\Config::dir(__DIR__ . '/../config', 'app')
         );
 
         $app = new \App\Application($config);
@@ -16,5 +16,3 @@ function app($key = null)
 
     return $key ? $app[$key] : $app;
 }
-
-return app();

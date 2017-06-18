@@ -9,5 +9,6 @@ sed -i 's/;listen.group = nobody/listen.group = nginx/g' /etc/php-fpm.d/www.conf
 sed -i 's/;listen.mode = 0660/listen.mode = 0777/g' /etc/php-fpm.d/www.conf
 sed -i 's/user = apache/user = nginx/g' /etc/php-fpm.d/www.conf
 sed -i 's/group = apache/group = nginx/g' /etc/php-fpm.d/www.conf
+sed -i 's/;clear_env = no/clear_env = no/g' /etc/php-fpm.d/www.conf
 
 chown root:nginx /var/lib/php/session /var/lib/php/opcache /var/lib/php/wsdlcache

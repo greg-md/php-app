@@ -14,6 +14,7 @@ use Greg\Cache\RedisCache;
 use Greg\Framework\BootstrapAbstract;
 use Greg\Framework\Translation\Translator;
 use Greg\Orm\Driver\DriverManager;
+use Greg\Orm\Driver\DriverStrategy;
 use Greg\Orm\Driver\MysqlDriver;
 use Greg\Orm\Driver\Pdo;
 use Greg\StaticImage\ImageDecoratorStrategy;
@@ -51,7 +52,11 @@ class Bootstrap extends BootstrapAbstract
             $manager = new CacheManager();
 
             $manager->register('base', function () {
-                return new RedisCache(new \Redis());
+                $redis = new \Redis();
+
+                $redis->connect($this->app()['redis.host'], $this->app()['redis.port']);
+
+                return new RedisCache($redis);
             });
 
             $manager->setDefaultStoreName('base');
@@ -64,14 +69,32 @@ class Bootstrap extends BootstrapAbstract
     {
         $this->app()->ioc()->addPrefixes('App\\Models\\');
 
-        $this->app()->ioc()->inject(DriverManager::class, function () {
+        $this->app()->ioc()->inject('mysql', function () {
+            $database = $this->app()['mysql.database'];
+            $host = $this->app()['mysql.host'];
+            $port = $this->app()['mysql.port'];
+            $username = $this->app()['mysql.username'];
+            $password = $this->app()['mysql.password'];
+
+            return new MysqlDriver(
+                new Pdo(
+                    'mysql:dbname=' . $database . ';host=' . $host . ';port=' . $port,
+                    $username,
+                    $password
+                )
+            );
+        });
+
+        $this->app()->ioc()->inject(DriverStrategy::class, function () {
             $manager = new DriverManager();
 
             $manager->register('base', function() {
-                return new MysqlDriver(new Pdo(''));
+                return $this->app()->ioc()->get('mysql');
             });
 
             $manager->setDefaultDriverName('base');
+
+            return $manager;
         });
     }
 

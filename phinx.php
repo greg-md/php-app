@@ -1,7 +1,9 @@
 <?php
 
-/** @var \App\Application $app */
-$app = require_once __DIR__ . '/bootstrap/app.php';
+require_once __DIR__ . '/bootstrap/app.php';
+
+/** @var \Greg\Orm\Driver\MysqlDriver $mysql */
+$mysql = app()->ioc()->get('mysql');
 
 return [
     'paths' => [
@@ -14,14 +16,8 @@ return [
         'default_database' => 'application',
 
         'application' => [
-            //'connection' => $pdo,
-            'adapter' => 'mysql',
-            'host' => $app['db.dsn.host'],
-            'name' => $app['db.dsn.dbname'],
-            'user' => $app['db.username'],
-            'pass' => $app['db.password'],
-            'port' => 3306,
-            'charset' => 'utf8',
+            'name' => app('mysql.database'),
+            'connection' => $mysql->pdo()->connection(),
         ],
     ],
 ];

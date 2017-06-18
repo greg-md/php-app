@@ -5,8 +5,9 @@ services:
     container_name: app-test
     volumes:
       - .:/var/www/app
+      - ./build-deploy/nginx/app.conf:/etc/nginx/conf.d/app.conf
     env_file: .env
-    command: build-deploy/dev.sh
+    command: build-deploy/test.sh
     depends_on:
       - mysql-test
       - redis-test
@@ -35,5 +36,7 @@ services:
       app-test:
         aliases:
           - redis.app.local
+    ports:
+      - "6379:6379"
 networks:
   app-test:
