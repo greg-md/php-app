@@ -13,7 +13,7 @@ return [
         'default_database'        => 'application',
 
         'application' => [
-            'adapter' => 'mysql',
+            'adapter'    => 'mysql',
             'host'       => getenv('MYSQL_HOST') ?: '127.0.0.1',
             'name'       => getenv('MYSQL_DATABASE') ?: 'app',
             'user'       => getenv('MYSQL_USERNAME') ?: 'root',
