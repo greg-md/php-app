@@ -60,30 +60,28 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootDb()
     {
-        $this->app()->ioc()->inject('mysql', function () {
-            $database = $this->app()['mysql.database'];
-            $host = $this->app()['mysql.host'];
-            $port = $this->app()['mysql.port'];
-            $username = $this->app()['mysql.username'];
-            $password = $this->app()['mysql.password'];
-
-            return new MysqlDriver(
-                new Pdo(
-                    'mysql:dbname=' . $database . ';host=' . $host . ';port=' . $port,
-                    $username,
-                    $password
-                )
-            );
-        });
-
         $this->app()->ioc()->inject(DriverManager::class, function () {
             $manager = new DriverManager();
 
-            $manager->register('base', function () {
-                return $this->app()->ioc()->get('mysql');
-            });
+            $config = $this->app()['mysql'];
 
-            $manager->setDefaultDriverName('base');
+            foreach ((array) ($config['drivers'] ?? []) as $name => $credentials) {
+                $manager->register($name, function () use ($credentials) {
+                    return new MysqlDriver(
+                        new Pdo(
+                            'mysql:dbname=' . ($credentials['database'] ?? 'app')
+                                . ';host=' . ($credentials['host'] ?? '127.0.0.1')
+                                . ';port=' . ($credentials['port'] ?? '3306'),
+                            $credentials['username'] ?? 'root',
+                            $credentials['password'] ?? ''
+                        )
+                    );
+                });
+            }
+
+            if ($defaultDriver = $config['default_driver'] ?? null) {
+                $manager->setDefaultDriverName($defaultDriver);
+            }
 
             return $manager;
         });
