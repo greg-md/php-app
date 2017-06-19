@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Resources;
 
 use Greg\StaticImage\StaticImageManager;
 use Intervention\Image\Constraint;

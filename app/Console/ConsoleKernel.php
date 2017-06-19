@@ -8,6 +8,8 @@ class ConsoleKernel extends \Greg\Framework\Console\ConsoleKernel
 {
     protected function boot()
     {
+        $this->app()->bootstrap(new ConsoleBootstrap());
+
         $this->addCommand(ClearCacheCommand::class);
     }
 }

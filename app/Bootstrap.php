@@ -2,11 +2,11 @@
 
 namespace App;
 
-use App\Viewer\Directives;
+use App\Resources\Directives;
+use App\Resources\Images;
 use Greg\Cache\CacheManager;
 use Greg\Cache\RedisCache;
 use Greg\Framework\BootstrapAbstract;
-use Greg\Framework\Translation\Translator;
 use Greg\Orm\Driver\DriverManager;
 use Greg\Orm\Driver\MysqlDriver;
 use Greg\Orm\Driver\Pdo;
@@ -87,11 +87,6 @@ class Bootstrap extends BootstrapAbstract
 
             return $manager;
         });
-    }
-
-    public function bootTranslator()
-    {
-        $this->app()->ioc()->inject(Translator::class, Translator::class);
     }
 
     public function bootStaticImage()

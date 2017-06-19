@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Resources\Routes;
 use DebugBar\JavascriptRenderer;
 use DebugBar\StandardDebugBar;
 use Greg\Framework\BootstrapAbstract;
