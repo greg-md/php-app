@@ -5,7 +5,7 @@ namespace App\Resources;
 use Greg\StaticImage\StaticImageManager;
 use Greg\View\ViewerContract;
 
-class Directives
+class ViewDirectives
 {
     private $viewer;
 

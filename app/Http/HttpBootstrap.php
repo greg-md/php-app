@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use App\Resources\Routes;
+use App\Resources\HttpRoutes;
 use DebugBar\JavascriptRenderer;
 use DebugBar\StandardDebugBar;
 use Greg\Framework\BootstrapAbstract;
@@ -25,7 +25,7 @@ class HttpBootstrap extends BootstrapAbstract
     public function bootRoutes()
     {
         $this->app()->listen(HttpKernel::EVENT_RUN, function () {
-            $this->app()->ioc()->load(Routes::class);
+            $this->app()->ioc()->load(HttpRoutes::class);
         });
     }
 

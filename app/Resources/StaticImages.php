@@ -6,7 +6,7 @@ use Greg\StaticImage\StaticImageManager;
 use Intervention\Image\Constraint;
 use Intervention\Image\Image;
 
-class Images
+class StaticImages
 {
     private $manager;
 

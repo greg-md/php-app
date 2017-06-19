@@ -4,7 +4,7 @@ namespace App\Resources;
 
 use Greg\Routing\Router;
 
-class Routes
+class HttpRoutes
 {
     private $router;
 

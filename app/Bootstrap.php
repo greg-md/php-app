@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Resources\Directives;
-use App\Resources\Images;
+use App\Resources\ViewDirectives;
+use App\Resources\StaticImages;
 use Greg\Cache\CacheManager;
 use Greg\Cache\RedisCache;
 use Greg\Framework\BootstrapAbstract;
@@ -29,7 +29,7 @@ class Bootstrap extends BootstrapAbstract
                 return new ViewBladeCompiler($this->app()['base_path'] . '/storage/views');
             });
 
-            $this->app()->ioc()->load(Directives::class, $viewer);
+            $this->app()->ioc()->load(ViewDirectives::class, $viewer);
 
             return $viewer;
         });
@@ -111,7 +111,7 @@ class Bootstrap extends BootstrapAbstract
 
             $manager = new StaticImageManager(new ImageManager(), $publicPath, $publicPath . '/static', $decorator);
 
-            $this->app()->ioc()->load(Images::class, $manager);
+            $this->app()->ioc()->load(StaticImages::class, $manager);
 
             return $manager;
         });
