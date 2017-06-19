@@ -23,10 +23,10 @@ class Bootstrap extends BootstrapAbstract
     public function bootViewer()
     {
         $this->app()->ioc()->inject(ViewerContract::class, function () {
-            $viewer = new Viewer($this->app()['base_path'] . '/resources/views');
+            $viewer = new Viewer(__DIR__ . '/../resources/views');
 
             $viewer->addExtension('.blade.php', function () {
-                return new ViewBladeCompiler($this->app()['base_path'] . '/storage/views');
+                return new ViewBladeCompiler(__DIR__ . '/../storage/views');
             });
 
             $this->app()->ioc()->load(ViewDirectives::class, $viewer);
@@ -98,8 +98,6 @@ class Bootstrap extends BootstrapAbstract
     public function bootStaticImage()
     {
         $this->app()->ioc()->inject(StaticImageManager::class, function () {
-            $publicPath = $this->app()['public_path'];
-
             $decorator = new class() implements ImageDecoratorStrategy {
                 private $uri = '/static';
 
@@ -114,7 +112,7 @@ class Bootstrap extends BootstrapAbstract
                 }
             };
 
-            $manager = new StaticImageManager(new ImageManager(), $publicPath, $publicPath . '/static', $decorator);
+            $manager = new StaticImageManager(new ImageManager(), __DIR__ . '/../public', __DIR__ . '/../public/static', $decorator);
 
             $this->app()->ioc()->load(StaticImages::class, $manager);
 
