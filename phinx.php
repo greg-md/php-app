@@ -1,9 +1,14 @@
 <?php
 
+use Greg\Orm\Driver\DriverManager;
+
 require_once __DIR__ . '/bootstrap/app.php';
 
+/** @var DriverManager $driver */
+$driver = app()->ioc()->expect(\Greg\Orm\Driver\DriverManager::class);
+
 /** @var \Greg\Orm\Driver\MysqlDriver $mysql */
-$mysql = app()->ioc()->get('mysql');
+$mysql = $driver->driver('base');
 
 return [
     'paths' => [
