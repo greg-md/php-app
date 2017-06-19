@@ -70,6 +70,7 @@ http {
 
 
     include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/domains.d/*.conf;
 }
 '
 
