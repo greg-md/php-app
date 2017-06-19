@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Misc;
+namespace App\Utils;
 
 class Social
 {

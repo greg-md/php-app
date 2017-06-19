@@ -13,9 +13,11 @@ class Images
     public function __construct(StaticImageManager $manager)
     {
         $this->manager = $manager;
+
+        $this->boot();
     }
 
-    public function load()
+    private function boot()
     {
         $this->manager->format('favicon', function (Image $image) {
             $image->resize(128, 128, function (Constraint $constraint) {

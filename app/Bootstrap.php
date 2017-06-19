@@ -2,19 +2,12 @@
 
 namespace App;
 
-use App\Models\LanguagesModel;
-use App\Services\LanguagesService;
-use App\Services\SettingsService;
-use App\Services\TranslatesService;
-use App\Strategies\LanguagesStrategy;
-use App\Strategies\SettingsStrategy;
-use App\Strategies\TranslatesStrategy;
+use App\Viewer\Directives;
 use Greg\Cache\CacheManager;
 use Greg\Cache\RedisCache;
 use Greg\Framework\BootstrapAbstract;
 use Greg\Framework\Translation\Translator;
 use Greg\Orm\Driver\DriverManager;
-use Greg\Orm\Driver\DriverStrategy;
 use Greg\Orm\Driver\MysqlDriver;
 use Greg\Orm\Driver\Pdo;
 use Greg\StaticImage\ImageDecoratorStrategy;
@@ -29,32 +22,34 @@ class Bootstrap extends BootstrapAbstract
 {
     public function bootViewer()
     {
-        $this->app()->ioc()->inject(ViewerContract::class, function (Translator $translator, StaticImageManager $imageManager) {
-            $class = new Viewer($this->app()['base_path'] . '/resources/views');
+        $this->app()->ioc()->inject(ViewerContract::class, function () {
+            $viewer = new Viewer($this->app()['base_path'] . '/resources/views');
 
-            $class->addExtension('.blade.php', function () {
+            $viewer->addExtension('.blade.php', function () {
                 return new ViewBladeCompiler($this->app()['base_path'] . '/storage/views');
             });
 
-            $directives = new BladeDirectives($class, $translator, $imageManager);
+            $this->app()->ioc()->load(Directives::class, $viewer);
 
-            $directives->load();
-
-            return $class;
+            return $viewer;
         });
     }
 
     public function bootCache()
     {
+        $this->app()->ioc()->inject('redis', function() {
+            $redis = new \Redis();
+
+            $redis->connect($this->app()['redis.host'], $this->app()['redis.port']);
+
+            return $redis;
+        });
+
         $this->app()->ioc()->inject(CacheManager::class, function () {
             $manager = new CacheManager();
 
             $manager->register('base', function () {
-                $redis = new \Redis();
-
-                $redis->connect($this->app()['redis.host'], $this->app()['redis.port']);
-
-                return new RedisCache($redis);
+                return new RedisCache($this->app()->ioc()->get('redis'));
             });
 
             $manager->setDefaultStoreName('base');
@@ -65,8 +60,6 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootDb()
     {
-        $this->app()->ioc()->addPrefixes('App\\Models\\');
-
         $this->app()->ioc()->inject('mysql', function () {
             $database = $this->app()['mysql.database'];
             $host = $this->app()['mysql.host'];
@@ -83,7 +76,7 @@ class Bootstrap extends BootstrapAbstract
             );
         });
 
-        $this->app()->ioc()->inject(DriverStrategy::class, function () {
+        $this->app()->ioc()->inject(DriverManager::class, function () {
             $manager = new DriverManager();
 
             $manager->register('base', function() {
@@ -96,45 +89,9 @@ class Bootstrap extends BootstrapAbstract
         });
     }
 
-    public function bootSettings()
-    {
-        $this->app()->ioc()->inject(SettingsStrategy::class, SettingsService::class);
-
-        $this->app()->ioc()->inject(Settings::class, function(SettingsStrategy $strategy) {
-            return new Settings($strategy->getList());
-        });
-    }
-
     public function bootTranslator()
     {
-        $this->app()->ioc()->inject(LanguagesStrategy::class, LanguagesService::class);
-
-        $this->app()->ioc()->inject(TranslatesStrategy::class, TranslatesService::class);
-
-        $this->app()->ioc()->inject(Translator::class, function (LanguagesStrategy $strategy) {
-            $class = new Translator();
-
-            $rows = $strategy->getAll();
-
-            /** @var LanguagesModel $row */
-            foreach ($rows as $row) {
-                $class->addLanguage($row['Locale'], $row->record());
-            }
-
-            if ($row = $rows->searchWhere('Base', true) ?: $rows->row()) {
-                $class->setDefaultLanguage($row['Locale']);
-            }
-
-            $this->app()->listen(Application::EVENT_FINISHED, function(TranslatesStrategy $strategy) use ($class) {
-                if ($translates = $class->newTranslates()) {
-                    foreach ($translates as $language => $items) {
-                        $strategy->addTranslates($language, $items, $class->getLanguages());
-                    }
-                }
-            });
-
-            return $class;
-        });
+        $this->app()->ioc()->inject(Translator::class, Translator::class);
     }
 
     public function bootStaticImage()
@@ -157,13 +114,11 @@ class Bootstrap extends BootstrapAbstract
                 }
             };
 
-            $collector = new StaticImageManager(new ImageManager(), $publicPath, $publicPath . '/static', $decorator);
+            $manager = new StaticImageManager(new ImageManager(), $publicPath, $publicPath . '/static', $decorator);
 
-            $images = new Images($collector);
+            $this->app()->ioc()->load(Images::class, $manager);
 
-            $images->load();
-
-            return $collector;
+            return $manager;
         });
     }
 }

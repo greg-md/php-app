@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\ControllerAbstract;
+use Greg\View\ViewerContract;
 
-class HomeController extends ControllerAbstract
+class HomeController
 {
+    private $viewer;
+
+    public function __construct(ViewerContract $viewer)
+    {
+        $this->viewer = $viewer;
+    }
+
     public function index()
     {
-        return $this->render('home');
+        return $this->viewer->render('home');
     }
 }

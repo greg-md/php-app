@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Viewer;
 
 use Greg\Framework\Translation\Translator;
 use Greg\StaticImage\StaticImageManager;
 use Greg\View\ViewerContract;
 
-class BladeDirectives
+class Directives
 {
     private $viewer;
 
@@ -21,9 +21,11 @@ class BladeDirectives
         $this->translator = $translator;
 
         $this->imageManager = $imageManager;
+
+        $this->boot();
     }
 
-    public function load()
+    private function boot()
     {
         $this->viewer->directive('t', function($key, ...$args) {
             return $this->translator->translate($key, ...$args);
@@ -31,10 +33,6 @@ class BladeDirectives
 
         $this->viewer->directive('tk', function($key, $text, ...$args) {
             return $this->translator->translateKey($key, $text, ...$args);
-        });
-
-        $this->viewer->directive('alert', function ($message) {
-            return '<script>alert("' . addslashes($message) . '")</script>';
         });
 
         $this->viewer->directive('img', function($src, $format) {
