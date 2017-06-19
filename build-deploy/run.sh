@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
 # Packages
-#echo "Install packages."
-#composer update
+echo "Install packages..."
+
+composer update
 
 # Migrations
-#echo "Run migrations."
-#vendor/bin/phinx migrate
+echo "Run migrations..."
+
+vendor/bin/phinx migrate
 
 # Run
-echo "Running."
+echo "Running..."
 
 /usr/sbin/php-fpm
 
