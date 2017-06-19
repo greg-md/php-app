@@ -37,22 +37,30 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootCache()
     {
-        $this->app()->ioc()->inject('redis', function () {
-            $redis = new \Redis();
-
-            $redis->connect($this->app()['redis.host'], $this->app()['redis.port']);
-
-            return $redis;
-        });
-
         $this->app()->ioc()->inject(CacheManager::class, function () {
             $manager = new CacheManager();
 
-            $manager->register('base', function () {
-                return new RedisCache($this->app()->ioc()->get('redis'));
-            });
+            $config = $this->app()['cache'];
 
-            $manager->setDefaultStoreName('base');
+            foreach ((array) ($config['stores'] ?? []) as $name => $credentials) {
+                $manager->register($name, function () use ($name, $credentials) {
+                    $type = $credentials['type'] ?? null;
+
+                    if ($type == 'redis') {
+                        $redis = new \Redis();
+
+                        $redis->connect($credentials['host'] ?? '127.0.0.1', $credentials['port'] ?? 6379);
+
+                        return new RedisCache($redis);
+                    }
+
+                    throw new \Exception('Unsupported cache type `' . $type . '` for `' . $name. '`.');
+                });
+            }
+
+            if ($defaultStore = $config['default_store'] ?? null) {
+                $manager->setDefaultStoreName($defaultStore);
+            }
 
             return $manager;
         });
@@ -63,7 +71,7 @@ class Bootstrap extends BootstrapAbstract
         $this->app()->ioc()->inject(DriverManager::class, function () {
             $manager = new DriverManager();
 
-            $config = $this->app()['mysql'];
+            $config = $this->app()['db'];
 
             foreach ((array) ($config['drivers'] ?? []) as $name => $credentials) {
                 $manager->register($name, function () use ($credentials) {
@@ -71,7 +79,7 @@ class Bootstrap extends BootstrapAbstract
                         new Pdo(
                             'mysql:dbname=' . ($credentials['database'] ?? 'app')
                                 . ';host=' . ($credentials['host'] ?? '127.0.0.1')
-                                . ';port=' . ($credentials['port'] ?? '3306'),
+                                . ';port=' . ($credentials['port'] ?? 3306),
                             $credentials['username'] ?? 'root',
                             $credentials['password'] ?? ''
                         )
