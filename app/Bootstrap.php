@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Resources\ViewDirectives;
 use App\Resources\StaticImages;
+use App\Resources\ViewDirectives;
 use Greg\Cache\CacheManager;
 use Greg\Cache\RedisCache;
 use Greg\Framework\BootstrapAbstract;
@@ -37,7 +37,7 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootCache()
     {
-        $this->app()->ioc()->inject('redis', function() {
+        $this->app()->ioc()->inject('redis', function () {
             $redis = new \Redis();
 
             $redis->connect($this->app()['redis.host'], $this->app()['redis.port']);
@@ -79,7 +79,7 @@ class Bootstrap extends BootstrapAbstract
         $this->app()->ioc()->inject(DriverManager::class, function () {
             $manager = new DriverManager();
 
-            $manager->register('base', function() {
+            $manager->register('base', function () {
                 return $this->app()->ioc()->get('mysql');
             });
 
@@ -94,8 +94,7 @@ class Bootstrap extends BootstrapAbstract
         $this->app()->ioc()->inject(StaticImageManager::class, function () {
             $publicPath = $this->app()['public_path'];
 
-            $decorator = new class implements ImageDecoratorStrategy
-            {
+            $decorator = new class() implements ImageDecoratorStrategy {
                 private $uri = '/static';
 
                 public function output($url)

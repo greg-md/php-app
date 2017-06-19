@@ -22,8 +22,7 @@ class ClearCacheCommand extends Command
     {
         $this
             ->setName('clear:cache')
-            ->setDescription('Clear application cache.')
-        ;
+            ->setDescription('Clear application cache.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

@@ -22,7 +22,7 @@ class ViewDirectives
 
     private function boot()
     {
-        $this->viewer->directive('img', function($src, $format) {
+        $this->viewer->directive('img', function ($src, $format) {
             return $this->imageManager->url($src, $format);
         });
     }

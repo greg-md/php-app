@@ -9,11 +9,11 @@ class Application extends \Greg\Framework\Application
 {
     protected function boot()
     {
-        $this->ioc()->inject(HttpKernel::class, function() {
+        $this->ioc()->inject(HttpKernel::class, function () {
             return new HttpKernel($this);
         });
 
-        $this->ioc()->inject(ConsoleKernel::class, function() {
+        $this->ioc()->inject(ConsoleKernel::class, function () {
             return new ConsoleKernel($this);
         });
 
