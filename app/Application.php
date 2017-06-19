@@ -9,6 +9,8 @@ class Application extends \Greg\Framework\Application
 {
     protected function boot()
     {
+        $this->ioc()->register($this);
+
         $this->ioc()->inject(HttpKernel::class, function () {
             return new HttpKernel($this);
         });
@@ -17,6 +19,6 @@ class Application extends \Greg\Framework\Application
             return new ConsoleKernel($this);
         });
 
-        $this->bootstrap(new Bootstrap($this));
+        $this->bootstrap(new Bootstrap());
     }
 }

@@ -3,12 +3,12 @@
 namespace App\Console;
 
 use App\Resources\ConsoleCommands;
-use Greg\Framework\BootstrapAbstract;
+use Greg\Framework\Console\BootstrapAbstract;
 
 class ConsoleBootstrap extends BootstrapAbstract
 {
     public function bootCommands()
     {
-        $this->app()->ioc()->load(ConsoleCommands::class);
+        $this->ioc()->load(ConsoleCommands::class, $this->kernel());
     }
 }

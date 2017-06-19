@@ -22,14 +22,14 @@ class Bootstrap extends BootstrapAbstract
 {
     public function bootViewer()
     {
-        $this->app()->ioc()->inject(ViewerContract::class, function () {
+        $this->ioc()->inject(ViewerContract::class, function () {
             $viewer = new Viewer(__DIR__ . '/../resources/views');
 
             $viewer->addExtension('.blade.php', function () {
                 return new ViewBladeCompiler(__DIR__ . '/../storage/views');
             });
 
-            $this->app()->ioc()->load(ViewDirectives::class, $viewer);
+            $this->ioc()->load(ViewDirectives::class, $viewer);
 
             return $viewer;
         });
@@ -37,7 +37,7 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootCache()
     {
-        $this->app()->ioc()->inject(CacheManager::class, function () {
+        $this->ioc()->inject(CacheManager::class, function () {
             $manager = new CacheManager();
 
             $config = $this->app()['cache'];
@@ -68,7 +68,7 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootDb()
     {
-        $this->app()->ioc()->inject(DriverManager::class, function () {
+        $this->ioc()->inject(DriverManager::class, function () {
             $manager = new DriverManager();
 
             $config = $this->app()['db'];
@@ -97,7 +97,7 @@ class Bootstrap extends BootstrapAbstract
 
     public function bootStaticImage()
     {
-        $this->app()->ioc()->inject(StaticImageManager::class, function () {
+        $this->ioc()->inject(StaticImageManager::class, function () {
             $decorator = new class() implements ImageDecoratorStrategy {
                 private $uri = '/static';
 
@@ -114,7 +114,7 @@ class Bootstrap extends BootstrapAbstract
 
             $manager = new StaticImageManager(new ImageManager(), __DIR__ . '/../public', __DIR__ . '/../public/static', $decorator);
 
-            $this->app()->ioc()->load(StaticImages::class, $manager);
+            $this->ioc()->load(StaticImages::class, $manager);
 
             return $manager;
         });
