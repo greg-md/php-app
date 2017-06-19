@@ -10,7 +10,7 @@ try {
 
     exit($status);
 } catch (Exception $e) {
-    \Greg\Support\Http\Response::sendCode(500);
-
     dump($e->getMessage(), $e->getTraceAsString());
+
+    exit(1);
 }

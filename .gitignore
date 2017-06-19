@@ -1,5 +1,2 @@
 /vendor
-/build
-/coverage
-/node_modules
 /public/debug
