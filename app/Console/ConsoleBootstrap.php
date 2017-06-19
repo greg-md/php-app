@@ -6,5 +6,4 @@ use Greg\Framework\BootstrapAbstract;
 
 class ConsoleBootstrap extends BootstrapAbstract
 {
-
 }

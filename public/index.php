@@ -3,7 +3,7 @@
 require __DIR__ . '/../bootstrap/app.php';
 
 try {
-    app()->run(function(\App\Http\HttpKernel $kernel) {
+    app()->run(function (\App\Http\HttpKernel $kernel) {
         $response = $kernel->run();
 
         $response->send();
