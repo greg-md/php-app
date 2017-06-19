@@ -14,20 +14,23 @@ RUN dnf --setopt=deltarpm=false update -y
 
 RUN dnf install mc gcc gcc-c++ libaio kernel-devel pcre-devel openssl openssl-devel telnet tar bzip2 htop unzip make sudo -y
 
-# Copy current files
-COPY . /var/www/app
-
-WORKDIR /var/www/app
+# Copy install files
+COPY ./build-deploy/install /install
 
 # Install Nginx
-RUN ./build-deploy/install/nginx.sh
+RUN /install/nginx.sh
 
 COPY ./build-deploy/nginx/ssl /etc/nginx/ssl
 
 COPY ./build-deploy/nginx/domains.d /etc/nginx/domains.d
 
 # Install PHP
-RUN ./build-deploy/install/php.sh
+RUN /install/php.sh
+
+# Copy current files
+COPY . /var/www/app
+
+WORKDIR /var/www/app
 
 # Expose ports
 EXPOSE 443 80
