@@ -1,14 +1,6 @@
 <?php
 
-use Greg\Orm\Driver\DriverManager;
-
-require_once __DIR__ . '/bootstrap/app.php';
-
-/** @var DriverManager $driver */
-$driver = app()->ioc()->expect(\Greg\Orm\Driver\DriverManager::class);
-
-/** @var \Greg\Orm\Driver\MysqlDriver $mysql */
-$mysql = $driver->driver('base');
+require_once __DIR__ . '/bootstrap/setup.php';
 
 return [
     'paths' => [
@@ -21,8 +13,13 @@ return [
         'default_database'        => 'application',
 
         'application' => [
-            'name'       => app('mysql.database'),
-            'connection' => $mysql->pdo()->connection(),
+            'adapter' => 'mysql',
+            'host'       => getenv('MYSQL_HOST') ?: '127.0.0.1',
+            'name'       => getenv('MYSQL_DATABASE') ?: 'app',
+            'user'       => getenv('MYSQL_USERNAME') ?: 'root',
+            'pass'       => getenv('MYSQL_PASSWORD') ?: '',
+            'port'       => getenv('MYSQL_PORT') ?: '3306',
+            'charset'    => 'utf8',
         ],
     ],
 ];
