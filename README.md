@@ -16,3 +16,7 @@ The start is here.
 # Run in Docker
 
 `docker-compose up`
+
+# Open in Browser
+
+`http://127.0.0.1`
