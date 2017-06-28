@@ -38,9 +38,10 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 Here is a list of builtin components:
 
+* **Greg PHP Framework** - Greg Framework provides you a lightweight engine for fast creating powerful apps. [Documentation](https://github.com/greg-md/php-framework);
+    * **Greg PHP Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
+    * **Greg PHP Routing** - A powerful Router for PHP. [Documentation](https://github.com/greg-md/php-routing);
 * **Greg PHP Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
-* **Greg PHP Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
-* **Greg PHP Routing** - A powerful Router for PHP. [Documentation](https://github.com/greg-md/php-routing);
 * **Greg PHP Cache** - A powerful Cache Manager for PHP. [Documentation](https://github.com/greg-md/php-cache);
 * **Greg PHP ORM** - A powerful ORM(Object-Relational Mapping) for PHP. [Documentation](https://github.com/greg-md/php-orm);
 * **Greg PHP View** - A powerful Viewer for PHP. [Documentation](https://github.com/greg-md/php-view);
