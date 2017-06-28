@@ -30,6 +30,8 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 1. Start docker containers: `docker-compose up`.
 2. Open in browser: `http://127.0.0.1`.
 
+**Optionally**, you can add an alias in `hosts` file: `127.0.0.1 app.local`.
+
 # License
 
 MIT © [Grigorii Duca](http://greg.md)
