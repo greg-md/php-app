@@ -45,7 +45,7 @@ Here is a list of builtin components:
 * **Greg PHP View** - A powerful Viewer for PHP. [Documentation](https://github.com/greg-md/php-view);
 * **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
-* **The VarDumper Component** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html);
+* **The VarDumper Component** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
 
 # Out of the box
 
