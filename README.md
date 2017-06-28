@@ -48,6 +48,7 @@ Here is a list of builtin components:
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
 * **The Console Component** - The Console component eases the creation of beautiful and testable command line interfaces. [Documentation](http://symfony.com/doc/current/components/console.html).
 * **The VarDumper Component** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
+* **PHPUnit** - PHPUnit is an instance of the xUnit architecture for unit testing frameworks. [Documentation](https://phpunit.de/).
 
 # Out of the box
 
