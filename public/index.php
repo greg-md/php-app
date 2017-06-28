@@ -1,9 +1,9 @@
 <?php
 
-require __DIR__ . '/../bootstrap/app.php';
+require_once __DIR__ . '/../bootstrap/app.php';
 
 try {
-    app()->run(function (\App\Http\HttpKernel $kernel) {
+    app()->scope(function (\App\Http\HttpKernel $kernel) {
         $response = $kernel->run();
 
         $response->send();
