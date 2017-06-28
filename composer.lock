@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4590f765efc6719a26946b7581b258af",
+    "content-hash": "8ac9015b8c7173864dbe3a00de8f8ecb",
     "packages": [
         {
             "name": "greg-md/php-cache",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-cache.git",
-                "reference": "5cd1f14756adb09e8415bead2333cdeff45d47de"
+                "reference": "7f66b5dcfe73c5d9279a809002f4c5d58fe8d27e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-cache/zipball/5cd1f14756adb09e8415bead2333cdeff45d47de",
-                "reference": "5cd1f14756adb09e8415bead2333cdeff45d47de",
+                "url": "https://api.github.com/repos/greg-md/php-cache/zipball/7f66b5dcfe73c5d9279a809002f4c5d58fe8d27e",
+                "reference": "7f66b5dcfe73c5d9279a809002f4c5d58fe8d27e",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,59 @@
                 "php-cache",
                 "web-artisans"
             ],
-            "time": "2017-06-17 14:20:31"
+            "time": "2017-06-28 15:06:51"
+        },
+        {
+            "name": "greg-md/php-dependency-injection",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-dependency-injection.git",
+                "reference": "6028cf7ec09530ca80a5262b29e5c2d9331fb464"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-dependency-injection/zipball/6028cf7ec09530ca80a5262b29e5c2d9331fb464",
+                "reference": "6028cf7ec09530ca80a5262b29e5c2d9331fb464",
+                "shasum": ""
+            },
+            "require": {
+                "greg-md/php-support": "dev-master",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.2.*",
+                "symfony/var-dumper": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\DependencyInjection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "Greg PHP Dependency Injection",
+            "homepage": "https://github.com/greg-md/php-dependency-injection",
+            "keywords": [
+                "dependency-injection",
+                "greg-dependency-injection",
+                "greg-md",
+                "greg-php",
+                "php",
+                "php-dependency-injection",
+                "web-artisans"
+            ],
+            "time": "2017-06-28 14:13:06"
         },
         {
             "name": "greg-md/php-framework",
@@ -61,15 +113,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-framework.git",
-                "reference": "f16e11e1b0ab85bb4640911f143ba868bf1a4d18"
+                "reference": "9892ea5c5c029fbb277c86612f5287aba1294df4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-framework/zipball/f16e11e1b0ab85bb4640911f143ba868bf1a4d18",
-                "reference": "f16e11e1b0ab85bb4640911f143ba868bf1a4d18",
+                "url": "https://api.github.com/repos/greg-md/php-framework/zipball/9892ea5c5c029fbb277c86612f5287aba1294df4",
+                "reference": "9892ea5c5c029fbb277c86612f5287aba1294df4",
                 "shasum": ""
             },
             "require": {
+                "greg-md/php-dependency-injection": "dev-master",
                 "greg-md/php-router": "dev-master",
                 "greg-md/php-support": "dev-master",
                 "php": "^7.1",
@@ -96,17 +149,18 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP Framework",
+            "description": "Greg Framework",
             "homepage": "https://github.com/greg-md/php-framework",
             "keywords": [
                 "framework",
+                "greg-framework",
                 "greg-md",
                 "greg-php",
                 "php",
                 "php-framework",
                 "web-artisans"
             ],
-            "time": "2017-06-17 14:07:21"
+            "time": "2017-06-28 14:38:29"
         },
         {
             "name": "greg-md/php-orm",
@@ -114,12 +168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-orm.git",
-                "reference": "a8f7773d6e7e191085d1316cc4e274ba06ad7ef1"
+                "reference": "4f722df8c80ab7b3a90877c2ccfdc04b78ba037d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-orm/zipball/a8f7773d6e7e191085d1316cc4e274ba06ad7ef1",
-                "reference": "a8f7773d6e7e191085d1316cc4e274ba06ad7ef1",
+                "url": "https://api.github.com/repos/greg-md/php-orm/zipball/4f722df8c80ab7b3a90877c2ccfdc04b78ba037d",
+                "reference": "4f722df8c80ab7b3a90877c2ccfdc04b78ba037d",
                 "shasum": ""
             },
             "require": {
@@ -167,7 +221,7 @@
                 "sqlite",
                 "web-artisans"
             ],
-            "time": "2017-06-17 14:14:38"
+            "time": "2017-06-28 15:07:17"
         },
         {
             "name": "greg-md/php-router",
@@ -175,12 +229,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-router.git",
-                "reference": "2c98b1371e25fdd91f8e5c8be0f22d81c5dbe451"
+                "reference": "b3ba52e1adbe54ebf00e7aa881bb80c52d954ffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-router/zipball/2c98b1371e25fdd91f8e5c8be0f22d81c5dbe451",
-                "reference": "2c98b1371e25fdd91f8e5c8be0f22d81c5dbe451",
+                "url": "https://api.github.com/repos/greg-md/php-router/zipball/b3ba52e1adbe54ebf00e7aa881bb80c52d954ffd",
+                "reference": "b3ba52e1adbe54ebf00e7aa881bb80c52d954ffd",
                 "shasum": ""
             },
             "require": {
@@ -218,7 +272,7 @@
                 "routing",
                 "web-artisans"
             ],
-            "time": "2017-06-08 22:08:23"
+            "time": "2017-06-28 15:25:32"
         },
         {
             "name": "greg-md/php-static-image",
@@ -226,12 +280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-static-image.git",
-                "reference": "e94978628d9fa9916febb9f3587e0e95fc312f8e"
+                "reference": "f8e3103eb3c33ec2a69a035df894bf53dcedbac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-static-image/zipball/e94978628d9fa9916febb9f3587e0e95fc312f8e",
-                "reference": "e94978628d9fa9916febb9f3587e0e95fc312f8e",
+                "url": "https://api.github.com/repos/greg-md/php-static-image/zipball/f8e3103eb3c33ec2a69a035df894bf53dcedbac2",
+                "reference": "f8e3103eb3c33ec2a69a035df894bf53dcedbac2",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +326,7 @@
                 "static-image",
                 "web-artisans"
             ],
-            "time": "2017-06-08 21:26:47"
+            "time": "2017-06-19 18:23:23"
         },
         {
             "name": "greg-md/php-support",
@@ -280,12 +334,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-support.git",
-                "reference": "d7f7033be0d7ef7e04896c766bff82c58549a5b8"
+                "reference": "c1a571f441eb1b98dc30d55bd7f59b928be729aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-support/zipball/d7f7033be0d7ef7e04896c766bff82c58549a5b8",
-                "reference": "d7f7033be0d7ef7e04896c766bff82c58549a5b8",
+                "url": "https://api.github.com/repos/greg-md/php-support/zipball/c1a571f441eb1b98dc30d55bd7f59b928be729aa",
+                "reference": "c1a571f441eb1b98dc30d55bd7f59b928be729aa",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +375,7 @@
                 "support",
                 "web-artisans"
             ],
-            "time": "2017-06-13 12:16:59"
+            "time": "2017-06-19 20:56:12"
         },
         {
             "name": "greg-md/php-view",
@@ -329,12 +383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-view.git",
-                "reference": "b8ae9703bec8b16112a53caf05bcac598989451d"
+                "reference": "805a225aa3e0820c48dd04c66ab1c5c32693559d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-view/zipball/b8ae9703bec8b16112a53caf05bcac598989451d",
-                "reference": "b8ae9703bec8b16112a53caf05bcac598989451d",
+                "url": "https://api.github.com/repos/greg-md/php-view/zipball/805a225aa3e0820c48dd04c66ab1c5c32693559d",
+                "reference": "805a225aa3e0820c48dd04c66ab1c5c32693559d",
                 "shasum": ""
             },
             "require": {
@@ -373,7 +427,7 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-06-08 21:29:49"
+            "time": "2017-06-28 15:08:16"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -381,12 +435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "8dfe52c2d14a68ff3dce6af82058391c6c4eb9b3"
+                "reference": "526d8ef63e8701e02216b621e4a3a16085e2286f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/8dfe52c2d14a68ff3dce6af82058391c6c4eb9b3",
-                "reference": "8dfe52c2d14a68ff3dce6af82058391c6c4eb9b3",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/526d8ef63e8701e02216b621e4a3a16085e2286f",
+                "reference": "526d8ef63e8701e02216b621e4a3a16085e2286f",
                 "shasum": ""
             },
             "require": {
@@ -438,7 +492,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-06-10 19:55:42"
+            "time": "2017-06-19 13:30:27"
         },
         {
             "name": "intervention/image",
@@ -673,12 +727,12 @@
             "version": "v0.8.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/robmorgan/phinx.git",
+                "url": "https://github.com/cakephp/phinx.git",
                 "reference": "7a19de5bebc59321edd9613bc2a667e7f96224ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/7a19de5bebc59321edd9613bc2a667e7f96224ec",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/7a19de5bebc59321edd9613bc2a667e7f96224ec",
                 "reference": "7a19de5bebc59321edd9613bc2a667e7f96224ec",
                 "shasum": ""
             },
@@ -740,12 +794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "d9696fce0461f0ab94c9c9c7e71d353b8bdff92b"
+                "reference": "a34381a455c296a5a2cd97317933aa70c1336e5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/d9696fce0461f0ab94c9c9c7e71d353b8bdff92b",
-                "reference": "d9696fce0461f0ab94c9c9c7e71d353b8bdff92b",
+                "url": "https://api.github.com/repos/symfony/config/zipball/a34381a455c296a5a2cd97317933aa70c1336e5e",
+                "reference": "a34381a455c296a5a2cd97317933aa70c1336e5e",
                 "shasum": ""
             },
             "require": {
@@ -753,10 +807,12 @@
                 "symfony/filesystem": "~2.8|~3.0|~4.0"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.3"
+                "symfony/dependency-injection": "<3.3",
+                "symfony/finder": "<3.3"
             },
             "require-dev": {
                 "symfony/dependency-injection": "~3.3|~4.0",
+                "symfony/finder": "~3.3|~4.0",
                 "symfony/yaml": "~3.0|~4.0"
             },
             "suggest": {
@@ -792,7 +848,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02 18:32:02"
+            "time": "2017-06-24 09:47:31"
         },
         {
             "name": "symfony/console",
@@ -800,12 +856,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "bd7bf81dc914c7c7c01daad32946681c85ea16ae"
+                "reference": "0353f8aa5843d0cae051185514c0d877699704cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/bd7bf81dc914c7c7c01daad32946681c85ea16ae",
-                "reference": "bd7bf81dc914c7c7c01daad32946681c85ea16ae",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0353f8aa5843d0cae051185514c0d877699704cc",
+                "reference": "0353f8aa5843d0cae051185514c0d877699704cc",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +918,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-10 12:08:03"
+            "time": "2017-06-24 09:47:31"
         },
         {
             "name": "symfony/debug",
@@ -926,12 +982,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "d3c60ec5caff56751459b23c61858dd17bf46af5"
+                "reference": "2f3f8cb2e4525a8cb714f52e0984268522ba2cc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/d3c60ec5caff56751459b23c61858dd17bf46af5",
-                "reference": "d3c60ec5caff56751459b23c61858dd17bf46af5",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2f3f8cb2e4525a8cb714f52e0984268522ba2cc1",
+                "reference": "2f3f8cb2e4525a8cb714f52e0984268522ba2cc1",
                 "shasum": ""
             },
             "require": {
@@ -967,7 +1023,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01 22:17:54"
+            "time": "2017-06-24 12:58:08"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1034,12 +1090,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "da3bca24ddbc8355c7281d4cbdb539799d6f8e92"
+                "reference": "a21b6266e3664e876cef9fdd1255f71ba5639c64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/da3bca24ddbc8355c7281d4cbdb539799d6f8e92",
-                "reference": "da3bca24ddbc8355c7281d4cbdb539799d6f8e92",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/a21b6266e3664e876cef9fdd1255f71ba5639c64",
+                "reference": "a21b6266e3664e876cef9fdd1255f71ba5639c64",
                 "shasum": ""
             },
             "require": {
@@ -1094,7 +1150,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-06-09 00:24:28"
+            "time": "2017-06-24 09:47:31"
         },
         {
             "name": "symfony/yaml",
@@ -1102,12 +1158,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "08c644988dba9d608d18bb8ad8dd633f276137f7"
+                "reference": "1faeaf2aa8180967d80329213f77c1bcb75fe4fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/08c644988dba9d608d18bb8ad8dd633f276137f7",
-                "reference": "08c644988dba9d608d18bb8ad8dd633f276137f7",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/1faeaf2aa8180967d80329213f77c1bcb75fe4fa",
+                "reference": "1faeaf2aa8180967d80329213f77c1bcb75fe4fa",
                 "shasum": ""
             },
             "require": {
@@ -1149,7 +1205,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-14 20:38:21"
+            "time": "2017-06-24 09:47:31"
         }
     ],
     "packages-dev": [
@@ -1566,12 +1622,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "dc421f9ca5082a0c0cb04afb171c765f79add85b"
+                "reference": "23743757b7aab1d495343461dc30186b8b7da3e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/dc421f9ca5082a0c0cb04afb171c765f79add85b",
-                "reference": "dc421f9ca5082a0c0cb04afb171c765f79add85b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/23743757b7aab1d495343461dc30186b8b7da3e8",
+                "reference": "23743757b7aab1d495343461dc30186b8b7da3e8",
                 "shasum": ""
             },
             "require": {
@@ -1591,7 +1647,7 @@
                 "phpunit/phpunit": "^6.0"
             },
             "suggest": {
-                "ext-xdebug": "^2.5.3"
+                "ext-xdebug": "^2.5.5"
             },
             "type": "library",
             "extra": {
@@ -1622,7 +1678,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-21 08:03:57"
+            "time": "2017-06-26T06:37:27+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1816,12 +1872,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e6bc5d51e339ed8630cf86e0d4a5b498889eda65"
+                "reference": "97e5e7b2c72d34ffd86f454fce2eec28b92d6238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e6bc5d51e339ed8630cf86e0d4a5b498889eda65",
-                "reference": "e6bc5d51e339ed8630cf86e0d4a5b498889eda65",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/97e5e7b2c72d34ffd86f454fce2eec28b92d6238",
+                "reference": "97e5e7b2c72d34ffd86f454fce2eec28b92d6238",
                 "shasum": ""
             },
             "require": {
@@ -1892,7 +1948,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-16T16:04:55+00:00"
+            "time": "2017-06-26T06:23:44+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2068,12 +2124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "c7a73305b177922a6cd6ddfab6bb1780fea29c02"
+                "reference": "2994073dc733d81c4f54d5291ac3d867402dddee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/c7a73305b177922a6cd6ddfab6bb1780fea29c02",
-                "reference": "c7a73305b177922a6cd6ddfab6bb1780fea29c02",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2994073dc733d81c4f54d5291ac3d867402dddee",
+                "reference": "2994073dc733d81c4f54d5291ac3d867402dddee",
                 "shasum": ""
             },
             "require": {
@@ -2112,7 +2168,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-10 10:11:03"
+            "time": "2017-06-25T08:47:13+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -2120,12 +2176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "99851040b23c18fd20691275d36a96befe8afb62"
+                "reference": "dce014c5ac410e20f39e069a2dbdc31cea112cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/99851040b23c18fd20691275d36a96befe8afb62",
-                "reference": "99851040b23c18fd20691275d36a96befe8afb62",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/dce014c5ac410e20f39e069a2dbdc31cea112cef",
+                "reference": "dce014c5ac410e20f39e069a2dbdc31cea112cef",
                 "shasum": ""
             },
             "require": {
@@ -2162,7 +2218,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-06-14 10:35:46"
+            "time": "2017-06-20T16:26:07+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2610,8 +2666,8 @@
         "greg-md/php-support": 20,
         "greg-md/php-cache": 20,
         "greg-md/php-orm": 20,
-        "greg-md/php-static-image": 20,
-        "greg-md/php-view": 20
+        "greg-md/php-view": 20,
+        "greg-md/php-static-image": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

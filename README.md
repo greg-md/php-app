@@ -36,7 +36,7 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 # Builtin Components
 
-Here is a list of builtin components:
+Main components:
 
 * **Greg PHP Framework** - Greg Framework provides you a lightweight engine for fast creating powerful apps. [Documentation](https://github.com/greg-md/php-framework);
     * **Greg PHP Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
@@ -50,6 +50,9 @@ Here is a list of builtin components:
 * **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
 * **Symfony VarDumper Component** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
+
+Testing components:
+
 * **PHPUnit** - PHPUnit is an instance of the xUnit architecture for unit testing frameworks. [Documentation](https://phpunit.de/).
 
 # Out of the box

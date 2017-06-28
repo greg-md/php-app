@@ -15,8 +15,8 @@
     "greg-md/php-support": "dev-master",
     "greg-md/php-cache": "dev-master",
     "greg-md/php-orm": "dev-master",
-    "greg-md/php-static-image": "dev-master",
     "greg-md/php-view": "dev-master",
+    "greg-md/php-static-image": "dev-master",
     "maximebf/debugbar": "^1.0.0",
     "robmorgan/phinx": "^0.8.1",
     "symfony/var-dumper": "^3.2"
