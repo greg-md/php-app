@@ -14,7 +14,8 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Run](#run)
-* [Components](#components)
+* [Builtin Components](#builtin-components)
+* [Out of the box](#out-of-the-box)
 * [License](#license)
 * [Huuuge Quote](#huuuge-quote)
 
@@ -33,9 +34,9 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 **Optionally**, you can add an alias in `hosts` file: `127.0.0.1 app.local`.
 
-# Components
+# Builtin Components
 
-Here is a list of used components:
+Here is a list of builtin components:
 
 * **Greg PHP Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
 * **Greg PHP Cache** - A powerful Cache Manager for PHP. [Documentation](https://github.com/greg-md/php-cache);
@@ -45,6 +46,8 @@ Here is a list of used components:
 * **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
 * **The VarDumper Component** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html);
+
+# Out of the box
 
 # License
 
