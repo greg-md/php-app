@@ -7,16 +7,33 @@
 [![Latest Unstable Version](https://poser.pugx.org/greg-md/php-app/v/unstable.svg)](https://packagist.org/packages/greg-md/php-app)
 [![License](https://poser.pugx.org/greg-md/php-app/license.svg)](https://packagist.org/packages/greg-md/php-app)
 
-The start is here.
+This Application is based on [Greg PHP Framework](https://github.com/greg-md/php-framework) and it's components.
 
-# Instalation via Composer
+# Table of Contents
+
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Run](#run)
+* [License](#license)
+* [Huuuge Quote](#huuuge-quote)
+
+# Requirements
+
+* [Docker](https://www.docker.com/)
+
+# Installation
 
 `composer create-project greg-md/php-app`
 
-# Run in Docker
+# Run
 
-`docker-compose up`
+1. Start docker containers: `docker-compose up`.
+2. Open in browser: `http://127.0.0.1`.
 
-# Open in Browser
+# License
 
-`http://127.0.0.1`
+MIT © [Grigorii Duca](http://greg.md)
+
+# Huuuge Quote
+
+![I fear not the man who has practiced 10,000 programming languages once, but I fear the man who has practiced one programming language 10,000 times. &copy; #horrorsquad](http://greg.md/huuuge-quote-fb.jpg)
