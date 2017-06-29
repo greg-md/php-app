@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ac9015b8c7173864dbe3a00de8f8ecb",
+    "content-hash": "64ac3db912a089100dbc8c32ce3ec4fc",
     "packages": [
         {
             "name": "greg-md/php-cache",
@@ -500,12 +500,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "274403ce35bec3c419fdeedcd161c98dc02d3467"
+                "reference": "4505885ff5d63ec55776ea69abf4ee000114a9d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/274403ce35bec3c419fdeedcd161c98dc02d3467",
-                "reference": "274403ce35bec3c419fdeedcd161c98dc02d3467",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/4505885ff5d63ec55776ea69abf4ee000114a9d5",
+                "reference": "4505885ff5d63ec55776ea69abf4ee000114a9d5",
                 "shasum": ""
             },
             "require": {
@@ -562,7 +562,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-06-07 17:18:28"
+            "time": "2017-06-28 17:21:58"
         },
         {
             "name": "maximebf/debugbar",
@@ -1678,7 +1678,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-26T06:37:27+00:00"
+            "time": "2017-06-26 06:37:27"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1948,7 +1948,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-26T06:23:44+00:00"
+            "time": "2017-06-26 06:23:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2168,7 +2168,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-25T08:47:13+00:00"
+            "time": "2017-06-25 08:47:13"
         },
         {
             "name": "sebastian/environment",
@@ -2218,7 +2218,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-06-20T16:26:07+00:00"
+            "time": "2017-06-20 16:26:07"
         },
         {
             "name": "sebastian/exporter",
@@ -2663,7 +2663,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "greg-md/php-framework": 20,
-        "greg-md/php-support": 20,
         "greg-md/php-cache": 20,
         "greg-md/php-orm": 20,
         "greg-md/php-view": 20,
