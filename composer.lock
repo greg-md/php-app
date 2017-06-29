@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "64ac3db912a089100dbc8c32ce3ec4fc",
+    "content-hash": "c9c5c7f14116d1c06d160904b2c8a20a",
     "packages": [
         {
             "name": "greg-md/php-cache",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-cache.git",
-                "reference": "7f66b5dcfe73c5d9279a809002f4c5d58fe8d27e"
+                "reference": "7e80f767bed5e03c015062246c3c2aca7db4b166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-cache/zipball/7f66b5dcfe73c5d9279a809002f4c5d58fe8d27e",
-                "reference": "7f66b5dcfe73c5d9279a809002f4c5d58fe8d27e",
+                "url": "https://api.github.com/repos/greg-md/php-cache/zipball/7e80f767bed5e03c015062246c3c2aca7db4b166",
+                "reference": "7e80f767bed5e03c015062246c3c2aca7db4b166",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP Cache",
+            "description": "A powerful Cache for PHP.",
             "homepage": "https://github.com/greg-md/php-cache",
             "keywords": [
                 "cache",
@@ -53,7 +53,61 @@
                 "php-cache",
                 "web-artisans"
             ],
-            "time": "2017-06-28 15:06:51"
+            "time": "2017-06-29 08:44:38"
+        },
+        {
+            "name": "greg-md/php-debug-bar-component",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-debug-bar-component.git",
+                "reference": "8df88c40e441ad8387bac93edc1c7636d6e99728"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-debug-bar-component/zipball/8df88c40e441ad8387bac93edc1c7636d6e99728",
+                "reference": "8df88c40e441ad8387bac93edc1c7636d6e99728",
+                "shasum": ""
+            },
+            "require": {
+                "greg-md/php-framework": "dev-master",
+                "maximebf/debugbar": "^1.13.1",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.2.*",
+                "symfony/var-dumper": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\DebugBar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "Integration of PHP Debug Bar in Greg PHP Application.",
+            "homepage": "https://github.com/greg-md/php-debug-bar-component",
+            "keywords": [
+                "debug-bar",
+                "debug-bar-component",
+                "greg-debug-bar-component",
+                "greg-md",
+                "greg-php",
+                "php",
+                "php-debug-bar-component",
+                "web-artisans"
+            ],
+            "time": "2017-06-29 12:29:16"
         },
         {
             "name": "greg-md/php-dependency-injection",
@@ -61,12 +115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-dependency-injection.git",
-                "reference": "6028cf7ec09530ca80a5262b29e5c2d9331fb464"
+                "reference": "2fb713cb127cfaedabb7ef57fea901091ebabd7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-dependency-injection/zipball/6028cf7ec09530ca80a5262b29e5c2d9331fb464",
-                "reference": "6028cf7ec09530ca80a5262b29e5c2d9331fb464",
+                "url": "https://api.github.com/repos/greg-md/php-dependency-injection/zipball/2fb713cb127cfaedabb7ef57fea901091ebabd7f",
+                "reference": "2fb713cb127cfaedabb7ef57fea901091ebabd7f",
                 "shasum": ""
             },
             "require": {
@@ -94,7 +148,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP Dependency Injection",
+            "description": "Dependency Injection technique for PHP.",
             "homepage": "https://github.com/greg-md/php-dependency-injection",
             "keywords": [
                 "dependency-injection",
@@ -105,7 +159,7 @@
                 "php-dependency-injection",
                 "web-artisans"
             ],
-            "time": "2017-06-28 14:13:06"
+            "time": "2017-06-29 08:46:48"
         },
         {
             "name": "greg-md/php-framework",
@@ -113,12 +167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-framework.git",
-                "reference": "9892ea5c5c029fbb277c86612f5287aba1294df4"
+                "reference": "531e01dc134c9c823b030640e65e7d1e937bf811"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-framework/zipball/9892ea5c5c029fbb277c86612f5287aba1294df4",
-                "reference": "9892ea5c5c029fbb277c86612f5287aba1294df4",
+                "url": "https://api.github.com/repos/greg-md/php-framework/zipball/531e01dc134c9c823b030640e65e7d1e937bf811",
+                "reference": "531e01dc134c9c823b030640e65e7d1e937bf811",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +203,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg Framework",
+            "description": "Greg Framework provides a lightweight engine for fast creating powerful apps.",
             "homepage": "https://github.com/greg-md/php-framework",
             "keywords": [
                 "framework",
@@ -160,7 +214,7 @@
                 "php-framework",
                 "web-artisans"
             ],
-            "time": "2017-06-28 14:38:29"
+            "time": "2017-06-29 12:58:05"
         },
         {
             "name": "greg-md/php-orm",
@@ -168,12 +222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-orm.git",
-                "reference": "4f722df8c80ab7b3a90877c2ccfdc04b78ba037d"
+                "reference": "fcad5f41defa0562f553b4dd6c1b071f55674968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-orm/zipball/4f722df8c80ab7b3a90877c2ccfdc04b78ba037d",
-                "reference": "4f722df8c80ab7b3a90877c2ccfdc04b78ba037d",
+                "url": "https://api.github.com/repos/greg-md/php-orm/zipball/fcad5f41defa0562f553b4dd6c1b071f55674968",
+                "reference": "fcad5f41defa0562f553b4dd6c1b071f55674968",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +255,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP ORM",
+            "description": "A powerful ORM(Object-Relational Mapping) for PHP.",
             "homepage": "https://github.com/greg-md/php-orm",
             "keywords": [
                 "activerecord",
@@ -221,7 +275,7 @@
                 "sqlite",
                 "web-artisans"
             ],
-            "time": "2017-06-28 15:07:17"
+            "time": "2017-06-29 08:43:49"
         },
         {
             "name": "greg-md/php-router",
@@ -229,12 +283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-router.git",
-                "reference": "b3ba52e1adbe54ebf00e7aa881bb80c52d954ffd"
+                "reference": "6921883bc1e6860aa28f1dc9758060eaac8b68ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-router/zipball/b3ba52e1adbe54ebf00e7aa881bb80c52d954ffd",
-                "reference": "b3ba52e1adbe54ebf00e7aa881bb80c52d954ffd",
+                "url": "https://api.github.com/repos/greg-md/php-router/zipball/6921883bc1e6860aa28f1dc9758060eaac8b68ec",
+                "reference": "6921883bc1e6860aa28f1dc9758060eaac8b68ec",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +315,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP Routing",
+            "description": "A powerful routing for PHP.",
             "homepage": "https://github.com/greg-md/php-routing",
             "keywords": [
                 "greg-md",
@@ -272,7 +326,7 @@
                 "routing",
                 "web-artisans"
             ],
-            "time": "2017-06-28 15:25:32"
+            "time": "2017-06-29 08:38:35"
         },
         {
             "name": "greg-md/php-static-image",
@@ -280,12 +334,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-static-image.git",
-                "reference": "f8e3103eb3c33ec2a69a035df894bf53dcedbac2"
+                "reference": "83c6f24eca8f1dbc6226e972a356eda8b2693a20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-static-image/zipball/f8e3103eb3c33ec2a69a035df894bf53dcedbac2",
-                "reference": "f8e3103eb3c33ec2a69a035df894bf53dcedbac2",
+                "url": "https://api.github.com/repos/greg-md/php-static-image/zipball/83c6f24eca8f1dbc6226e972a356eda8b2693a20",
+                "reference": "83c6f24eca8f1dbc6226e972a356eda8b2693a20",
                 "shasum": ""
             },
             "require": {
@@ -313,7 +367,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP Static Image",
+            "description": "Save images as static in real-time in different formats using Intervention Image.",
             "homepage": "https://github.com/greg-md/php-static-image",
             "keywords": [
                 "greg-md",
@@ -326,7 +380,7 @@
                 "static-image",
                 "web-artisans"
             ],
-            "time": "2017-06-19 18:23:23"
+            "time": "2017-06-29 09:00:07"
         },
         {
             "name": "greg-md/php-support",
@@ -334,12 +388,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-support.git",
-                "reference": "c1a571f441eb1b98dc30d55bd7f59b928be729aa"
+                "reference": "499670a2af721df9e5702dede6d5dc61c74ea6a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-support/zipball/c1a571f441eb1b98dc30d55bd7f59b928be729aa",
-                "reference": "c1a571f441eb1b98dc30d55bd7f59b928be729aa",
+                "url": "https://api.github.com/repos/greg-md/php-support/zipball/499670a2af721df9e5702dede6d5dc61c74ea6a9",
+                "reference": "499670a2af721df9e5702dede6d5dc61c74ea6a9",
                 "shasum": ""
             },
             "require": {
@@ -365,7 +419,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP Support",
+            "description": "Support classes for PHP.",
             "homepage": "https://github.com/greg-md/php-support",
             "keywords": [
                 "greg-md",
@@ -375,7 +429,7 @@
                 "support",
                 "web-artisans"
             ],
-            "time": "2017-06-19 20:56:12"
+            "time": "2017-06-29 08:47:31"
         },
         {
             "name": "greg-md/php-view",
@@ -383,12 +437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-view.git",
-                "reference": "805a225aa3e0820c48dd04c66ab1c5c32693559d"
+                "reference": "05110b2088ab81506741b16640420a3c59bf95a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-view/zipball/805a225aa3e0820c48dd04c66ab1c5c32693559d",
-                "reference": "805a225aa3e0820c48dd04c66ab1c5c32693559d",
+                "url": "https://api.github.com/repos/greg-md/php-view/zipball/05110b2088ab81506741b16640420a3c59bf95a0",
+                "reference": "05110b2088ab81506741b16640420a3c59bf95a0",
                 "shasum": ""
             },
             "require": {
@@ -415,7 +469,7 @@
                     "homepage": "http://greg.md/"
                 }
             ],
-            "description": "Greg PHP View",
+            "description": "A powerful View for PHP.",
             "homepage": "https://github.com/greg-md/php-view",
             "keywords": [
                 "Viewer",
@@ -427,7 +481,7 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-06-28 15:08:16"
+            "time": "2017-06-29 08:43:21"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2666,7 +2720,8 @@
         "greg-md/php-cache": 20,
         "greg-md/php-orm": 20,
         "greg-md/php-view": 20,
-        "greg-md/php-static-image": 20
+        "greg-md/php-static-image": 20,
+        "greg-md/php-debug-bar-component": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
