@@ -39,7 +39,7 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 # Run
 
-Open terminal, enter your project directory and start docker containers.
+Open terminal and start docker containers from the project root directory.
 
 `docker-compose up`
 
