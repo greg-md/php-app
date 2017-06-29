@@ -25,11 +25,17 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 # Installation
 
-Clone this project.
+**Composer**
+
+`composer create-project greg-md/php-app`
+
+**Git**
 
 `git clone https://github.com/greg-md/php-app.git`
 
-Or [download](https://github.com/greg-md/php-app/archive/master.zip) and unzip it in your preferable directory.
+**Manually**
+
+[Download](https://github.com/greg-md/php-app/archive/master.zip) and unzip it in your preferable directory.
 
 # Run
 
