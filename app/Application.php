@@ -2,12 +2,15 @@
 
 namespace App;
 
+use App\Application\Events\ConfigAddEvent;
+use App\Application\Events\ConfigRemoveEvent;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
 use Greg\Cache\CacheManager;
 use Greg\Cache\RedisCache;
+use Greg\DebugBar\DebugBarServiceProvider;
 use Greg\Orm\Driver\DriverManager;
 use Greg\Orm\Driver\MysqlDriver;
 use Greg\Orm\Driver\Pdo;
@@ -33,6 +36,10 @@ class Application extends \Greg\Framework\Application
             return new ConsoleKernel($this);
         });
 
+        $this->bootBuiltinEvents();
+
+        $this->bootstrap(new DebugBarServiceProvider());
+
         $this->bootViewer();
 
         $this->bootCache();
@@ -42,7 +49,7 @@ class Application extends \Greg\Framework\Application
         $this->bootStaticImage();
     }
 
-    public function bootViewer()
+    private function bootViewer()
     {
         $this->ioc()->inject(ViewerContract::class, function () {
             $viewer = new Viewer(__DIR__ . '/../resources/views');
@@ -57,7 +64,7 @@ class Application extends \Greg\Framework\Application
         });
     }
 
-    public function bootCache()
+    private function bootCache()
     {
         $this->ioc()->inject(CacheManager::class, function () {
             $manager = new CacheManager();
@@ -88,7 +95,7 @@ class Application extends \Greg\Framework\Application
         });
     }
 
-    public function bootDb()
+    private function bootDb()
     {
         $this->ioc()->inject(DriverManager::class, function () {
             $manager = new DriverManager();
@@ -117,7 +124,7 @@ class Application extends \Greg\Framework\Application
         });
     }
 
-    public function bootStaticImage()
+    private function bootStaticImage()
     {
         $this->ioc()->inject(StaticImageManager::class, function () {
             $decorator = new class() implements ImageDecoratorStrategy {
@@ -140,5 +147,14 @@ class Application extends \Greg\Framework\Application
 
             return $manager;
         });
+    }
+
+    private function bootBuiltinEvents()
+    {
+        $this->listen('app.config.add', ConfigAddEvent::class);
+        $this->listen('app.config.remove', ConfigRemoveEvent::class);
+
+//        $this->listen('app.public.add', ConfigAddEvent::class);
+//        $this->listen('app.public.remove', ConfigAddEvent::class);
     }
 }
