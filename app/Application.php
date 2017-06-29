@@ -2,14 +2,11 @@
 
 namespace App;
 
-use App\Application\Events\ConfigAddEvent;
-use App\Application\Events\ConfigRemoveEvent;
-use App\Application\Events\PublicAddEvent;
-use App\Application\Events\PublicRemoveEvent;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
+use App\ServiceProviders\App\AppServiceProvider;
 use Greg\Cache\CacheManager;
 use Greg\Cache\RedisCache;
 use Greg\DebugBar\DebugBarServiceProvider;
@@ -38,9 +35,9 @@ class Application extends \Greg\Framework\Application
             return new ConsoleKernel($this);
         });
 
-        $this->bootBuiltinEvents();
+        $this->addServiceProvider(new AppServiceProvider());
 
-        $this->bootstrap(new DebugBarServiceProvider());
+        $this->addServiceProvider(new DebugBarServiceProvider());
 
         $this->bootViewer();
 
@@ -149,14 +146,5 @@ class Application extends \Greg\Framework\Application
 
             return $manager;
         });
-    }
-
-    private function bootBuiltinEvents()
-    {
-        $this->listen('app.config.add', ConfigAddEvent::class);
-        $this->listen('app.config.remove', ConfigRemoveEvent::class);
-
-        $this->listen('app.public.add', PublicAddEvent::class);
-        $this->listen('app.public.remove', PublicRemoveEvent::class);
     }
 }

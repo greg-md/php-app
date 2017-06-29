@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Events;
+namespace App\ServiceProviders\App\Events;
 
 use App\Application;
 use Greg\Support\Config;
