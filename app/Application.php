@@ -4,6 +4,8 @@ namespace App;
 
 use App\Application\Events\ConfigAddEvent;
 use App\Application\Events\ConfigRemoveEvent;
+use App\Application\Events\PublicAddEvent;
+use App\Application\Events\PublicRemoveEvent;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
@@ -154,7 +156,7 @@ class Application extends \Greg\Framework\Application
         $this->listen('app.config.add', ConfigAddEvent::class);
         $this->listen('app.config.remove', ConfigRemoveEvent::class);
 
-//        $this->listen('app.public.add', ConfigAddEvent::class);
-//        $this->listen('app.public.remove', ConfigAddEvent::class);
+        $this->listen('app.public.add', PublicAddEvent::class);
+        $this->listen('app.public.remove', PublicRemoveEvent::class);
     }
 }
