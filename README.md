@@ -42,7 +42,7 @@ Main components:
     * **Greg PHP Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
     * **Greg PHP Routing** - A powerful Router for PHP. [Documentation](https://github.com/greg-md/php-routing);
     * **Symfony Console Component** - The Console component eases the creation of beautiful and testable command line interfaces. [Documentation](http://symfony.com/doc/current/components/console.html).
-* **Greg PHP Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
+    * **Greg PHP Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
 * **Greg PHP Cache** - A powerful Cache Manager for PHP. [Documentation](https://github.com/greg-md/php-cache);
 * **Greg PHP ORM** - A powerful ORM(Object-Relational Mapping) for PHP. [Documentation](https://github.com/greg-md/php-orm);
 * **Greg PHP View** - A powerful Viewer for PHP. [Documentation](https://github.com/greg-md/php-view);
