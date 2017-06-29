@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../bootstrap/app.php';
+require_once __DIR__ . '/bootstrap/app.php';
 
 try {
     $status = app()->scope(function(\App\Console\ConsoleKernel $kernel) {
