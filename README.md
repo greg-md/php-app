@@ -45,6 +45,9 @@ Open terminal and start docker containers from the project root directory.
 
 Wait until the `app` container is started and open in browser `http://127.0.0.1/`.
 
+> It will take a while for the first time until it will download and build images.
+> But next times containers will start faster.
+
 **Optionally**, you can add an alias in `hosts` file `127.0.0.1 app.local` and open in browser `http://app.local/`.
 
 # Builtin Components
