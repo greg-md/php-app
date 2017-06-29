@@ -39,10 +39,13 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 # Run
 
-1. Start docker containers: `docker-compose up`.
-2. Open in browser: `http://127.0.0.1`.
+Open terminal, enter your project directory and start docker containers.
 
-**Optionally**, you can add an alias in `hosts` file: `127.0.0.1 app.local`.
+`docker-compose up`
+
+Wait until the `app` container is started and open in browser `http://127.0.0.1/`.
+
+**Optionally**, you can add an alias in `hosts` file `127.0.0.1 app.local` and open in browser `http://app.local/`.
 
 # Builtin Components
 
