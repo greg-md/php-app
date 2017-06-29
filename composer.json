@@ -12,11 +12,9 @@
   "require": {
     "php": "^7.1",
     "greg-md/php-framework": "dev-master",
-    "greg-md/php-cache": "dev-master",
     "greg-md/php-orm": "dev-master",
     "greg-md/php-view": "dev-master",
     "greg-md/php-static-image": "dev-master",
-    "greg-md/php-debug-bar-component": "dev-master",
     "robmorgan/phinx": "^0.8.1",
     "symfony/var-dumper": "^3.2"
   },
