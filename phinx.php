@@ -4,8 +4,8 @@ require_once __DIR__ . '/bootstrap/setup.php';
 
 return [
     'paths' => [
-        'migrations' => '%%PHINX_CONFIG_DIR%%/db/migrations',
-        'seeds'      => '%%PHINX_CONFIG_DIR%%/db/seeds',
+        'migrations' => '%%PHINX_CONFIG_DIR%%/resources/db/migrations',
+        'seeds'      => '%%PHINX_CONFIG_DIR%%/resources/db/seeds',
     ],
 
     'environments' => [
