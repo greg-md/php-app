@@ -6,12 +6,6 @@ use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
-use Greg\AppCache\CacheServiceProvider;
-use Greg\AppDebugBar\DebugBarServiceProvider;
-use Greg\AppInstaller\AppServiceProvider;
-use Greg\Orm\Driver\DriverManager;
-use Greg\Orm\Driver\MysqlDriver;
-use Greg\Orm\Driver\Pdo;
 use Greg\StaticImage\ImageDecoratorStrategy;
 use Greg\StaticImage\StaticImageManager;
 use Greg\Support\Str;
@@ -34,13 +28,7 @@ class Application extends \Greg\Framework\Application
             return new ConsoleKernel($this);
         });
 
-        $this->addServiceProvider(new AppServiceProvider());
-        $this->addServiceProvider(new DebugBarServiceProvider());
-        $this->addServiceProvider(new CacheServiceProvider());
-
         $this->bootViewer();
-
-        $this->bootDb();
 
         $this->bootStaticImage();
     }
@@ -57,35 +45,6 @@ class Application extends \Greg\Framework\Application
             $this->ioc()->load(ViewDirectives::class, $viewer);
 
             return $viewer;
-        });
-    }
-
-    private function bootDb()
-    {
-        $this->ioc()->inject(DriverManager::class, function () {
-            $manager = new DriverManager();
-
-            $config = $this['db'];
-
-            foreach ((array) ($config['drivers'] ?? []) as $name => $credentials) {
-                $manager->register($name, function () use ($credentials) {
-                    return new MysqlDriver(
-                        new Pdo(
-                            'mysql:dbname=' . ($credentials['database'] ?? 'app')
-                            . ';host=' . ($credentials['host'] ?? '127.0.0.1')
-                            . ';port=' . ($credentials['port'] ?? 3306),
-                            $credentials['username'] ?? 'root',
-                            $credentials['password'] ?? ''
-                        )
-                    );
-                });
-            }
-
-            if ($defaultDriver = $config['default_driver'] ?? null) {
-                $manager->setDefaultDriverName($defaultDriver);
-            }
-
-            return $manager;
         });
     }
 
