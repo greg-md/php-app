@@ -6,15 +6,8 @@ use Greg\View\ViewerContract;
 
 class HomeController
 {
-    private $viewer;
-
-    public function __construct(ViewerContract $viewer)
+    public function index(ViewerContract $viewer)
     {
-        $this->viewer = $viewer;
-    }
-
-    public function index()
-    {
-        return $this->viewer->render('home');
+        return $viewer->render('home');
     }
 }

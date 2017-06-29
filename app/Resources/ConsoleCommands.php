@@ -2,7 +2,7 @@
 
 namespace App\Resources;
 
-use App\Console\Commands\ClearCacheCommand;
+use App\Console\Commands\HelloCommand;
 use App\Console\ConsoleKernel;
 
 class ConsoleCommands
@@ -18,6 +18,6 @@ class ConsoleCommands
 
     private function boot()
     {
-        $this->kernel->addCommand(ClearCacheCommand::class);
+        $this->kernel->addCommand(HelloCommand::class);
     }
 }

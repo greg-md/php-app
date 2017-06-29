@@ -6,10 +6,9 @@ use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
-use App\ServiceProviders\App\AppServiceProvider;
-use Greg\Cache\CacheManager;
-use Greg\Cache\RedisCache;
-use Greg\DebugBar\DebugBarServiceProvider;
+use Greg\AppComponent\AppServiceProvider;
+use Greg\CacheComponent\CacheServiceProvider;
+use Greg\DebugBarComponent\DebugBarServiceProvider;
 use Greg\Orm\Driver\DriverManager;
 use Greg\Orm\Driver\MysqlDriver;
 use Greg\Orm\Driver\Pdo;
@@ -36,12 +35,10 @@ class Application extends \Greg\Framework\Application
         });
 
         $this->addServiceProvider(new AppServiceProvider());
-
         $this->addServiceProvider(new DebugBarServiceProvider());
+        $this->addServiceProvider(new CacheServiceProvider());
 
         $this->bootViewer();
-
-        $this->bootCache();
 
         $this->bootDb();
 
@@ -60,37 +57,6 @@ class Application extends \Greg\Framework\Application
             $this->ioc()->load(ViewDirectives::class, $viewer);
 
             return $viewer;
-        });
-    }
-
-    private function bootCache()
-    {
-        $this->ioc()->inject(CacheManager::class, function () {
-            $manager = new CacheManager();
-
-            $config = $this['cache'];
-
-            foreach ((array) ($config['stores'] ?? []) as $name => $credentials) {
-                $manager->register($name, function () use ($name, $credentials) {
-                    $type = $credentials['type'] ?? null;
-
-                    if ($type == 'redis') {
-                        $redis = new \Redis();
-
-                        $redis->connect($credentials['host'] ?? '127.0.0.1', $credentials['port'] ?? 6379);
-
-                        return new RedisCache($redis);
-                    }
-
-                    throw new \Exception('Unsupported cache type `' . $type . '` for `' . $name . '`.');
-                });
-            }
-
-            if ($defaultStore = $config['default_store'] ?? null) {
-                $manager->setDefaultStoreName($defaultStore);
-            }
-
-            return $manager;
         });
     }
 
