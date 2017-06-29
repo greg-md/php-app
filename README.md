@@ -54,18 +54,18 @@ Wait until the `app` container is started and open in browser `http://127.0.0.1/
 
 Main components:
 
-* **Greg PHP Framework** - Greg Framework provides you a lightweight engine for fast creating powerful apps. [Documentation](https://github.com/greg-md/php-framework);
-    * **Greg PHP Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
-    * **Greg PHP Routing** - A powerful Router for PHP. [Documentation](https://github.com/greg-md/php-routing);
-    * **Symfony Console Component** - The Console component eases the creation of beautiful and testable command line interfaces. [Documentation](http://symfony.com/doc/current/components/console.html).
-    * **Greg PHP Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
-* **Greg PHP Cache** - A powerful Cache Manager for PHP. [Documentation](https://github.com/greg-md/php-cache);
-* **Greg PHP ORM** - A powerful ORM(Object-Relational Mapping) for PHP. [Documentation](https://github.com/greg-md/php-orm);
-* **Greg PHP View** - A powerful Viewer for PHP. [Documentation](https://github.com/greg-md/php-view);
-* **Greg PHP Static Image** - Save images as static in real-time in different formats using [Intervention Image](http://image.intervention.io/). [Documentation](https://github.com/greg-md/php-static-image);
-* **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
+* **Greg Framework** - Greg Framework provides you a lightweight engine for fast creating powerful apps. [Documentation](https://github.com/greg-md/php-framework);
+    * **Greg Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
+    * **Greg Routing** - A powerful Router for PHP. [Documentation](https://github.com/greg-md/php-routing);
+    * **Greg Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
+    * **Symfony Console** - The Console component eases the creation of beautiful and testable command line interfaces. [Documentation](http://symfony.com/doc/current/components/console.html).
+* **Greg Cache** - A powerful Cache Manager for PHP. [Documentation](https://github.com/greg-md/php-cache);
+* **Greg ORM** - A powerful ORM(Object-Relational Mapping) for PHP. [Documentation](https://github.com/greg-md/php-orm);
+* **Greg View** - A powerful Viewer for PHP. [Documentation](https://github.com/greg-md/php-view);
+* **Greg Static Image** - Save images as static in real-time in different formats using [Intervention Image](http://image.intervention.io/). [Documentation](https://github.com/greg-md/php-static-image);
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
-* **Symfony VarDumper Component** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
+* **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
+* **Symfony VarDumper** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
 
 Testing components:
 
