@@ -1,7 +1,7 @@
 {
   "name": "greg-md/php-app",
   "type": "app",
-  "description": "Greg PHP Application",
+  "description": "Greg PHP Application is based on Greg PHP Framework and it's components.",
   "keywords": [ "greg-md", "greg-php", "php-app", "app", "application", "php", "web-artisans" ],
   "homepage": "https://github.com/greg-md/php-app",
   "license": "MIT",
