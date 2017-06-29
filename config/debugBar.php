@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'disabled' => false,
+    'enabled' => getenv('DEBUG'),
 
     'base_url' => '/debug',
 ];
