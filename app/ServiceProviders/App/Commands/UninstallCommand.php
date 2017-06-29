@@ -23,19 +23,23 @@ class UninstallCommand extends Command
     {
         $this
             ->setName('uninstall')
-            ->addArgument('package', InputArgument::REQUIRED, 'The name of the Service Provider.')
-            ->setDescription('Uninstall Service Provider.');
+            ->addArgument('name', InputArgument::REQUIRED, 'The name of the service provider.')
+            ->setDescription('Uninstall service provider.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $package = $input->getArgument('package');
+        $name = $input->getArgument('name');
 
-        $serviceProvider = $this->app->getServiceProvider($package);
+        $serviceProvider = $this->app->getServiceProvider($name);
 
-        $this->app->ioc()->call([$serviceProvider, 'uninstall'], $input, $output);
+        if (method_exists($serviceProvider, 'uninstall')) {
+            $this->app->callServiceProvider($serviceProvider, 'uninstall', $input, $output);
 
-        $message = 'Package <fg=yellow;options=bold>' . $package . '</> has been uninstalled.';
+            $message = 'Service provider <fg=yellow;options=bold>' . $name . '</> has been installed.';
+        } else {
+            $message = 'Nothing to uninstall for <fg=yellow;options=bold>' . $name . '</> service provider.';
+        }
 
         $output->writeln('<info>' . $message . '</info>');
     }

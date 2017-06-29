@@ -23,19 +23,23 @@ class InstallCommand extends Command
     {
         $this
             ->setName('install')
-            ->addArgument('package', InputArgument::REQUIRED, 'The name of the Service Provider.')
+            ->addArgument('name', InputArgument::REQUIRED, 'The name of the Service Provider.')
             ->setDescription('Install Service Provider.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $package = $input->getArgument('package');
+        $name = $input->getArgument('name');
 
-        $serviceProvider = $this->app->getServiceProvider($package);
+        $serviceProvider = $this->app->getServiceProvider($name);
 
-        $this->app->ioc()->call([$serviceProvider, 'install'], $input, $output);
+        if (method_exists($serviceProvider, 'install')) {
+            $this->app->callServiceProvider($serviceProvider, 'install', $input, $output);
 
-        $message = 'Package <fg=yellow;options=bold>' . $package . '</> has been installed.';
+            $message = 'Service provider <fg=yellow;options=bold>' . $name . '</> has been installed.';
+        } else {
+            $message = 'Nothing to install for <fg=yellow;options=bold>' . $name . '</> service provider.';
+        }
 
         $output->writeln('<info>' . $message . '</info>');
     }
