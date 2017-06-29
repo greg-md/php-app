@@ -32,10 +32,5 @@
     "psr-4": {
       "App\\": "tests/"
     }
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "php bootstrap/init.php"
-    ]
   }
 }
