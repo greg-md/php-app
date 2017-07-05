@@ -5,10 +5,9 @@ echo "Install packages..."
 
 composer update
 
-# Migrations
-echo "Run migrations..."
-
-vendor/bin/phinx migrate
+for file in build-deploy/run/*; do
+    [ -f "$file" ] && [ -x "$file" ] && "$file"
+done
 
 # Run
 echo "Running..."
