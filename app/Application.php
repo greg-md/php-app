@@ -5,6 +5,9 @@ namespace App;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
+use App\Resources\ViewDirectives;
+use Greg\AppView\Events\LoadViewerEvent;
+use Greg\AppView\ViewServiceProvider;
 use Greg\StaticImage\ImageDecoratorStrategy;
 use Greg\StaticImage\StaticImageManager;
 use Greg\Support\Str;
@@ -22,7 +25,13 @@ class Application extends \Greg\AppInstaller\Application
             return new ConsoleKernel($this);
         });
 
+        $this->addServiceProvider(new ViewServiceProvider());
+
         $this->bootStaticImage();
+
+        $this->listen(LoadViewerEvent::class, function() {
+            $this->ioc()->load(ViewDirectives::class);
+        });
     }
 
     private function bootStaticImage()

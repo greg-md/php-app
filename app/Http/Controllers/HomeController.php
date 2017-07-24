@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Greg\View\ViewerContract;
+use Greg\View\Viewer;
 
 class HomeController
 {
-    public function index(ViewerContract $viewer)
+    public function index(Viewer $viewer)
     {
         return $viewer->render('home');
     }
