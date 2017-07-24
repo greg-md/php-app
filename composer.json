@@ -11,7 +11,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": "^7.1",
-    "greg-md/php-framework": "dev-master",
+    "greg-md/php-app-installer": "dev-master",
     "greg-md/php-view": "dev-master",
     "greg-md/php-static-image": "dev-master",
     "symfony/var-dumper": "^3.2"

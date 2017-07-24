@@ -5,21 +5,15 @@ namespace App;
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
-use App\Resources\ViewDirectives;
 use Greg\StaticImage\ImageDecoratorStrategy;
 use Greg\StaticImage\StaticImageManager;
 use Greg\Support\Str;
-use Greg\View\ViewBladeCompiler;
-use Greg\View\Viewer;
-use Greg\View\ViewerContract;
 use Intervention\Image\ImageManager;
 
-class Application extends \Greg\Framework\Application
+class Application extends \Greg\AppInstaller\Application
 {
-    protected function boot()
+    protected function bootApp()
     {
-        $this->ioc()->register($this);
-
         $this->ioc()->inject(HttpKernel::class, function () {
             return new HttpKernel($this);
         });
@@ -28,24 +22,7 @@ class Application extends \Greg\Framework\Application
             return new ConsoleKernel($this);
         });
 
-        $this->bootViewer();
-
         $this->bootStaticImage();
-    }
-
-    private function bootViewer()
-    {
-        $this->ioc()->inject(ViewerContract::class, function () {
-            $viewer = new Viewer(__DIR__ . '/../resources/views');
-
-            $viewer->addExtension('.blade.php', function () {
-                return new ViewBladeCompiler(__DIR__ . '/../storage/views');
-            });
-
-            $this->ioc()->load(ViewDirectives::class, $viewer);
-
-            return $viewer;
-        });
     }
 
     private function bootStaticImage()
