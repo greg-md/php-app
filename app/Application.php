@@ -29,7 +29,7 @@ class Application extends \Greg\AppInstaller\Application
 
         $this->bootStaticImage();
 
-        $this->listen(LoadViewerEvent::class, function() {
+        $this->listen(LoadViewerEvent::class, function () {
             $this->ioc()->load(ViewDirectives::class);
         });
     }
