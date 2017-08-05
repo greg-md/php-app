@@ -6,12 +6,10 @@ use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
+use Greg\AppStaticImage\Events\LoadStaticImageManagerEvent;
+use Greg\AppStaticImage\StaticImageServiceProvider;
 use Greg\AppView\Events\LoadViewerEvent;
 use Greg\AppView\ViewServiceProvider;
-use Greg\StaticImage\ImageDecoratorStrategy;
-use Greg\StaticImage\StaticImageManager;
-use Greg\Support\Str;
-use Intervention\Image\ImageManager;
 
 class Application extends \Greg\AppInstaller\Application
 {
@@ -25,37 +23,26 @@ class Application extends \Greg\AppInstaller\Application
             return new ConsoleKernel($this);
         });
 
+        $this->bootViewServiceProvider();
+
+        $this->bootStaticImageProvider();
+    }
+
+    private function bootViewServiceProvider()
+    {
         $this->addServiceProvider(new ViewServiceProvider());
 
-        $this->bootStaticImage();
-
-        $this->listen(LoadViewerEvent::class, function () {
-            $this->ioc()->load(ViewDirectives::class);
+        $this->listen(LoadViewerEvent::class, function (LoadViewerEvent $event) {
+            $this->ioc()->load(ViewDirectives::class, $event->viewer());
         });
     }
 
-    private function bootStaticImage()
+    private function bootStaticImageProvider()
     {
-        $this->ioc()->inject(StaticImageManager::class, function () {
-            $decorator = new class() implements ImageDecoratorStrategy {
-                private $uri = '/static';
+        $this->addServiceProvider(new StaticImageServiceProvider());
 
-                public function output($url)
-                {
-                    return $this->uri . $url;
-                }
-
-                public function input($url)
-                {
-                    return Str::shift($url, $this->uri);
-                }
-            };
-
-            $manager = new StaticImageManager(new ImageManager(), __DIR__ . '/../public', __DIR__ . '/../public/static', $decorator);
-
-            $this->ioc()->load(StaticImages::class, $manager);
-
-            return $manager;
+        $this->listen(LoadStaticImageManagerEvent::class, function (LoadStaticImageManagerEvent $event) {
+            $this->ioc()->load(StaticImages::class, $event->manager());
         });
     }
 }
