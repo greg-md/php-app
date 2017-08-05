@@ -49,7 +49,7 @@ server {
 
     pagespeed LoadFromFile \"$1\" \"$2\";
 
-    # Image cache
+    # Static Image
     location ~* @.+\.(png|jpe?g|gif)$ {
         if (!-f \$document_root\$uri) {
             rewrite ^/static(/.+) /image.php?static=\$1 last;
