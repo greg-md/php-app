@@ -10,6 +10,8 @@ function app($key = null)
         $config = \Greg\Support\Config::dir(__DIR__ . '/../config', 'app');
 
         $app = new \App\Application($config);
+
+        $app->configure(__DIR__ . '/..');
     }
 
     return $key ? $app[$key] : $app;
