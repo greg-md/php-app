@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-bash <(curl -f -L -sS https://ngxpagespeed.com/install) --nginx-version latest -y
+bash <(curl -f -L -sS https://ngxpagespeed.com/install) --nginx-version '1.13.3' -y
 
 NGINX_VERSION=`ls -la /root/ | grep nginx | awk {'print $9'} | tail -n 1`
 

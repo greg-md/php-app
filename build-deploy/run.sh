@@ -3,7 +3,7 @@
 # Packages
 echo "Install packages..."
 
-composer update
+composer install
 
 for file in build-deploy/run/*; do
     [ -f "$file" ] && [ -x "$file" ] && "$file"

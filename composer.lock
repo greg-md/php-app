@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-app-installer.git",
-                "reference": "cb732d13806aaa5261d540bb00c395ff92ba927f"
+                "reference": "e1d186fc12ff860e0721608317cb59c8f025ebb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-app-installer/zipball/cb732d13806aaa5261d540bb00c395ff92ba927f",
-                "reference": "cb732d13806aaa5261d540bb00c395ff92ba927f",
+                "url": "https://api.github.com/repos/greg-md/php-app-installer/zipball/e1d186fc12ff860e0721608317cb59c8f025ebb6",
+                "reference": "e1d186fc12ff860e0721608317cb59c8f025ebb6",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "php-app-installer",
                 "web-artisans"
             ],
-            "time": "2017-08-05 10:08:54"
+            "time": "2017-08-09T13:54:57+00:00"
         },
         {
             "name": "greg-md/php-app-static-image",
@@ -110,7 +110,7 @@
                 "static-image",
                 "web-artisans"
             ],
-            "time": "2017-08-09 12:05:52"
+            "time": "2017-08-09T12:05:52+00:00"
         },
         {
             "name": "greg-md/php-app-view",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-app-view.git",
-                "reference": "594a5754db2efa82a5c038976315cc1331e6659a"
+                "reference": "254fb7f58d74af0a3fd2069b172ca0b97789992a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-app-view/zipball/594a5754db2efa82a5c038976315cc1331e6659a",
-                "reference": "594a5754db2efa82a5c038976315cc1331e6659a",
+                "url": "https://api.github.com/repos/greg-md/php-app-view/zipball/254fb7f58d74af0a3fd2069b172ca0b97789992a",
+                "reference": "254fb7f58d74af0a3fd2069b172ca0b97789992a",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-08-05 10:09:26"
+            "time": "2017-08-09T13:54:26+00:00"
         },
         {
             "name": "greg-md/php-dependency-injection",
@@ -172,12 +172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-dependency-injection.git",
-                "reference": "2fb713cb127cfaedabb7ef57fea901091ebabd7f"
+                "reference": "668faf24449b89d79a75eacb2abf80bea10788db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-dependency-injection/zipball/2fb713cb127cfaedabb7ef57fea901091ebabd7f",
-                "reference": "2fb713cb127cfaedabb7ef57fea901091ebabd7f",
+                "url": "https://api.github.com/repos/greg-md/php-dependency-injection/zipball/668faf24449b89d79a75eacb2abf80bea10788db",
+                "reference": "668faf24449b89d79a75eacb2abf80bea10788db",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
                 "php-dependency-injection",
                 "web-artisans"
             ],
-            "time": "2017-06-29 08:46:48"
+            "time": "2017-08-09T13:53:03+00:00"
         },
         {
             "name": "greg-md/php-framework",
@@ -271,7 +271,7 @@
                 "php-framework",
                 "web-artisans"
             ],
-            "time": "2017-07-22 20:51:33"
+            "time": "2017-07-22T20:51:33+00:00"
         },
         {
             "name": "greg-md/php-router",
@@ -322,7 +322,7 @@
                 "routing",
                 "web-artisans"
             ],
-            "time": "2017-06-29 08:38:35"
+            "time": "2017-06-29T08:38:35+00:00"
         },
         {
             "name": "greg-md/php-static-image",
@@ -376,7 +376,7 @@
                 "static-image",
                 "web-artisans"
             ],
-            "time": "2017-06-29 18:26:37"
+            "time": "2017-06-29T18:26:37+00:00"
         },
         {
             "name": "greg-md/php-support",
@@ -384,12 +384,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-support.git",
-                "reference": "e22f1f52ab44830692e2fbc54fd2fbd045f33fb0"
+                "reference": "56ee13cc2670cc9fff626bdd7348e83b670dc83f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-support/zipball/e22f1f52ab44830692e2fbc54fd2fbd045f33fb0",
-                "reference": "e22f1f52ab44830692e2fbc54fd2fbd045f33fb0",
+                "url": "https://api.github.com/repos/greg-md/php-support/zipball/56ee13cc2670cc9fff626bdd7348e83b670dc83f",
+                "reference": "56ee13cc2670cc9fff626bdd7348e83b670dc83f",
                 "shasum": ""
             },
             "require": {
@@ -425,7 +425,7 @@
                 "support",
                 "web-artisans"
             ],
-            "time": "2017-07-22 20:51:37"
+            "time": "2017-08-09T13:52:38+00:00"
         },
         {
             "name": "greg-md/php-view",
@@ -477,7 +477,7 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-07-24 20:47:56"
+            "time": "2017-07-24T20:47:56+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -542,7 +542,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-17 09:11:21"
+            "time": "2017-07-17T09:11:21+00:00"
         },
         {
             "name": "intervention/image",
@@ -612,7 +612,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-07-04 16:10:28"
+            "time": "2017-07-04T16:10:28+00:00"
         },
         {
             "name": "psr/http-message",
@@ -662,7 +662,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -709,7 +709,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "symfony/console",
@@ -779,7 +779,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-03 09:34:20"
+            "time": "2017-08-03T09:34:20+00:00"
         },
         {
             "name": "symfony/debug",
@@ -835,7 +835,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-07 18:06:09"
+            "time": "2017-08-07T18:06:09+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -894,7 +894,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14 15:44:48"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -963,7 +963,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-03 09:34:20"
+            "time": "2017-08-03T09:34:20+00:00"
         }
     ],
     "packages-dev": [
@@ -1019,7 +1019,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-07-22 11:58:36"
+            "time": "2017-07-22T11:58:36+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1061,7 +1061,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12 18:52:22"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1116,7 +1116,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-04-07 07:07:10"
+            "time": "2017-04-07T07:07:10+00:00"
         },
         {
             "name": "phar-io/version",
@@ -1217,7 +1217,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-04-30 11:58:12"
+            "time": "2017-04-30T11:58:12+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1372,7 +1372,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-07-19 07:44:25"
+            "time": "2017-07-19T07:44:25+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1436,7 +1436,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03 14:42:12"
+            "time": "2017-08-03T14:42:12+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1483,7 +1483,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03 07:40:28"
+            "time": "2016-10-03T07:40:28+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1573,7 +1573,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-03-07 15:42:04"
+            "time": "2017-03-07T15:42:04+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1622,7 +1622,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03 14:21:49"
+            "time": "2017-08-03T14:21:49+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -1706,7 +1706,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03 13:59:28"
+            "time": "2017-08-03T13:59:28+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1765,7 +1765,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-08-03 14:08:16"
+            "time": "2017-08-03T14:08:16+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1810,7 +1810,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04 10:23:55"
+            "time": "2017-03-04T10:23:55+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -1926,7 +1926,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22 07:24:03"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -1976,7 +1976,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-07-01 08:51:00"
+            "time": "2017-07-01T08:51:00+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2043,7 +2043,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-04-03 13:19:02"
+            "time": "2017-04-03T13:19:02+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -2094,7 +2094,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-04-27 15:39:26"
+            "time": "2017-04-27T15:39:26+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -2141,7 +2141,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-08-03 12:35:26"
+            "time": "2017-08-03T12:35:26+00:00"
         },
         {
             "name": "sebastian/object-reflector",
@@ -2186,7 +2186,7 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2017-03-29 09:07:27"
+            "time": "2017-03-29T09:07:27+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -2239,7 +2239,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-07 15:09:59"
+            "time": "2017-03-07T15:09:59+00:00"
         },
         {
             "name": "sebastian/resource-operations",
@@ -2281,7 +2281,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2016-10-03 07:43:09"
+            "time": "2016-10-03T07:43:09+00:00"
         },
         {
             "name": "sebastian/version",
@@ -2324,7 +2324,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03 07:35:21"
+            "time": "2016-10-03T07:35:21+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -2414,7 +2414,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23 20:04:41"
+            "time": "2016-11-23T20:04:41+00:00"
         }
     ],
     "aliases": [],
