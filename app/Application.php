@@ -15,13 +15,9 @@ class Application extends \Greg\AppInstaller\Application
 {
     protected function bootApp()
     {
-        $this->ioc()->inject(HttpKernel::class, function () {
-            return new HttpKernel($this);
-        });
+        $this->inject(HttpKernel::class, HttpKernel::class, $this);
 
-        $this->ioc()->inject(ConsoleKernel::class, function () {
-            return new ConsoleKernel($this);
-        });
+        $this->inject(ConsoleKernel::class, ConsoleKernel::class, $this);
 
         $this->bootViewServiceProvider();
 
@@ -33,7 +29,7 @@ class Application extends \Greg\AppInstaller\Application
         $this->addServiceProvider(new ViewServiceProvider());
 
         $this->listen(LoadViewerEvent::class, function (LoadViewerEvent $event) {
-            $this->ioc()->load(ViewDirectives::class, $event->viewer());
+            $this->ioc()->loadArgs(ViewDirectives::class, [$event->viewer()]);
         });
     }
 
@@ -42,7 +38,7 @@ class Application extends \Greg\AppInstaller\Application
         $this->addServiceProvider(new StaticImageServiceProvider());
 
         $this->listen(LoadStaticImageManagerEvent::class, function (LoadStaticImageManagerEvent $event) {
-            $this->ioc()->load(StaticImages::class, $event->manager());
+            $this->ioc()->loadArgs(StaticImages::class, [$event->manager()]);
         });
     }
 }

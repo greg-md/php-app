@@ -4,6 +4,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 function dd(...$args)
 {
+    if (!$args) {
+        $args = ['dump'];
+    }
+
     dump(...$args);
 
     die;
