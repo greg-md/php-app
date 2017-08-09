@@ -49,31 +49,24 @@ server {
 
     pagespeed LoadFromFile \"$1\" \"$2\";
 
-    # Static Image
-    location ~* @.+\.(png|jpe?g|gif)$ {
-        if (!-f \$document_root\$uri) {
-            rewrite ^/static(/.+) /image.php?static=\$1 last;
-        }
-
-        expires max;
-        add_header Cache-Control \"public\";
-        add_header Vary \"Accept-Encoding\";
-    }
+    include $2/../build-deploy/nginx/serve.d/*.conf;
 
     # Static
     location ~* .+\.(png|jpe?g|gif|css|txt|bmp|ico|flv|swf|pdf|woff|ttf|svg|eot|otf)$ {
         expires max;
+        add_header Pragma public;
         add_header Cache-Control \"public\";
         add_header Vary \"Accept-Encoding\";
     }
 
     # Static
-    location ~* .+\.(html?)$ {
+    location ~* .+\.html?$ {
         if (!-f \$document_root\$uri) {
             rewrite .+ /index.php?\$args last;
         }
 
         expires max;
+        add_header Pragma public;
         add_header Cache-Control \"public\";
         add_header Vary \"Accept-Encoding\";
     }

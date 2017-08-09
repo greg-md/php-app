@@ -23,6 +23,7 @@ RUN /install/nginx.sh
 COPY ./build-deploy/nginx/ssl /etc/nginx/ssl
 
 COPY ./build-deploy/nginx/domains.d /etc/nginx/domains.d
+COPY ./build-deploy/nginx/serve.d /etc/nginx/serve.d
 
 # Install PHP
 RUN /install/php.sh
