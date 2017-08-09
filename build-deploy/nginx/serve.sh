@@ -49,8 +49,6 @@ server {
 
     pagespeed LoadFromFile \"$1\" \"$2\";
 
-    include $2/../build-deploy/nginx/serve.d/*.conf;
-
     # Static
     location ~* .+\.(png|jpe?g|gif|css|txt|bmp|ico|flv|swf|pdf|woff|ttf|svg|eot|otf)$ {
         expires max;

@@ -7,7 +7,6 @@ services:
       - .:/var/www/app
       - ./build-deploy/nginx/ssl:/etc/nginx/ssl
       - ./build-deploy/nginx/domains.d:/etc/nginx/domains.d
-      - ./build-deploy/nginx/serve.d:/etc/nginx/serve.d
     env_file: .env
     command: build-deploy/test.sh
     depends_on:
