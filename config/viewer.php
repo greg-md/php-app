@@ -5,8 +5,8 @@ return [
 
     'compilers' => [
         [
-            'extension'       => '.blade.php',
-            'type'            => \Greg\AppView\ViewServiceProvider::EXTENSION_BLADE,
+            'extension'        => '.blade.php',
+            'type'             => \Greg\AppView\ViewServiceProvider::EXTENSION_BLADE,
             'compilation_path' => __DIR__ . '/../storage/views',
         ],
     ],
