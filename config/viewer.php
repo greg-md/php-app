@@ -7,7 +7,7 @@ return [
         [
             'extension'       => '.blade.php',
             'type'            => \Greg\AppView\ViewServiceProvider::EXTENSION_BLADE,
-            'compilationPath' => __DIR__ . '/../storage/views',
+            'compilation_path' => __DIR__ . '/../storage/views',
         ],
     ],
 ];

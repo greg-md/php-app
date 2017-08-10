@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'sourcePath' => __DIR__ . '/../public',
+    'source_path' => __DIR__ . '/../public',
 
-    'destinationPath' => __DIR__ . '/../public/imagix',
+    'destination_path' => __DIR__ . '/../public/imagix',
 
-    'baseUri' => '/imagix',
+    'base_uri' => '/imagix',
 ];

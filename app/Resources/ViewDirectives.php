@@ -2,20 +2,20 @@
 
 namespace App\Resources;
 
-use Greg\StaticImage\Imagix;
+use Greg\Imagix\Imagix;
 use Greg\View\Viewer;
 
 class ViewDirectives
 {
     private $viewer;
 
-    private $imageManager;
+    private $imagix;
 
-    public function __construct(Viewer $viewer, Imagix $imageManager)
+    public function __construct(Viewer $viewer, Imagix $imagix)
     {
         $this->viewer = $viewer;
 
-        $this->imageManager = $imageManager;
+        $this->imagix = $imagix;
 
         $this->boot();
     }
@@ -23,7 +23,7 @@ class ViewDirectives
     private function boot()
     {
         $this->viewer->directive('img', function ($src, $format) {
-            return $this->imageManager->url($src, $format);
+            return $this->imagix->url($src, $format);
         });
     }
 }

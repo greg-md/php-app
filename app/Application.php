@@ -22,12 +22,40 @@ class Application extends \Greg\AppInstaller\Application
 
         $this->inject(ConsoleKernel::class, ConsoleKernel::class, $this);
 
+        $this->bootCacheServiceProvider();
+
+        $this->bootDebugBarServiceProvider();
+
+        $this->bootImagixServiceProvider();
+
+        $this->bootOrmServiceProvider();
+
         $this->bootViewServiceProvider();
+    }
 
-        $this->bootStaticImageProvider();
-
+    private function bootCacheServiceProvider()
+    {
         $this->addServiceProvider(new CacheServiceProvider());
-        $this->addServiceProvider(new DebugBarServiceProvider());
+    }
+
+    private function bootDebugBarServiceProvider()
+    {
+        if ($this['debug']) {
+            $this->addServiceProvider(new DebugBarServiceProvider());
+        }
+    }
+
+    private function bootImagixServiceProvider()
+    {
+        $this->addServiceProvider(new ImagixServiceProvider());
+
+        $this->listen(LoadImagixEvent::class, function (LoadImagixEvent $event) {
+            $this->ioc()->loadArgs(StaticImages::class, [$event->imagix()]);
+        });
+    }
+
+    private function bootOrmServiceProvider()
+    {
         $this->addServiceProvider(new OrmServiceProvider());
     }
 
@@ -37,15 +65,6 @@ class Application extends \Greg\AppInstaller\Application
 
         $this->listen(LoadViewerEvent::class, function (LoadViewerEvent $event) {
             $this->ioc()->loadArgs(ViewDirectives::class, [$event->viewer()]);
-        });
-    }
-
-    private function bootStaticImageProvider()
-    {
-        $this->addServiceProvider(new ImagixServiceProvider());
-
-        $this->listen(LoadImagixEvent::class, function (LoadImagixEvent $event) {
-            $this->ioc()->loadArgs(StaticImages::class, [$event->imagix()]);
         });
     }
 }
