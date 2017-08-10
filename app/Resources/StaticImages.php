@@ -2,24 +2,24 @@
 
 namespace App\Resources;
 
-use Greg\StaticImage\StaticImageManager;
+use Greg\Imagix\Imagix;
 use Intervention\Image\Constraint;
 use Intervention\Image\Image;
 
 class StaticImages
 {
-    private $manager;
+    private $imagix;
 
-    public function __construct(StaticImageManager $manager)
+    public function __construct(Imagix $imagix)
     {
-        $this->manager = $manager;
+        $this->imagix = $imagix;
 
         $this->boot();
     }
 
     private function boot()
     {
-        $this->manager->format('favicon', function (Image $image) {
+        $this->imagix->format('favicon', function (Image $image) {
             $image->resize(128, 128, function (Constraint $constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();

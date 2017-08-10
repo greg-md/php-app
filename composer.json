@@ -13,9 +13,9 @@
     "php": "^7.1",
     "greg-md/php-app-cache": "dev-master",
     "greg-md/php-app-debug-bar": "dev-master",
+    "greg-md/php-app-imagix": "dev-master",
     "greg-md/php-app-installer": "dev-master",
     "greg-md/php-app-orm": "dev-master",
-    "greg-md/php-app-static-image": "dev-master",
     "greg-md/php-app-view": "dev-master",
     "symfony/var-dumper": "^3.2"
   },

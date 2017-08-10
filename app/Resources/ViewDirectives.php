@@ -2,7 +2,7 @@
 
 namespace App\Resources;
 
-use Greg\StaticImage\StaticImageManager;
+use Greg\StaticImage\Imagix;
 use Greg\View\Viewer;
 
 class ViewDirectives
@@ -11,7 +11,7 @@ class ViewDirectives
 
     private $imageManager;
 
-    public function __construct(Viewer $viewer, StaticImageManager $imageManager)
+    public function __construct(Viewer $viewer, Imagix $imageManager)
     {
         $this->viewer = $viewer;
 

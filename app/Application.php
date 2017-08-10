@@ -8,9 +8,9 @@ use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
 use Greg\AppCache\CacheServiceProvider;
 use Greg\AppDebugBar\DebugBarServiceProvider;
+use Greg\AppImagix\Events\LoadImagixEvent;
+use Greg\AppImagix\ImagixServiceProvider;
 use Greg\AppOrm\OrmServiceProvider;
-use Greg\AppStaticImage\Events\LoadStaticImageManagerEvent;
-use Greg\AppStaticImage\StaticImageServiceProvider;
 use Greg\AppView\Events\LoadViewerEvent;
 use Greg\AppView\ViewServiceProvider;
 
@@ -42,10 +42,10 @@ class Application extends \Greg\AppInstaller\Application
 
     private function bootStaticImageProvider()
     {
-        $this->addServiceProvider(new StaticImageServiceProvider());
+        $this->addServiceProvider(new ImagixServiceProvider());
 
-        $this->listen(LoadStaticImageManagerEvent::class, function (LoadStaticImageManagerEvent $event) {
-            $this->ioc()->loadArgs(StaticImages::class, [$event->manager()]);
+        $this->listen(LoadImagixEvent::class, function (LoadImagixEvent $event) {
+            $this->ioc()->loadArgs(StaticImages::class, [$event->imagix()]);
         });
     }
 }

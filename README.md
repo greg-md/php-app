@@ -13,9 +13,7 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 * [Requirements](#requirements)
 * [Installation](#installation)
-* [Run](#run)
-* [Built-in Packages](#built-in-packages)
-* [Out of the box](#out-of-the-box)
+* [Configuration](#configuration)
 * [License](#license)
 * [Huuuge Quote](#huuuge-quote)
 
@@ -37,7 +35,7 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 
 [Download](https://github.com/greg-md/php-app/archive/master.zip) and unzip it in your preferable directory.
 
-# Run
+### Run
 
 Open terminal and start docker containers from the project root directory.
 
@@ -49,6 +47,40 @@ Wait until the `app` container is started and open in browser `http://127.0.0.1/
 > But next times containers will start faster.
 
 **Optionally**, you can add an alias in `hosts` file `127.0.0.1 app.local` and open in browser `http://app.local/`.
+
+# Configuration
+
+All configuration files are stored in the `config` directory. You can easily access them from application:
+
+```php
+$app->config('debug');
+```
+
+### Environment variables
+
+Environment variables are stored in `.env` file and could be accessed anywhere in the code, mostly in configuration files:
+
+```php
+'debug' => (bool) getenv('DEBUG'),
+```
+
+# License
+
+MIT © [Grigorii Duca](http://greg.md)
+
+# Huuuge Quote
+
+![I fear not the man who has practiced 10,000 programming languages once, but I fear the man who has practiced one programming language 10,000 times. &copy; #horrorsquad](http://greg.md/huuuge-quote-fb.jpg)
+
+
+
+
+
+
+
+
+
+
 
 # Built-in Packages
 
@@ -68,11 +100,3 @@ Wait until the `app` container is started and open in browser `http://127.0.0.1/
 * **Greg Static Image** - Save images as static in real-time in different formats using [Intervention Image](http://image.intervention.io/). [Documentation](https://github.com/greg-md/php-static-image);
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
 * **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
-
-# License
-
-MIT © [Grigorii Duca](http://greg.md)
-
-# Huuuge Quote
-
-![I fear not the man who has practiced 10,000 programming languages once, but I fear the man who has practiced one programming language 10,000 times. &copy; #horrorsquad](http://greg.md/huuuge-quote-fb.jpg)
