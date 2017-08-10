@@ -66,12 +66,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-app-debug-bar.git",
-                "reference": "729fd6479609506e2f35e8e3febc359393d8e24e"
+                "reference": "13771fcb0e960dafc8baefd36e4ca7975d325039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-app-debug-bar/zipball/729fd6479609506e2f35e8e3febc359393d8e24e",
-                "reference": "729fd6479609506e2f35e8e3febc359393d8e24e",
+                "url": "https://api.github.com/repos/greg-md/php-app-debug-bar/zipball/13771fcb0e960dafc8baefd36e4ca7975d325039",
+                "reference": "13771fcb0e960dafc8baefd36e4ca7975d325039",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "php-app-debug-bar",
                 "web-artisans"
             ],
-            "time": "2017-08-05 10:08:29"
+            "time": "2017-08-10 19:42:36"
         },
         {
             "name": "greg-md/php-app-imagix",
@@ -120,12 +120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-app-imagix.git",
-                "reference": "7a4bde6ee6913ed453c1a26352ded9ffa2152567"
+                "reference": "ce171f6d08a4aefe9ad78489add3dc939e7b568a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-app-imagix/zipball/7a4bde6ee6913ed453c1a26352ded9ffa2152567",
-                "reference": "7a4bde6ee6913ed453c1a26352ded9ffa2152567",
+                "url": "https://api.github.com/repos/greg-md/php-app-imagix/zipball/ce171f6d08a4aefe9ad78489add3dc939e7b568a",
+                "reference": "ce171f6d08a4aefe9ad78489add3dc939e7b568a",
                 "shasum": ""
             },
             "require": {
@@ -166,7 +166,7 @@
                 "php-app-imagix",
                 "web-artisans"
             ],
-            "time": "2017-08-10 19:00:39"
+            "time": "2017-08-10 19:42:22"
         },
         {
             "name": "greg-md/php-app-installer",
@@ -281,12 +281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/greg-md/php-app-view.git",
-                "reference": "254fb7f58d74af0a3fd2069b172ca0b97789992a"
+                "reference": "8764fa4a9b5943fc857abaf9615683dadfe3b606"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/greg-md/php-app-view/zipball/254fb7f58d74af0a3fd2069b172ca0b97789992a",
-                "reference": "254fb7f58d74af0a3fd2069b172ca0b97789992a",
+                "url": "https://api.github.com/repos/greg-md/php-app-view/zipball/8764fa4a9b5943fc857abaf9615683dadfe3b606",
+                "reference": "8764fa4a9b5943fc857abaf9615683dadfe3b606",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,7 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-08-09 13:54:26"
+            "time": "2017-08-10 19:42:09"
         },
         {
             "name": "greg-md/php-cache",
