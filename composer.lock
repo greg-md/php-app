@@ -4,8 +4,116 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8841a89bfd79fda9a1c3301aae22ec69",
+    "content-hash": "0eafd4fa253a70271d84a7b2bb438d9c",
     "packages": [
+        {
+            "name": "greg-md/php-app-cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-app-cache.git",
+                "reference": "8c925240ce062205d3bdbf51c4ab2688e5821986"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-app-cache/zipball/8c925240ce062205d3bdbf51c4ab2688e5821986",
+                "reference": "8c925240ce062205d3bdbf51c4ab2688e5821986",
+                "shasum": ""
+            },
+            "require": {
+                "greg-md/php-app-installer": "dev-master",
+                "greg-md/php-cache": "dev-master",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.2.*",
+                "symfony/var-dumper": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\AppCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "Integration of Greg PHP Cache in Greg PHP Application.",
+            "homepage": "https://github.com/greg-md/php-app-cache",
+            "keywords": [
+                "app-cache",
+                "cache",
+                "greg-app-cache",
+                "greg-md",
+                "greg-php",
+                "php",
+                "php-app-cache",
+                "web-artisans"
+            ],
+            "time": "2017-08-05 10:08:17"
+        },
+        {
+            "name": "greg-md/php-app-debug-bar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-app-debug-bar.git",
+                "reference": "729fd6479609506e2f35e8e3febc359393d8e24e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-app-debug-bar/zipball/729fd6479609506e2f35e8e3febc359393d8e24e",
+                "reference": "729fd6479609506e2f35e8e3febc359393d8e24e",
+                "shasum": ""
+            },
+            "require": {
+                "greg-md/php-app-installer": "dev-master",
+                "maximebf/debugbar": "^1.13.1",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.2.*",
+                "symfony/var-dumper": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\AppDebugBar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "Integration of PHP Debug Bar in Greg PHP Application.",
+            "homepage": "https://github.com/greg-md/php-app-debug-bar",
+            "keywords": [
+                "app-debug-bar",
+                "debug-bar",
+                "greg-app-debug-bar",
+                "greg-md",
+                "greg-php",
+                "php",
+                "php-app-debug-bar",
+                "web-artisans"
+            ],
+            "time": "2017-08-05 10:08:29"
+        },
         {
             "name": "greg-md/php-app-installer",
             "version": "dev-master",
@@ -56,7 +164,62 @@
                 "php-app-installer",
                 "web-artisans"
             ],
-            "time": "2017-08-09T13:54:57+00:00"
+            "time": "2017-08-09 13:54:57"
+        },
+        {
+            "name": "greg-md/php-app-orm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-app-orm.git",
+                "reference": "a9154fbc05f9258aafe277e96fbba2bb0e69bc87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-app-orm/zipball/a9154fbc05f9258aafe277e96fbba2bb0e69bc87",
+                "reference": "a9154fbc05f9258aafe277e96fbba2bb0e69bc87",
+                "shasum": ""
+            },
+            "require": {
+                "greg-md/php-app-installer": "dev-master",
+                "greg-md/php-orm": "dev-master",
+                "php": "^7.1",
+                "robmorgan/phinx": "^0.8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.2.*",
+                "symfony/var-dumper": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\AppOrm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "Integration of Greg PHP ORM in Greg PHP Application.",
+            "homepage": "https://github.com/greg-md/php-app-orm",
+            "keywords": [
+                "app-orm",
+                "cache",
+                "greg-app-orm",
+                "greg-md",
+                "greg-php",
+                "php",
+                "php-app-orm",
+                "web-artisans"
+            ],
+            "time": "2017-08-05 10:09:04"
         },
         {
             "name": "greg-md/php-app-static-image",
@@ -110,7 +273,7 @@
                 "static-image",
                 "web-artisans"
             ],
-            "time": "2017-08-09T12:05:52+00:00"
+            "time": "2017-08-09 12:05:52"
         },
         {
             "name": "greg-md/php-app-view",
@@ -164,7 +327,56 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-08-09T13:54:26+00:00"
+            "time": "2017-08-09 13:54:26"
+        },
+        {
+            "name": "greg-md/php-cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-cache.git",
+                "reference": "7e80f767bed5e03c015062246c3c2aca7db4b166"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-cache/zipball/7e80f767bed5e03c015062246c3c2aca7db4b166",
+                "reference": "7e80f767bed5e03c015062246c3c2aca7db4b166",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "A powerful Cache for PHP.",
+            "homepage": "https://github.com/greg-md/php-cache",
+            "keywords": [
+                "cache",
+                "greg-md",
+                "greg-php",
+                "php",
+                "php-cache",
+                "web-artisans"
+            ],
+            "time": "2017-06-29 08:44:38"
         },
         {
             "name": "greg-md/php-dependency-injection",
@@ -216,7 +428,7 @@
                 "php-dependency-injection",
                 "web-artisans"
             ],
-            "time": "2017-08-09T13:53:03+00:00"
+            "time": "2017-08-09 13:53:03"
         },
         {
             "name": "greg-md/php-framework",
@@ -271,7 +483,68 @@
                 "php-framework",
                 "web-artisans"
             ],
-            "time": "2017-07-22T20:51:33+00:00"
+            "time": "2017-07-22 20:51:33"
+        },
+        {
+            "name": "greg-md/php-orm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg-md/php-orm.git",
+                "reference": "fcad5f41defa0562f553b4dd6c1b071f55674968"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg-md/php-orm/zipball/fcad5f41defa0562f553b4dd6c1b071f55674968",
+                "reference": "fcad5f41defa0562f553b4dd6c1b071f55674968",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.0.*",
+                "symfony/var-dumper": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Greg\\Orm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grigorii Duca",
+                    "email": "contact@greg.md",
+                    "homepage": "http://greg.md/"
+                }
+            ],
+            "description": "A powerful ORM(Object-Relational Mapping) for PHP.",
+            "homepage": "https://github.com/greg-md/php-orm",
+            "keywords": [
+                "activerecord",
+                "big-data",
+                "greg-md",
+                "greg-php",
+                "intellisense",
+                "migrations",
+                "mssql",
+                "mysql",
+                "oracle",
+                "orm",
+                "php",
+                "php-orm",
+                "postgresql",
+                "query-builder",
+                "sqlite",
+                "web-artisans"
+            ],
+            "time": "2017-06-29 08:43:49"
         },
         {
             "name": "greg-md/php-router",
@@ -322,7 +595,7 @@
                 "routing",
                 "web-artisans"
             ],
-            "time": "2017-06-29T08:38:35+00:00"
+            "time": "2017-06-29 08:38:35"
         },
         {
             "name": "greg-md/php-static-image",
@@ -376,7 +649,7 @@
                 "static-image",
                 "web-artisans"
             ],
-            "time": "2017-06-29T18:26:37+00:00"
+            "time": "2017-06-29 18:26:37"
         },
         {
             "name": "greg-md/php-support",
@@ -425,7 +698,7 @@
                 "support",
                 "web-artisans"
             ],
-            "time": "2017-08-09T13:52:38+00:00"
+            "time": "2017-08-09 13:52:38"
         },
         {
             "name": "greg-md/php-view",
@@ -477,7 +750,7 @@
                 "view",
                 "web-artisans"
             ],
-            "time": "2017-07-24T20:47:56+00:00"
+            "time": "2017-07-24 20:47:56"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -542,7 +815,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-17T09:11:21+00:00"
+            "time": "2017-07-17 09:11:21"
         },
         {
             "name": "intervention/image",
@@ -612,7 +885,68 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-07-04T16:10:28+00:00"
+            "time": "2017-07-04 16:10:28"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "370af31f14510dbf75f378a05b38688d861d39f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/370af31f14510dbf75f378a05b38688d861d39f2",
+                "reference": "370af31f14510dbf75f378a05b38688d861d39f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "^1.0",
+                "symfony/var-dumper": "^2.6|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.14-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DebugBar\\": "src/DebugBar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                },
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug",
+                "debugbar"
+            ],
+            "time": "2017-07-28 06:38:23"
         },
         {
             "name": "psr/http-message",
@@ -662,7 +996,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -709,7 +1043,135 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
+        },
+        {
+            "name": "robmorgan/phinx",
+            "version": "v0.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/phinx.git",
+                "reference": "7a19de5bebc59321edd9613bc2a667e7f96224ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/7a19de5bebc59321edd9613bc2a667e7f96224ec",
+                "reference": "7a19de5bebc59321edd9613bc2a667e7f96224ec",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/console": "~2.8|~3.0",
+                "symfony/yaml": "~2.8|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.26|^5.0"
+            },
+            "bin": [
+                "bin/phinx"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phinx\\": "src/Phinx"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Rob Morgan",
+                    "email": "robbym@gmail.com",
+                    "homepage": "https://robmorgan.id.au",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Phinx makes it ridiculously easy to manage the database migrations for your PHP app.",
+            "homepage": "https://phinx.org",
+            "keywords": [
+                "database",
+                "database migrations",
+                "db",
+                "migrations",
+                "phinx"
+            ],
+            "time": "2017-06-05T13:30:19+00:00"
+        },
+        {
+            "name": "symfony/config",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "d668d8c0502d2b485c00d107db65fdbc56c26282"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/d668d8c0502d2b485c00d107db65fdbc56c26282",
+                "reference": "d668d8c0502d2b485c00d107db65fdbc56c26282",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/filesystem": "~2.8|~3.0|~4.0"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.3",
+                "symfony/finder": "<3.3"
+            },
+            "require-dev": {
+                "symfony/dependency-injection": "~3.3|~4.0",
+                "symfony/finder": "~3.3|~4.0",
+                "symfony/yaml": "~3.0|~4.0"
+            },
+            "suggest": {
+                "symfony/yaml": "To use the yaml reference dumper"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Config Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-08-05 17:34:46"
         },
         {
             "name": "symfony/console",
@@ -717,12 +1179,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "86c76efc1ac932bd9d95091c4d3403c2f41e4a02"
+                "reference": "0e283478c2d68c9bf9cc52592ad1ef1834083a85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/86c76efc1ac932bd9d95091c4d3403c2f41e4a02",
-                "reference": "86c76efc1ac932bd9d95091c4d3403c2f41e4a02",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0e283478c2d68c9bf9cc52592ad1ef1834083a85",
+                "reference": "0e283478c2d68c9bf9cc52592ad1ef1834083a85",
                 "shasum": ""
             },
             "require": {
@@ -779,7 +1241,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-03T09:34:20+00:00"
+            "time": "2017-08-10 07:07:17"
         },
         {
             "name": "symfony/debug",
@@ -835,7 +1297,56 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-07T18:06:09+00:00"
+            "time": "2017-08-07 18:06:09"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "df8e441d071093d215272c459581b06e17e1783e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/df8e441d071093d215272c459581b06e17e1783e",
+                "reference": "df8e441d071093d215272c459581b06e17e1783e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-08-02 05:32:45"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -894,7 +1405,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-06-14 15:44:48"
         },
         {
             "name": "symfony/var-dumper",
@@ -902,12 +1413,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "abfd7f1fd92ff69f39ff11f33d57713bb1fd6692"
+                "reference": "c83889ce881bc16a4c23d7f5dd42b51deb0333a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/abfd7f1fd92ff69f39ff11f33d57713bb1fd6692",
-                "reference": "abfd7f1fd92ff69f39ff11f33d57713bb1fd6692",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c83889ce881bc16a4c23d7f5dd42b51deb0333a2",
+                "reference": "c83889ce881bc16a4c23d7f5dd42b51deb0333a2",
                 "shasum": ""
             },
             "require": {
@@ -963,7 +1474,62 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-03T09:34:20+00:00"
+            "time": "2017-08-09 16:38:43"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "1395ddba6f65bf46cdf1d80d59223cbab8ff3ccc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/1395ddba6f65bf46cdf1d80d59223cbab8ff3ccc",
+                "reference": "1395ddba6f65bf46cdf1d80d59223cbab8ff3ccc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-08-04 13:29:48"
         }
     ],
     "packages-dev": [
@@ -1019,7 +1585,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-07-22T11:58:36+00:00"
+            "time": "2017-07-22 11:58:36"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1061,7 +1627,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-04-12 18:52:22"
         },
         {
             "name": "phar-io/manifest",
@@ -1116,7 +1682,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-04-07T07:07:10+00:00"
+            "time": "2017-04-07 07:07:10"
         },
         {
             "name": "phar-io/version",
@@ -1217,7 +1783,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-04-30T11:58:12+00:00"
+            "time": "2017-04-30 11:58:12"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1372,7 +1938,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-07-19T07:44:25+00:00"
+            "time": "2017-07-19 07:44:25"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1436,7 +2002,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T14:42:12+00:00"
+            "time": "2017-08-03 14:42:12"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1483,7 +2049,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1573,7 +2139,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-03-07T15:42:04+00:00"
+            "time": "2017-03-07 15:42:04"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1622,7 +2188,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03T14:21:49+00:00"
+            "time": "2017-08-03 14:21:49"
         },
         {
             "name": "phpunit/phpunit",
@@ -1706,7 +2272,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T13:59:28+00:00"
+            "time": "2017-08-03 13:59:28"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1765,7 +2331,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-08-03T14:08:16+00:00"
+            "time": "2017-08-03 14:08:16"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1810,7 +2376,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04T10:23:55+00:00"
+            "time": "2017-03-04 10:23:55"
         },
         {
             "name": "sebastian/comparator",
@@ -1926,7 +2492,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22T07:24:03+00:00"
+            "time": "2017-05-22 07:24:03"
         },
         {
             "name": "sebastian/environment",
@@ -1976,7 +2542,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-07-01T08:51:00+00:00"
+            "time": "2017-07-01 08:51:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2043,7 +2609,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-04-03T13:19:02+00:00"
+            "time": "2017-04-03 13:19:02"
         },
         {
             "name": "sebastian/global-state",
@@ -2094,7 +2660,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-04-27T15:39:26+00:00"
+            "time": "2017-04-27 15:39:26"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -2141,7 +2707,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-08-03T12:35:26+00:00"
+            "time": "2017-08-03 12:35:26"
         },
         {
             "name": "sebastian/object-reflector",
@@ -2186,7 +2752,7 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2017-03-29T09:07:27+00:00"
+            "time": "2017-03-29 09:07:27"
         },
         {
             "name": "sebastian/recursion-context",
@@ -2239,7 +2805,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-07T15:09:59+00:00"
+            "time": "2017-03-07 15:09:59"
         },
         {
             "name": "sebastian/resource-operations",
@@ -2281,7 +2847,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2016-10-03T07:43:09+00:00"
+            "time": "2016-10-03 07:43:09"
         },
         {
             "name": "sebastian/version",
@@ -2324,7 +2890,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03T07:35:21+00:00"
+            "time": "2016-10-03 07:35:21"
         },
         {
             "name": "theseer/tokenizer",
@@ -2414,15 +2980,18 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23T20:04:41+00:00"
+            "time": "2016-11-23 20:04:41"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "greg-md/php-app-cache": 20,
+        "greg-md/php-app-debug-bar": 20,
         "greg-md/php-app-installer": 20,
-        "greg-md/php-app-view": 20,
-        "greg-md/php-app-static-image": 20
+        "greg-md/php-app-orm": 20,
+        "greg-md/php-app-static-image": 20,
+        "greg-md/php-app-view": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

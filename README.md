@@ -14,7 +14,7 @@ This Application is based on [Greg PHP Framework](https://github.com/greg-md/php
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Run](#run)
-* [Builtin Components](#builtin-components)
+* [Built-in Packages](#built-in-packages)
 * [Out of the box](#out-of-the-box)
 * [License](#license)
 * [Huuuge Quote](#huuuge-quote)
@@ -50,28 +50,24 @@ Wait until the `app` container is started and open in browser `http://127.0.0.1/
 
 **Optionally**, you can add an alias in `hosts` file `127.0.0.1 app.local` and open in browser `http://app.local/`.
 
-# Builtin Components
-
-Main components:
+# Built-in Packages
 
 * **Greg Framework** - Greg Framework provides you a lightweight engine for fast creating powerful apps. [Documentation](https://github.com/greg-md/php-framework);
     * **Greg Dependency Injection** - Dependency Injection technique for PHP. [Documentation](https://github.com/greg-md/php-dependency-injection);
     * **Greg Routing** - A powerful Router for PHP. [Documentation](https://github.com/greg-md/php-routing);
     * **Greg Support** - Support classes for PHP. [Documentation](https://github.com/greg-md/php-support);
     * **Symfony Console** - The Console component eases the creation of beautiful and testable command line interfaces. [Documentation](http://symfony.com/doc/current/components/console.html).
+* **Symfony VarDumper** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
+* **PHPUnit** - PHPUnit is an instance of the xUnit architecture for unit testing frameworks. [Documentation](https://phpunit.de/).
+
+# Out of the box
+
 * **Greg Cache** - A powerful Cache Manager for PHP. [Documentation](https://github.com/greg-md/php-cache);
 * **Greg ORM** - A powerful ORM(Object-Relational Mapping) for PHP. [Documentation](https://github.com/greg-md/php-orm);
 * **Greg View** - A powerful Viewer for PHP. [Documentation](https://github.com/greg-md/php-view);
 * **Greg Static Image** - Save images as static in real-time in different formats using [Intervention Image](http://image.intervention.io/). [Documentation](https://github.com/greg-md/php-static-image);
 * **Phinx** - PHP Database Migrations For Everyone. [Documentation](https://phinx.org/);
 * **PHP Debug Bar** - Debugging in PHP has never been easier. [Documentation](http://phpdebugbar.com/);
-* **Symfony VarDumper** - The VarDumper component provides mechanisms for extracting the state out of any PHP variables. [Documentation](https://symfony.com/doc/current/components/var_dumper.html).
-
-Testing components:
-
-* **PHPUnit** - PHPUnit is an instance of the xUnit architecture for unit testing frameworks. [Documentation](https://phpunit.de/).
-
-# Out of the box
 
 # License
 

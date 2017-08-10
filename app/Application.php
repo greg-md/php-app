@@ -6,6 +6,9 @@ use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use App\Resources\StaticImages;
 use App\Resources\ViewDirectives;
+use Greg\AppCache\CacheServiceProvider;
+use Greg\AppDebugBar\DebugBarServiceProvider;
+use Greg\AppOrm\OrmServiceProvider;
 use Greg\AppStaticImage\Events\LoadStaticImageManagerEvent;
 use Greg\AppStaticImage\StaticImageServiceProvider;
 use Greg\AppView\Events\LoadViewerEvent;
@@ -22,6 +25,10 @@ class Application extends \Greg\AppInstaller\Application
         $this->bootViewServiceProvider();
 
         $this->bootStaticImageProvider();
+
+        $this->addServiceProvider(new CacheServiceProvider());
+        $this->addServiceProvider(new DebugBarServiceProvider());
+        $this->addServiceProvider(new OrmServiceProvider());
     }
 
     private function bootViewServiceProvider()
