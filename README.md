@@ -75,6 +75,28 @@ Environment variables are stored in `.env` file and could be accessed anywhere i
 'debug' => (bool) getenv('DEBUG'),
 ```
 
+# HTTP Routing
+
+# Console Commands
+
+# Dependency Injection
+
+# Service Providers
+
+# Testing
+
+# Out of the box
+
+## Cache
+
+## ORM
+
+## View
+
+## Imagix
+
+## Debug Bar
+
 # License
 
 MIT © [Grigorii Duca](http://greg.md)
