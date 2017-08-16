@@ -60,7 +60,7 @@ server {
     # Static
     location ~* .+\.html?$ {
         if (!-f \$document_root\$uri) {
-            rewrite .+ /index.php?\$args last;
+            rewrite ^ /index.php?\$args last;
         }
 
         expires max;
@@ -91,6 +91,10 @@ server {
         }
 
         try_files \$uri \$uri/ /index.php?\$args;
+    }
+
+    if (!-d \$request_filename) {
+        rewrite ^/(.*)/$ /\$1 permanent;
     }
 
     location ~ [^/]\.php(/|$) {

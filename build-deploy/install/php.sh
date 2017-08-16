@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dnf install php php-common php-mysqlnd php-gmp php-fpm php-soap php-opcache php-pecl-redis composer -y
+dnf install php php-common php-mysqlnd php-gd php-gmp php-fpm php-soap php-opcache php-pecl-redis composer -y
 
 sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php.ini
 

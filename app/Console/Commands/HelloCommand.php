@@ -17,6 +17,8 @@ class HelloCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln('Hello World!');
+        $output->writeln('<fg=black;options=bold>Hello ' . ucfirst(get_current_user()) . '!</>');
+
+        $output->writeln('<info>This command was run from Greg PHP Application.</info>');
     }
 }
