@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 
-# Packages
-echo "Install packages..."
-
-composer install
-
-for file in build-deploy/run/*; do
-    [ -f "$file" ] && [ -x "$file" ] && "$file"
-done
+./build-deploy/prepare.sh
 
 # Run
 echo "Running..."
