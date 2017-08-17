@@ -19,9 +19,6 @@ services:
       app-test:
         aliases:
           - app.local
-    ports:
-      - "80:80"
-      - "443:443"
   mysql-test:
     image: percona:5.7
     env_file: .env
@@ -29,15 +26,11 @@ services:
       app-test:
         aliases:
           - mysql.app.local
-    ports:
-      - "3306:3306"
   redis-test:
     image: redis:3.2
     networks:
       app-test:
         aliases:
           - redis.app.local
-    ports:
-      - "6379:6379"
 networks:
   app-test:
