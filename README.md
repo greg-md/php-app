@@ -59,7 +59,7 @@ Wait until the `app` container is started and open in browser `http://127.0.0.1/
 
 **Optionally**, you can add an alias in `hosts` file `127.0.0.1 app.local` and open in browser `http://app.local/`.
 
-![Greg PHP Application](http://greg.md/php-application.jpg)
+<div style="text-align:center;"><img src="http://greg.md/php-application.jpg" alt="Greg PHP Application" width="700"></div>
 
 # Configuration
 
