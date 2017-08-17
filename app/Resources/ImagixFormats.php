@@ -6,7 +6,7 @@ use Greg\Imagix\Imagix;
 use Intervention\Image\Constraint;
 use Intervention\Image\Image;
 
-class StaticImages
+class ImagixFormats
 {
     private $imagix;
 

@@ -4,7 +4,7 @@ namespace App;
 
 use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
-use App\Resources\StaticImages;
+use App\Resources\ImagixFormats;
 use App\Resources\ViewDirectives;
 use Greg\AppCache\CacheServiceProvider;
 use Greg\AppDebugBar\DebugBarServiceProvider;
@@ -50,7 +50,7 @@ class Application extends \Greg\AppInstaller\Application
         $this->addServiceProvider(new ImagixServiceProvider());
 
         $this->listen(LoadImagixEvent::class, function (LoadImagixEvent $event) {
-            $this->ioc()->loadArgs(StaticImages::class, [$event->imagix()]);
+            $this->ioc()->loadArgs(ImagixFormats::class, [$event->imagix()]);
         });
     }
 
