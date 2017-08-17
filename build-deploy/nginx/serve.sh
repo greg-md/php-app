@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir /etc/nginx/ssl 2>/dev/null
-mkdir /etc/nginx/domains.d 2>/dev/null
-
 PATH_SSL="/etc/nginx/ssl"
 PATH_KEY="${PATH_SSL}/${1}.key"
 PATH_CSR="${PATH_SSL}/${1}.csr"

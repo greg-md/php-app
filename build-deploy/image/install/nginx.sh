@@ -76,4 +76,5 @@ http {
 
 echo "$block" > /etc/nginx/nginx.conf
 
-rm -rf /var/www/*
+mkdir /etc/nginx/ssl 2>/dev/null
+mkdir /etc/nginx/domains.d 2>/dev/null
