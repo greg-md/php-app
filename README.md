@@ -59,6 +59,8 @@ Wait until the `app` container is started and open in browser `http://127.0.0.1/
 
 **Optionally**, you can add an alias in `hosts` file `127.0.0.1 app.local` and open in browser `http://app.local/`.
 
+![Greg PHP Application](http://greg.md/php-application.jpg)
+
 # Configuration
 
 All configuration files are stored in the `config` directory. You can easily access them from application:
