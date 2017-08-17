@@ -31,7 +31,7 @@ services:
           - mysql.app.local
     ports:
       - "3306:3306"
-  redis:
+  redis-test:
     image: redis:3.2
     networks:
       app-test:
