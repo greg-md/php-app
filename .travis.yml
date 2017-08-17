@@ -1,10 +1,7 @@
-language: php
+sudo: required
 
-php:
-  - '7.1'
-
-install:
-  composer install
+services:
+  - docker
 
 script:
-  vendor/bin/phpunit
+  docker-compose -f docker-compose-test.yml run --rm app-test
