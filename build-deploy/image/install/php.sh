@@ -12,3 +12,7 @@ sed -i 's/group = apache/group = nginx/g' /etc/php-fpm.d/www.conf
 sed -i 's/;clear_env = no/clear_env = no/g' /etc/php-fpm.d/www.conf
 
 chown root:nginx /var/lib/php/session /var/lib/php/opcache /var/lib/php/wsdlcache
+
+mkdir -p /var/run/php-fpm/
+
+composer config -g repo.packagist composer https://packagist.org
