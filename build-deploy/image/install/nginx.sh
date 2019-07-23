@@ -20,10 +20,15 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    # All this should be "on" on production. https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html
-    sendfile        off;
-    #tcp_nopush      on;
-    #tcp_nodelay     on;
+    # All these should be "on" on production. https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html
+    sendfile        on;
+    tcp_nopush      on;
+    tcp_nodelay     on;
+
+#    # Old values for dev were:
+#    sendfile        off;
+#    #tcp_nopush      on;
+#    #tcp_nodelay     on;
 
     keepalive_timeout  65;
 
