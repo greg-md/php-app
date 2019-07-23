@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
 
-bash <(curl -f -L -sS https://ngxpagespeed.com/install) --nginx-version '1.13.3' -y
-
-NGINX_VERSION=`ls -la /root/ | grep nginx | awk {'print $9'} | tail -n 1`
-
-cd /root/$NGINX_VERSION
-
 useradd --no-create-home nginx
 
-./configure --add-module=/root/ngx_pagespeed-latest-stable --with-http_ssl_module --with-http_v2_module
-make
-make install
+bash <(curl -f -L -sS https://ngxpagespeed.com/install) --nginx-version latest -a '--with-http_ssl_module --with-http_v2_module' -y
 
 ln -s /usr/local/nginx/conf /etc/nginx
 ln -s /usr/local/nginx/logs /var/log/nginx
