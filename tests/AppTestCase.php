@@ -6,12 +6,13 @@ use App\Console\ConsoleKernel;
 use App\Http\HttpKernel;
 use Greg\Support\Http\Request;
 use Greg\Support\Http\Response;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 require_once __DIR__ . '/../bootstrap/app.php';
 
-class TestCase extends \PHPUnit\Framework\TestCase
+class AppTestCase extends TestCase
 {
     private $app;
 
@@ -21,15 +22,11 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     private $lastOutput;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->app = newApp();
 
         Response::mockHeaders();
-    }
-
-    protected function tearDown()
-    {
     }
 
     protected function visit(string $uri, array $params = [])
@@ -73,7 +70,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     protected function see(string $text)
     {
-        $this->assertContains($text, $this->lastOutput());
+        $this->assertStringContainsString($text, $this->lastOutput());
 
         return $this;
     }

@@ -34,7 +34,8 @@ server {
 
     client_max_body_size 100M;
 
-    pagespeed off;
+    # Turn PageSpeed OFF in development.
+    #pagespeed off;
 
     # Ensure requests for pagespeed optimized resources go to the pagespeed handler
     # and no extraneous headers get set.

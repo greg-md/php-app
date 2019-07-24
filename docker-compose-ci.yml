@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app-ci:
+    build: .
+    env_file: .env
+    command: build-deploy/ci.sh
+    depends_on:
+      - mysql-ci
+      - redis-ci
+    networks:
+      app-ci:
+        aliases:
+          - app.local
+  mysql-ci:
+    image: percona:latest
+    env_file: .env
+    networks:
+      app-ci:
+        aliases:
+          - mysql.app.local
+  redis-ci:
+    image: redis:latest
+    networks:
+      app-ci:
+        aliases:
+          - redis.app.local
+networks:
+  app-ci:

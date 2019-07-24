@@ -2,17 +2,14 @@ version: '3'
 services:
   app:
     build: .
-    container_name: app
     volumes:
       - .:/var/www/app
+      - /var/www/app/vendor
       - ./build-deploy/nginx/ssl:/etc/nginx/ssl
       - ./build-deploy/nginx/domains.d:/etc/nginx/domains.d
     env_file: .env
     command: build-deploy/run.sh
     depends_on:
-      - mysql
-      - redis
-    links:
       - mysql
       - redis
     networks:
@@ -23,7 +20,7 @@ services:
       - "80:80"
       - "443:443"
   mysql:
-    image: percona:5.7
+    image: percona:latest
     env_file: .env
     networks:
       app:
@@ -32,7 +29,7 @@ services:
     ports:
       - "3306:3306"
   redis:
-    image: redis:3.2
+    image: redis:latest
     networks:
       app:
         aliases:

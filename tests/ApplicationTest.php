@@ -2,7 +2,7 @@
 
 namespace App;
 
-class ApplicationTest extends TestCase
+class ApplicationTest extends AppTestCase
 {
     public function testCanAccessHomePage()
     {

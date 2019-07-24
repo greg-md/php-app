@@ -2,15 +2,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-function dd(...$args)
-{
-    $args = $args ?: ['dump'];
-
-    dump(...$args);
-
-    die;
-}
-
 Greg\Support\Server::loadEnvironmentFile(__DIR__ . '/../.env');
 
 Greg\Support\Server::iniSet('error_reporting', getenv('DISPLAY_ERRORS') ? -1 : 0);

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# Run
-echo "Running..."
-
+echo "Run PHP-FPM."
 /usr/sbin/php-fpm
 
+echo "Run NGINX."
 nginx -g 'daemon off;'
